@@ -1,0 +1,16 @@
+C:\Users\25162920\source\repos\Cantina\Cantina\bin\Debug\net8.0-windows\Cantina.exe
+C:\Users\25162920\source\repos\Cantina\Cantina\bin\Debug\net8.0-windows\Cantina.deps.json
+C:\Users\25162920\source\repos\Cantina\Cantina\bin\Debug\net8.0-windows\Cantina.runtimeconfig.json
+C:\Users\25162920\source\repos\Cantina\Cantina\bin\Debug\net8.0-windows\Cantina.dll
+C:\Users\25162920\source\repos\Cantina\Cantina\bin\Debug\net8.0-windows\Cantina.pdb
+C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.Form1.resources
+C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.csproj.GenerateResource.cache
+C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.AssemblyInfoInputs.cache
+C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.AssemblyInfo.cs
+C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.csproj.CoreCompileInputs.cache
+C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.dll
+C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\refint\Cantina.dll
+C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.pdb
+C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.genruntimeconfig.cache
+C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\ref\Cantina.dll
