@@ -40,19 +40,20 @@
             // 
             // listBox1
             // 
+            listBox1.Font = new Font("Inter Medium", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Items.AddRange(new object[] { "Coxinha - R$5,00", "Pastel - R$6,00", "Refrigerente -R$ 4,50", "Suco - R$3,00", "Brigadeiro - R$2,00" });
-            listBox1.Location = new Point(30, 27);
+            listBox1.ItemHeight = 25;
+            listBox1.Items.AddRange(new object[] { "Pão de Queijo - R$3,50", "Coxinha - R$5,00", "Pastel de Carne - R$6,00", "Pastel de Queijo - R$5,50", "Suco Natural (300ml) - R$4,00", "Refrigerante Lata - R$4,50", "Hambúger Simples - R$8,00", "Hambúger com Queijo - R$9,00", "X-Tudo - R$12,00", "Água Mineral (500ml) - R$2,50" });
+            listBox1.Location = new Point(61, 195);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(269, 94);
+            listBox1.Size = new Size(379, 304);
             listBox1.TabIndex = 0;
             // 
             // listBox2
             // 
             listBox2.FormattingEnabled = true;
             listBox2.ItemHeight = 15;
-            listBox2.Location = new Point(411, 27);
+            listBox2.Location = new Point(501, 314);
             listBox2.Name = "listBox2";
             listBox2.Size = new Size(274, 94);
             listBox2.TabIndex = 1;
@@ -79,7 +80,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(302, 217);
+            button3.Location = new Point(387, 142);
             button3.Name = "button3";
             button3.Size = new Size(116, 23);
             button3.TabIndex = 4;
@@ -90,18 +91,21 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(30, 9);
+            label1.Font = new Font("Agrandir Narrow Bold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(61, 144);
             label1.Name = "label1";
-            label1.Size = new Size(99, 15);
+            label1.Size = new Size(135, 36);
             label1.TabIndex = 5;
-            label1.Text = "Produtos Cantina";
+            label1.Text = "Produtos ";
+            label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(411, 9);
+            label2.Font = new Font("Agrandir Narrow Bold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(574, 142);
             label2.Name = "label2";
-            label2.Size = new Size(53, 15);
+            label2.Size = new Size(126, 36);
             label2.TabIndex = 6;
             label2.Text = "Carrinho";
             // 
@@ -109,7 +113,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(302, 142);
+            label3.Location = new Point(511, 493);
             label3.Name = "label3";
             label3.Size = new Size(174, 37);
             label3.TabIndex = 7;
@@ -120,7 +124,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(697, 285);
+            BackColor = Color.FromArgb(243, 241, 238);
+            ClientSize = new Size(841, 558);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
