@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox1 = new ListBox();
             listBox2 = new ListBox();
             button1 = new Button();
             button2 = new Button();
@@ -36,24 +35,15 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            listView1 = new ListView();
+            listViewCarrinho = new ListView();
             SuspendLayout();
-            // 
-            // listBox1
-            // 
-            listBox1.Font = new Font("Inter Medium", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 25;
-            listBox1.Items.AddRange(new object[] { "Pão de Queijo - R$3,50", "Coxinha - R$5,00", "Pastel de Carne - R$6,00", "Pastel de Queijo - R$5,50", "Suco Natural (300ml) - R$4,00", "Refrigerante Lata - R$4,50", "Hambúger Simples - R$8,00", "Hambúger com Queijo - R$9,00", "X-Tudo - R$12,00", "Água Mineral (500ml) - R$2,50" });
-            listBox1.Location = new Point(61, 195);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(379, 304);
-            listBox1.TabIndex = 0;
             // 
             // listBox2
             // 
             listBox2.FormattingEnabled = true;
             listBox2.ItemHeight = 15;
-            listBox2.Location = new Point(501, 314);
+            listBox2.Location = new Point(39, 47);
             listBox2.Name = "listBox2";
             listBox2.Size = new Size(274, 94);
             listBox2.TabIndex = 1;
@@ -120,12 +110,31 @@
             label3.Text = "Total: R$0,00";
             label3.Click += label3_Click;
             // 
+            // listView1
+            // 
+            listView1.Location = new Point(61, 214);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(322, 316);
+            listView1.TabIndex = 8;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
+            // 
+            // listViewCarrinho
+            // 
+            listViewCarrinho.Location = new Point(511, 181);
+            listViewCarrinho.Name = "listViewCarrinho";
+            listViewCarrinho.Size = new Size(271, 270);
+            listViewCarrinho.TabIndex = 9;
+            listViewCarrinho.UseCompatibleStateImageBehavior = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(243, 241, 238);
             ClientSize = new Size(841, 558);
+            Controls.Add(listViewCarrinho);
+            Controls.Add(listView1);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -133,7 +142,6 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(listBox2);
-            Controls.Add(listBox1);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormCantina";
@@ -142,8 +150,6 @@
         }
 
         #endregion
-
-        private ListBox listBox1;
         private ListBox listBox2;
         private Button button1;
         private Button button2;
@@ -151,5 +157,7 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private ListView listView1;
+        private ListView listViewCarrinho;
     }
 }
