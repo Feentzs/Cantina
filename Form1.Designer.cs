@@ -37,6 +37,9 @@
             label3 = new Label();
             listView1 = new ListView();
             listViewCarrinho = new ListView();
+            btnDiminuir = new Button();
+            btnAumentar = new Button();
+            lblQuantidade = new Label();
             SuspendLayout();
             // 
             // listBox2
@@ -127,12 +130,44 @@
             listViewCarrinho.TabIndex = 9;
             listViewCarrinho.UseCompatibleStateImageBehavior = false;
             // 
+            // btnDiminuir
+            // 
+            btnDiminuir.Location = new Point(487, 38);
+            btnDiminuir.Name = "btnDiminuir";
+            btnDiminuir.Size = new Size(75, 23);
+            btnDiminuir.TabIndex = 10;
+            btnDiminuir.Text = "-";
+            btnDiminuir.UseVisualStyleBackColor = true;
+            btnDiminuir.Click += btnDiminuir_Click_1;
+            // 
+            // btnAumentar
+            // 
+            btnAumentar.Location = new Point(681, 39);
+            btnAumentar.Name = "btnAumentar";
+            btnAumentar.Size = new Size(75, 23);
+            btnAumentar.TabIndex = 11;
+            btnAumentar.Text = "+";
+            btnAumentar.UseVisualStyleBackColor = true;
+            btnAumentar.Click += btnAumentar_Click_1;
+            // 
+            // lblQuantidade
+            // 
+            lblQuantidade.AutoSize = true;
+            lblQuantidade.Location = new Point(599, 47);
+            lblQuantidade.Name = "lblQuantidade";
+            lblQuantidade.Size = new Size(13, 15);
+            lblQuantidade.TabIndex = 12;
+            lblQuantidade.Text = "1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(243, 241, 238);
             ClientSize = new Size(841, 558);
+            Controls.Add(lblQuantidade);
+            Controls.Add(btnAumentar);
+            Controls.Add(btnDiminuir);
             Controls.Add(listViewCarrinho);
             Controls.Add(listView1);
             Controls.Add(label3);
@@ -159,5 +194,8 @@
         private Label label3;
         private ListView listView1;
         private ListView listViewCarrinho;
+        private Button btnDiminuir;
+        private Button btnAumentar;
+        private Label lblQuantidade;
     }
 }
