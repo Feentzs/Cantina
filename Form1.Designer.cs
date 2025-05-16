@@ -28,58 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox2 = new ListBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnAdicionar = new Button();
+            btnRemover = new Button();
+            btnFinalizar = new Button();
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
-            listView1 = new ListView();
+            labelTotal = new Label();
+            listViewProdutos = new ListView();
             listViewCarrinho = new ListView();
             btnDiminuir = new Button();
             btnAumentar = new Button();
             lblQuantidade = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // listBox2
+            // btnAdicionar
             // 
-            listBox2.FormattingEnabled = true;
-            listBox2.ItemHeight = 15;
-            listBox2.Location = new Point(39, 47);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(274, 94);
-            listBox2.TabIndex = 1;
+            btnAdicionar.Location = new Point(319, 38);
+            btnAdicionar.Name = "btnAdicionar";
+            btnAdicionar.Size = new Size(75, 23);
+            btnAdicionar.TabIndex = 2;
+            btnAdicionar.Text = "Adicionar>";
+            btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.Click += btnAdicionar_Click;
             // 
-            // button1
+            // btnRemover
             // 
-            button1.Location = new Point(319, 38);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 2;
-            button1.Text = "Adicionar>";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnRemover.Location = new Point(319, 78);
+            btnRemover.Name = "btnRemover";
+            btnRemover.Size = new Size(75, 23);
+            btnRemover.TabIndex = 3;
+            btnRemover.Text = "<Remover";
+            btnRemover.UseVisualStyleBackColor = true;
+            btnRemover.Click += btnRemover_Click;
             // 
-            // button2
+            // btnFinalizar
             // 
-            button2.Location = new Point(319, 78);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 3;
-            button2.Text = "<Remover";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(387, 142);
-            button3.Name = "button3";
-            button3.Size = new Size(116, 23);
-            button3.TabIndex = 4;
-            button3.Text = "Fechar Pedido";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            btnFinalizar.Location = new Point(387, 142);
+            btnFinalizar.Name = "btnFinalizar";
+            btnFinalizar.Size = new Size(116, 23);
+            btnFinalizar.TabIndex = 4;
+            btnFinalizar.Text = "Fechar Pedido";
+            btnFinalizar.UseVisualStyleBackColor = true;
+            btnFinalizar.Click += btnFinalizar_Click;
             // 
             // label1
             // 
@@ -90,7 +82,6 @@
             label1.Size = new Size(135, 36);
             label1.TabIndex = 5;
             label1.Text = "Produtos ";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -102,25 +93,24 @@
             label2.TabIndex = 6;
             label2.Text = "Carrinho";
             // 
-            // label3
+            // labelTotal
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(511, 493);
-            label3.Name = "label3";
-            label3.Size = new Size(174, 37);
-            label3.TabIndex = 7;
-            label3.Text = "Total: R$0,00";
-            label3.Click += label3_Click;
+            labelTotal.AutoSize = true;
+            labelTotal.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTotal.Location = new Point(511, 493);
+            labelTotal.Name = "labelTotal";
+            labelTotal.Size = new Size(174, 37);
+            labelTotal.TabIndex = 7;
+            labelTotal.Text = "Total: R$0,00";
             // 
-            // listView1
+            // listViewProdutos
             // 
-            listView1.Location = new Point(61, 214);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(322, 316);
-            listView1.TabIndex = 8;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
+            listViewProdutos.Location = new Point(61, 214);
+            listViewProdutos.Name = "listViewProdutos";
+            listViewProdutos.Size = new Size(322, 316);
+            listViewProdutos.TabIndex = 8;
+            listViewProdutos.UseCompatibleStateImageBehavior = false;
+            listViewProdutos.SelectedIndexChanged += listViewProdutos_SelectedIndexChanged;
             // 
             // listViewCarrinho
             // 
@@ -138,7 +128,7 @@
             btnDiminuir.TabIndex = 10;
             btnDiminuir.Text = "-";
             btnDiminuir.UseVisualStyleBackColor = true;
-            btnDiminuir.Click += btnDiminuir_Click_1;
+            btnDiminuir.Click += btnDiminuir_Click;
             // 
             // btnAumentar
             // 
@@ -148,7 +138,7 @@
             btnAumentar.TabIndex = 11;
             btnAumentar.Text = "+";
             btnAumentar.UseVisualStyleBackColor = true;
-            btnAumentar.Click += btnAumentar_Click_1;
+            btnAumentar.Click += btnAumentar_Click;
             // 
             // lblQuantidade
             // 
@@ -159,43 +149,53 @@
             lblQuantidade.TabIndex = 12;
             lblQuantidade.Text = "1";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.Bolt_Finance_New__3_;
+            pictureBox1.Location = new Point(12, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(189, 101);
+            pictureBox1.TabIndex = 13;
+            pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(243, 241, 238);
             ClientSize = new Size(841, 558);
+            Controls.Add(pictureBox1);
             Controls.Add(lblQuantidade);
             Controls.Add(btnAumentar);
             Controls.Add(btnDiminuir);
             Controls.Add(listViewCarrinho);
-            Controls.Add(listView1);
-            Controls.Add(label3);
+            Controls.Add(listViewProdutos);
+            Controls.Add(labelTotal);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(listBox2);
+            Controls.Add(btnFinalizar);
+            Controls.Add(btnRemover);
+            Controls.Add(btnAdicionar);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormCantina";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private ListBox listBox2;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnAdicionar;
+        private Button btnRemover;
+        private Button btnFinalizar;
         private Label label1;
         private Label label2;
-        private Label label3;
-        private ListView listView1;
+        private Label labelTotal;
+        private ListView listViewProdutos;
         private ListView listViewCarrinho;
         private Button btnDiminuir;
         private Button btnAumentar;
         private Label lblQuantidade;
+        private PictureBox pictureBox1;
     }
 }

@@ -15,3 +15,4 @@ C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.
 C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.genruntimeconfig.cache
 C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\ref\Cantina.dll
 C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.sourcelink.json
+C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.Properties.Resources.resources
