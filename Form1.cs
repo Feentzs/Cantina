@@ -159,12 +159,164 @@ namespace Cantina
                 total += decimal.Parse(subtotalText, NumberStyles.Currency, new CultureInfo("pt-BR"));
             }
 
-            labelTotal.Text = $"Total: R${total.ToString("N2", new CultureInfo("pt-BR"))}";
+            labelTotal.Text = $"R${total.ToString("N2", new CultureInfo("pt-BR"))}";
         }
 
         private void listViewProdutos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFinalizar_MouseEnter(object sender, EventArgs e)
+        {
+            btnFinalizar.ForeColor = ColorTranslator.FromHtml("#E1FF00");
+        }
+
+        private void btnFinalizar_MouseLeave(object sender, EventArgs e)
+        {
+            btnFinalizar.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+        }
+
+        private void btnFinalizar_Click_1(object sender, EventArgs e)
+        {
+            if (listViewCarrinho.Items.Count == 0)
+            {
+                MessageBox.Show("Adicione produtos ao carrinho primeiro!");
+                return;
+            }
+
+            MessageBox.Show($"Pedido finalizado!\nTotal: {labelTotal.Text}");
+            listViewCarrinho.Items.Clear();
+            UpdateTotal();
+        }
+
+        private void btnAdicionar_MouseEnter(object sender, EventArgs e)
+        {
+            btnAdicionar.ForeColor = ColorTranslator.FromHtml("#E1FF00");
+        }
+
+        private void btnAdicionar_MouseLeave(object sender, EventArgs e)
+        {
+            btnAdicionar.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+        }
+
+        private void btnAdicionar_Click_1(object sender, EventArgs e)
+        {
+            if (listViewProdutos.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Selecione um produto para adicionar.");
+                return;
+            }
+
+            ListViewItem selecionado = listViewProdutos.SelectedItems[0];
+            string nome = selecionado.Text;
+            string precoText = selecionado.SubItems[1].Text.Replace("R$", "").Trim();
+            decimal preco = decimal.Parse(precoText, NumberStyles.Currency, new CultureInfo("pt-BR"));
+
+            // Verifica se o produto já existe no carrinho
+            ListViewItem existente = null;
+            foreach (ListViewItem item in listViewCarrinho.Items)
+            {
+                if (item.Text == nome)
+                {
+                    existente = item;
+                    break;
+                }
+            }
+
+            if (existente != null)
+            {
+                // Atualiza quantidade existente
+                int qtd = int.Parse(existente.SubItems[2].Text) + _quantidade;
+                existente.SubItems[2].Text = qtd.ToString();
+                existente.SubItems[3].Text = (qtd * preco).ToString("C", new CultureInfo("pt-BR"));
+            }
+            else
+            {
+                // Adiciona novo item ao carrinho
+                var novoItem = new ListViewItem(nome);
+                novoItem.SubItems.Add(preco.ToString("C", new CultureInfo("pt-BR")));
+                novoItem.SubItems.Add(_quantidade.ToString());
+                novoItem.SubItems.Add((_quantidade * preco).ToString("C", new CultureInfo("pt-BR")));
+                listViewCarrinho.Items.Add(novoItem);
+            }
+
+            // Reseta a quantidade
+            _quantidade = 1;
+            lblQuantidade.Text = "1";
+            UpdateTotal();
+        }
+
+        private void btnDiminuir_MouseEnter(object sender, EventArgs e)
+        {
+            btnDiminuir.BackColor = ColorTranslator.FromHtml("#000000");
+            btnDiminuir.Image = Properties.Resources.keyboard_arrow_down_verde;
+        }
+
+
+        private void btnDiminuir_MouseLeave(object sender, EventArgs e)
+        {
+            btnDiminuir.BackColor = ColorTranslator.FromHtml("#FFFFFF");
+            btnDiminuir.Image = Properties.Resources.keyboard_arrow_down;
+
+        }
+
+        private void btnAumentar_MouseEnter(object sender, EventArgs e)
+        {
+            btnAumentar.Image = Properties.Resources.keyboard_arrow_up_verde;
+        }
+
+        private void btnAumentar_MouseLeave(object sender, EventArgs e)
+        {
+            btnAumentar.Image = Properties.Resources.keyboard_arrow_up;
+        }
+
+        private void btnAumentar_Click_1(object sender, EventArgs e)
+        {
+            _quantidade++;
+            lblQuantidade.Text = _quantidade.ToString();
+        }
+
+        private void btnDiminuir_Click_1(object sender, EventArgs e)
+        {
+            if (_quantidade > 1)
+            {
+                _quantidade--;
+                lblQuantidade.Text = _quantidade.ToString();
+            }
+        }
+
+        private void btnRemover_MouseEnter(object sender, EventArgs e)
+        {
+            btnRemover.ForeColor = ColorTranslator.FromHtml("#ff3000");
+        }
+
+        private void btnRemover_MouseLeave(object sender, EventArgs e)
+        {
+            btnRemover.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+        }
+
+        private void btnRemover_Click_1(object sender, EventArgs e)
+        {
+            if (listViewCarrinho.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Selecione um produto no carrinho para remover.");
+                return;
+            }
+
+            var itemSelecionado = listViewCarrinho.SelectedItems[0];
+            listViewCarrinho.Items.Remove(itemSelecionado);
+            UpdateTotal();
         }
     }
 }
