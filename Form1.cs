@@ -85,7 +85,7 @@ namespace Cantina
                 item.SubItems.Add(preco);
                 listViewProdutos.Items.Add(item);
             }
-            
+
         }
 
         private void btnAumentar_Click(object sender, EventArgs e)
@@ -163,24 +163,6 @@ namespace Cantina
             UpdateTotal();
         }
 
-        private void btnFinalizar_Click(object sender, EventArgs e)
-        {
-            {
-                try
-                {
-                    // Teste básico - ignora todo o código existente
-                    var formTeste = new Form();
-                    formTeste.Text = "TESTE - Formulário Simples";
-                    formTeste.ShowDialog();
-
-                    MessageBox.Show("Se esta mensagem aparecer, o problema está no FormFinalizarPedido");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"ERRO CRÍTICO: {ex.ToString()}");
-                }
-            }
-        }
 
         private void UpdateTotal()
         {
@@ -224,13 +206,27 @@ namespace Cantina
         {
             if (listViewCarrinho.Items.Count == 0)
             {
-                MessageBox.Show("Adicione produtos ao carrinho primeiro!");
+                MessageBox.Show("Carrinho Vazio!");
                 return;
             }
 
-            
-            listViewCarrinho.Items.Clear();
-            UpdateTotal();
+            // Calcula o total do carrinho
+            decimal total = 0;
+            foreach (ListViewItem item in listViewCarrinho.Items)
+            {
+                string subtotalText = item.SubItems[3].Text.Replace("R$", "").Trim();
+                total += decimal.Parse(subtotalText, NumberStyles.Currency, new CultureInfo("pt-BR"));
+            }
+
+            // Cria o formulário passando os parâmetros necessários
+            using (FormFinalizarPedido telaFinalizar = new FormFinalizarPedido(total, listViewCarrinho.Items))
+            {
+                if (telaFinalizar.ShowDialog() == DialogResult.OK)
+                {
+                    listViewCarrinho.Items.Clear();
+                    UpdateTotal();
+                }
+            }
         }
 
         private void btnAdicionar_MouseEnter(object sender, EventArgs e)
@@ -381,5 +377,7 @@ namespace Cantina
                 listViewProdutos.Items.Add(item);
             }
         }
+
+        
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 
@@ -9,117 +8,132 @@ namespace Cantina
     {
         private decimal totalPedido;
         private string formaPagamento = "";
+        private ListView.ListViewItemCollection itensCarrinho;
 
-        // Construtor que recebe os parâmetros obrigatórios
-        
-
-        
-       public FormFinalizarPedido(decimal total, ListView.ListViewItemCollection itens)
+        public FormFinalizarPedido(decimal total, ListView.ListViewItemCollection itens)
         {
-            try
+            InitializeComponent();
+
+            // Verificação de segurança
+            if (itens == null)
             {
-                InitializeComponent(); // Isso é ESSENCIAL
-
-                totalPedido = total;
-                lblTotal.Text = total.ToString("C", new CultureInfo("pt-BR"));
-
-                // Carrega os itens
-                foreach (ListViewItem item in itens)
-                {
-                    listViewResumo.Items.Add((ListViewItem)item.Clone());
-                }
-
-                // Configuração inicial
-                EsconderTroco();
-                ResetarBotoesPagamento();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao inicializar formulário: {ex.Message}");
+                MessageBox.Show("Erro: Nenhum item no carrinho!");
                 this.Close();
+                return;
             }
+
+            this.totalPedido = total;
+            this.itensCarrinho = itens;
+
+            // Configuração inicial
+            lblTotal.Text = total.ToString("C", new CultureInfo("pt-BR"));
+            CarregarItensCarrinho();
+            EsconderControlesTroco();
+            ConfigurarBotoesPagamento();
         }
 
-        private void CarregarItens(ListView.ListViewItemCollection itens)
+        private void CarregarItensCarrinho()
         {
-            foreach (ListViewItem item in itens)
+            listViewResumo.Items.Clear();
+            foreach (ListViewItem item in itensCarrinho)
             {
-                listViewResumo.Items.Add((ListViewItem)item.Clone());
+                var novoItem = new ListViewItem(item.Text);
+                for (int i = 1; i < item.SubItems.Count; i++)
+                {
+                    novoItem.SubItems.Add(item.SubItems[i].Text);
+                }
+                listViewResumo.Items.Add(novoItem);
             }
         }
 
-        // Método modificado para receber o botão como parâmetro
-        private void SelecionarPagamento(string tipo, Button botaoSelecionado)
+        private void ConfigurarBotoesPagamento()
         {
-            formaPagamento = tipo;
-            ResetarBotoesPagamento();
-            botaoSelecionado.BackColor = Color.LightGreen;
-        }
-
-        private void ResetarBotoesPagamento()
-        {
+            // Define cores e estilos iniciais
             btnCredito.BackColor = SystemColors.Control;
             btnDebito.BackColor = SystemColors.Control;
             btnDinheiro.BackColor = SystemColors.Control;
             btnPix.BackColor = SystemColors.Control;
         }
 
-        // Métodos dos botões atualizados para passar o botão correto
-        private void btnCredito_Click_1(object sender, EventArgs e)
+        private void EsconderControlesTroco()
         {
-            SelecionarPagamento("CRÉDITO", btnCredito);
-            EsconderTroco();
+            lblValorRecebido.Visible = false;
+            txtValorRecebido.Visible = false;
+            lblValorTroco.Visible = false;
+            lblValorTroco.Visible = false;
+            txtValorRecebido.Text = "";
+            lblValorTroco.Text = "R$0,00";
         }
 
-        private void btnDebito_Click_1(object sender, EventArgs e)
+        private void MostrarControlesTroco()
         {
-            SelecionarPagamento("DÉBITO", btnDebito);
-            EsconderTroco();
-        }
-
-        private void btnDinheiro_Click_1(object sender, EventArgs e)
-        {
-            SelecionarPagamento("DINHEIRO", btnDinheiro);
-            MostrarTroco();
+            lblValorRecebido.Visible = true;
+            txtValorRecebido.Visible = true;
+            lblValorTroco.Visible = true;
+            lblValorTroco.Visible = true;
             txtValorRecebido.Focus();
         }
 
-        private void btnPix_Click_1(object sender, EventArgs e)
+        private void SelecionarFormaPagamento(Button botaoSelecionado, string forma)
         {
-            SelecionarPagamento("PIX", btnPix);
-            EsconderTroco();
+            // Resetar todos os botões
+            btnCredito.BackColor = SystemColors.Control;
+            btnDebito.BackColor = SystemColors.Control;
+            btnDinheiro.BackColor = SystemColors.Control;
+            btnPix.BackColor = SystemColors.Control;
+
+            // Destacar o botão selecionado
+            botaoSelecionado.BackColor = Color.LightGreen;
+            formaPagamento = forma;
         }
 
-        private void MostrarTroco()
-        {
-            txtValorRecebido.Visible = lblTrocoTexto.Visible = lblTrocoValor.Visible = true;
-            lblTrocoValor.Text = "R$0,00";
-        }
-
-        private void EsconderTroco()
-        {
-            txtValorRecebido.Visible = lblTrocoTexto.Visible = lblTrocoValor.Visible = false;
-            txtValorRecebido.Text = "";
-        }
-
-        private void txtValorRecebido_TextChanged(object sender, EventArgs e)
+        private void CalcularTroco()
         {
             if (decimal.TryParse(txtValorRecebido.Text, out decimal valorRecebido))
             {
                 decimal troco = valorRecebido - totalPedido;
-                lblTrocoValor.Text = troco.ToString("C", new CultureInfo("pt-BR"));
+                lblValorTroco.Text = troco.ToString("C", new CultureInfo("pt-BR"));
             }
             else
             {
-                lblTrocoValor.Text = "R$0,00";
+                lblValorTroco.Text = "R$0,00";
             }
+        }
+
+        // Eventos dos botões
+        private void btnCredito_Click_1(object sender, EventArgs e)
+        {
+            SelecionarFormaPagamento(btnCredito, "CRÉDITO");
+            EsconderControlesTroco();
+        }
+
+        private void btnDebito_Click_1(object sender, EventArgs e)
+        {
+            SelecionarFormaPagamento(btnDebito, "DÉBITO");
+            EsconderControlesTroco();
+        }
+
+        private void btnDinheiro_Click_1(object sender, EventArgs e)
+        {
+            SelecionarFormaPagamento(btnDinheiro, "DINHEIRO");
+            MostrarControlesTroco();
+        }
+
+        private void btnPix_Click_1(object sender, EventArgs e)
+        {
+            SelecionarFormaPagamento(btnPix, "PIX");
+            EsconderControlesTroco();
+        }
+
+        private void txtValorRecebido_TextChanged(object sender, EventArgs e)
+        {
+            CalcularTroco();
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             if (ValidarDados())
             {
-                MessageBox.Show($"Pedido confirmado!\nCliente: {txtNomeCliente.Text}\nTotal: {lblTotal.Text}\nPagamento: {formaPagamento}");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -127,31 +141,46 @@ namespace Cantina
 
         private bool ValidarDados()
         {
+            // Validação do nome do cliente
             if (string.IsNullOrWhiteSpace(txtNomeCliente.Text))
             {
-                MessageBox.Show("Informe o nome do cliente!");
+                MessageBox.Show("Informe o nome do cliente!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNomeCliente.Focus();
                 return false;
             }
 
+            // Validação da forma de pagamento
             if (string.IsNullOrEmpty(formaPagamento))
             {
-                MessageBox.Show("Selecione a forma de pagamento!");
+                MessageBox.Show("Selecione a forma de pagamento!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            if (formaPagamento == "DINHEIRO" &&
-               (!decimal.TryParse(txtValorRecebido.Text, out decimal valor) || valor < totalPedido))
+            // Validação específica para dinheiro
+            if (formaPagamento == "DINHEIRO")
             {
-                MessageBox.Show("Valor recebido inválido ou insuficiente!");
-                return false;
+                if (!decimal.TryParse(txtValorRecebido.Text, out decimal valorRecebido))
+                {
+                    MessageBox.Show("Valor recebido inválido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtValorRecebido.Focus();
+                    return false;
+                }
+
+                if (valorRecebido < totalPedido)
+                {
+                    MessageBox.Show("Valor recebido é menor que o total do pedido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtValorRecebido.Focus();
+                    return false;
+                }
             }
 
             return true;
-      
-    }
-        private void label2_Click(object sender, EventArgs e)
-        {
+        }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }
