@@ -8,47 +8,45 @@ namespace Cantina
     {
         private decimal totalPedido;
         private string formaPagamento = "";
-        private ListView.ListViewItemCollection itensCarrinho;
 
-        public FormFinalizarPedido(decimal total, ListView.ListViewItemCollection itens)
+        public FormFinalizarPedido(ListView.ListViewItemCollection itensCarrinho, decimal total)
         {
             InitializeComponent();
-
-            // Verificação de segurança
-            if (itens == null)
-            {
-                MessageBox.Show("Erro: Nenhum item no carrinho!");
-                this.Close();
-                return;
-            }
-
             this.totalPedido = total;
-            this.itensCarrinho = itens;
 
             // Configuração inicial
-            lblTotal.Text = total.ToString("C", new CultureInfo("pt-BR"));
-            CarregarItensCarrinho();
-            EsconderControlesTroco();
+            ConfigurarListViewResumo();
+            CarregarItensCarrinho(itensCarrinho);
             ConfigurarBotoesPagamento();
+            EsconderControlesTroco();
+
+            // Exibe o total
+            lblTotal.Text = total.ToString("C", new CultureInfo("pt-BR"));
         }
 
-        private void CarregarItensCarrinho()
+        private void ConfigurarListViewResumo()
+        {
+            listViewResumo.View = View.Details;
+            listViewResumo.Columns.Clear();
+            listViewResumo.Columns.Add("Produto", 200);
+            listViewResumo.Columns.Add("Qtd", 50);
+            listViewResumo.Columns.Add("Subtotal", 100);
+        }
+
+        private void CarregarItensCarrinho(ListView.ListViewItemCollection itensCarrinho)
         {
             listViewResumo.Items.Clear();
             foreach (ListViewItem item in itensCarrinho)
             {
-                var novoItem = new ListViewItem(item.Text);
-                for (int i = 1; i < item.SubItems.Count; i++)
-                {
-                    novoItem.SubItems.Add(item.SubItems[i].Text);
-                }
+                ListViewItem novoItem = new ListViewItem(item.Text); // Nome do produto
+                novoItem.SubItems.Add(item.SubItems[2].Text); // Quantidade
+                novoItem.SubItems.Add(item.SubItems[3].Text); // Subtotal
                 listViewResumo.Items.Add(novoItem);
             }
         }
 
         private void ConfigurarBotoesPagamento()
         {
-            // Define cores e estilos iniciais
             btnCredito.BackColor = SystemColors.Control;
             btnDebito.BackColor = SystemColors.Control;
             btnDinheiro.BackColor = SystemColors.Control;
@@ -59,31 +57,34 @@ namespace Cantina
         {
             lblValorRecebido.Visible = false;
             txtValorRecebido.Visible = false;
-            lblValorTroco.Visible = false;
+            lblTroco.Visible = false;
             lblValorTroco.Visible = false;
             txtValorRecebido.Text = "";
             lblValorTroco.Text = "R$0,00";
+            trocoimg.Visible = false;
+            insiravalor.Visible = false;
         }
 
         private void MostrarControlesTroco()
         {
             lblValorRecebido.Visible = true;
             txtValorRecebido.Visible = true;
+            lblTroco.Visible = true;
             lblValorTroco.Visible = true;
-            lblValorTroco.Visible = true;
+            trocoimg.Visible = true;
             txtValorRecebido.Focus();
         }
 
         private void SelecionarFormaPagamento(Button botaoSelecionado, string forma)
         {
-            // Resetar todos os botões
+
             btnCredito.BackColor = SystemColors.Control;
             btnDebito.BackColor = SystemColors.Control;
             btnDinheiro.BackColor = SystemColors.Control;
             btnPix.BackColor = SystemColors.Control;
 
-            // Destacar o botão selecionado
-            botaoSelecionado.BackColor = Color.LightGreen;
+
+            botaoSelecionado.BackColor = ColorTranslator.FromHtml("#E1FF00");
             formaPagamento = forma;
         }
 
@@ -92,6 +93,7 @@ namespace Cantina
             if (decimal.TryParse(txtValorRecebido.Text, out decimal valorRecebido))
             {
                 decimal troco = valorRecebido - totalPedido;
+                if (troco < 0) troco = 0;
                 lblValorTroco.Text = troco.ToString("C", new CultureInfo("pt-BR"));
             }
             else
@@ -100,7 +102,7 @@ namespace Cantina
             }
         }
 
-        // Eventos dos botões
+
         private void btnCredito_Click_1(object sender, EventArgs e)
         {
             SelecionarFormaPagamento(btnCredito, "CRÉDITO");
@@ -113,7 +115,7 @@ namespace Cantina
             EsconderControlesTroco();
         }
 
-        private void btnDinheiro_Click_1(object sender, EventArgs e)
+        private void btnDinheiro_Click(object sender, EventArgs e)
         {
             SelecionarFormaPagamento(btnDinheiro, "DINHEIRO");
             MostrarControlesTroco();
@@ -130,7 +132,7 @@ namespace Cantina
             CalcularTroco();
         }
 
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void btnConfirmar_Click_1(object sender, EventArgs e)
         {
             if (ValidarDados())
             {
@@ -141,7 +143,13 @@ namespace Cantina
 
         private bool ValidarDados()
         {
-            // Validação do nome do cliente
+            if (formaPagamento == "PIX")
+            {
+                TelaPix telinhaPix = new TelaPix();
+                telinhaPix.ShowDialog();
+                return true;
+            }
+
             if (string.IsNullOrWhiteSpace(txtNomeCliente.Text))
             {
                 MessageBox.Show("Informe o nome do cliente!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -149,14 +157,14 @@ namespace Cantina
                 return false;
             }
 
-            // Validação da forma de pagamento
+
             if (string.IsNullOrEmpty(formaPagamento))
             {
                 MessageBox.Show("Selecione a forma de pagamento!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            // Validação específica para dinheiro
+
             if (formaPagamento == "DINHEIRO")
             {
                 if (!decimal.TryParse(txtValorRecebido.Text, out decimal valorRecebido))
@@ -173,6 +181,7 @@ namespace Cantina
                     return false;
                 }
             }
+            
 
             return true;
         }
@@ -182,5 +191,19 @@ namespace Cantina
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void btnConfirmar_MouseEnter(object sender, EventArgs e)
+        {
+            btnConfirmar.ForeColor = ColorTranslator.FromHtml("#000000");
+            btnConfirmar.Image = Properties.Resources.vai;
+        }
+
+        private void btnConfirmar_MouseLeave(object sender, EventArgs e)
+        {
+            btnConfirmar.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+            btnConfirmar.Image = Properties.Resources.Semtitulo2;
+        }
+
+        
     }
 }

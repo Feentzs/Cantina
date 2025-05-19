@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
@@ -9,6 +9,7 @@ namespace Cantina
     public partial class Form1 : Form
     {
         private int _quantidade = 1;
+        public decimal TotalCarrinho { get; private set; }
         private List<string[]> produtosOriginais = new List<string[]>();
 
         private string RemoverAcentos(string texto)
@@ -44,13 +45,13 @@ namespace Cantina
             listViewProdutos.View = View.Details;
             listViewProdutos.FullRowSelect = true;
             listViewProdutos.Columns.Add("Produto", 295);
-            listViewProdutos.Columns.Add("PreÁo", 80);
+            listViewProdutos.Columns.Add("Pre√ßo", 80);
 
-            // ConfiguraÁ„o da ListView do carrinho
+            // Configura√ß√£o da ListView do carrinho
             listViewCarrinho.View = View.Details;
             listViewCarrinho.FullRowSelect = true;
             listViewCarrinho.Columns.Add("Produto", 150);
-            listViewCarrinho.Columns.Add("PreÁo Unit.", 80);
+            listViewCarrinho.Columns.Add("Pre√ßo Unit.", 80);
             listViewCarrinho.Columns.Add("Qtd", 50);
             listViewCarrinho.Columns.Add("Subtotal", 80);
         }
@@ -61,7 +62,7 @@ namespace Cantina
             produtosOriginais.Clear();
 
             string[] produtos = {
-                "P„o de Queijo - R$3,50",
+                "P√£o de Queijo - R$3,50",
                 "Coxinha - R$5,00",
                 "Pastel de Carne - R$6,00",
                 "Pastel de Queijo - R$5,50",
@@ -70,7 +71,7 @@ namespace Cantina
                 "Hamburger Simples - R$8,00",
                 "Hamburger com Queijo - R$9,00",
                 "X-Tudo - R$12,00",
-                "¡gua Mineral (500ml) - R$2,50"
+                "√Ågua Mineral (500ml) - R$2,50"
             };
 
             foreach (string produto in produtos)
@@ -204,29 +205,38 @@ namespace Cantina
 
         private void btnFinalizar_Click_1(object sender, EventArgs e)
         {
+            decimal total = 0m;
             if (listViewCarrinho.Items.Count == 0)
             {
                 MessageBox.Show("Carrinho Vazio!");
                 return;
             }
-
-            // Calcula o total do carrinho
-            decimal total = 0;
             foreach (ListViewItem item in listViewCarrinho.Items)
             {
                 string subtotalText = item.SubItems[3].Text.Replace("R$", "").Trim();
                 total += decimal.Parse(subtotalText, NumberStyles.Currency, new CultureInfo("pt-BR"));
             }
-
-            // Cria o formul·rio passando os par‚metros necess·rios
-            using (FormFinalizarPedido telaFinalizar = new FormFinalizarPedido(total, listViewCarrinho.Items))
+            var formFinalizar = new FormFinalizarPedido(listViewCarrinho.Items, total);
+            if (formFinalizar.ShowDialog() == DialogResult.OK)
             {
-                if (telaFinalizar.ShowDialog() == DialogResult.OK)
+                // Pedido confirmado
+                listViewCarrinho.Items.Clear();
+                UpdateTotal();
+            }
+        }
+        private void CalcularTotal()
+        {
+            TotalCarrinho = 0;
+            foreach (ListViewItem item in listViewCarrinho.Items)
+            {
+                // Converte o subtotal (R$5,00 ‚Üí 5.00)
+                string subtotalStr = item.SubItems[3].Text.Replace("R$", "").Trim();
+                if (decimal.TryParse(subtotalStr, out decimal subtotal))
                 {
-                    listViewCarrinho.Items.Clear();
-                    UpdateTotal();
+                    TotalCarrinho += subtotal;
                 }
             }
+            
         }
 
         private void btnAdicionar_MouseEnter(object sender, EventArgs e)
@@ -252,7 +262,7 @@ namespace Cantina
             string precoText = selecionado.SubItems[1].Text.Replace("R$", "").Trim();
             decimal preco = decimal.Parse(precoText, NumberStyles.Currency, new CultureInfo("pt-BR"));
 
-            // Verifica se o produto j· existe no carrinho
+            // Verifica se o produto j√° existe no carrinho
             ListViewItem existente = null;
             foreach (ListViewItem item in listViewCarrinho.Items)
             {

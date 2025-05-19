@@ -78,6 +78,7 @@
             // 
             // listViewProdutos
             // 
+            listViewProdutos.BorderStyle = BorderStyle.None;
             listViewProdutos.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listViewProdutos.Location = new Point(50, 251);
             listViewProdutos.Name = "listViewProdutos";
@@ -99,6 +100,7 @@
             // 
             // listViewCarrinho
             // 
+            listViewCarrinho.BorderStyle = BorderStyle.None;
             listViewCarrinho.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listViewCarrinho.Location = new Point(605, 211);
             listViewCarrinho.Name = "listViewCarrinho";

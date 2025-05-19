@@ -97,6 +97,7 @@
             txtValorRecebido.PlaceholderText = "Insira o Valor...";
             txtValorRecebido.Size = new Size(139, 18);
             txtValorRecebido.TabIndex = 4;
+            txtValorRecebido.TextChanged += txtValorRecebido_TextChanged;
             // 
             // lblValorTroco
             // 
@@ -127,6 +128,9 @@
             btnConfirmar.TabIndex = 6;
             btnConfirmar.Text = "Confirmar Pedido";
             btnConfirmar.UseVisualStyleBackColor = false;
+            btnConfirmar.Click += btnConfirmar_Click_1;
+            btnConfirmar.MouseEnter += btnConfirmar_MouseEnter;
+            btnConfirmar.MouseLeave += btnConfirmar_MouseLeave;
             // 
             // btnDinheiro
             // 
@@ -140,6 +144,7 @@
             btnDinheiro.TabIndex = 8;
             btnDinheiro.Text = "Dinheiro";
             btnDinheiro.UseVisualStyleBackColor = false;
+            btnDinheiro.Click += btnDinheiro_Click;
             // 
             // btnDebito
             // 
@@ -153,6 +158,7 @@
             btnDebito.TabIndex = 9;
             btnDebito.Text = "Cartão Débito";
             btnDebito.UseVisualStyleBackColor = false;
+            btnDebito.Click += btnDebito_Click_1;
             // 
             // btnCredito
             // 
@@ -166,6 +172,7 @@
             btnCredito.TabIndex = 10;
             btnCredito.Text = "Cartão Crédito";
             btnCredito.UseVisualStyleBackColor = false;
+            btnCredito.Click += btnCredito_Click_1;
             // 
             // btnPix
             // 
@@ -179,6 +186,7 @@
             btnPix.TabIndex = 11;
             btnPix.Text = "Pix";
             btnPix.UseVisualStyleBackColor = false;
+            btnPix.Click += btnPix_Click_1;
             // 
             // pictureBox1
             // 
@@ -272,6 +280,8 @@
             // 
             // listViewResumo
             // 
+            listViewResumo.BorderStyle = BorderStyle.None;
+            listViewResumo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listViewResumo.Location = new Point(495, 84);
             listViewResumo.Name = "listViewResumo";
             listViewResumo.Size = new Size(381, 304);
