@@ -143,16 +143,6 @@ namespace Cantina.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Sem_título {
-            get {
-                object obj = ResourceManager.GetObject("Sem título", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Sem_título__1_ {
             get {
                 object obj = ResourceManager.GetObject("Sem título (1)", resourceCulture);
@@ -163,9 +153,9 @@ namespace Cantina.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Sem_título__2_ {
+        internal static System.Drawing.Bitmap Sem_título1 {
             get {
-                object obj = ResourceManager.GetObject("Sem título (2)", resourceCulture);
+                object obj = ResourceManager.GetObject("Sem título1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +163,29 @@ namespace Cantina.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Sem_título1 {
+        internal static System.Drawing.Bitmap Semtitulo {
             get {
-                object obj = ResourceManager.GetObject("Sem título1", resourceCulture);
+                object obj = ResourceManager.GetObject("Semtitulo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Semtitulo2 {
+            get {
+                object obj = ResourceManager.GetObject("Semtitulo2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vai {
+            get {
+                object obj = ResourceManager.GetObject("vai", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

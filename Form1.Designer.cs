@@ -45,15 +45,22 @@
             btnAumentar = new Button();
             lblQuantidade = new Label();
             btnRemover = new Button();
+            txtPesquisa = new TextBox();
+            pictureBox4 = new PictureBox();
+            pictureBox5 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImageLayout = ImageLayout.None;
             pictureBox1.Image = Properties.Resources.Bolt_Finance_New__3_;
-            pictureBox1.Location = new Point(12, 0);
+            pictureBox1.Location = new Point(27, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(189, 101);
             pictureBox1.TabIndex = 13;
@@ -64,7 +71,7 @@
             pictureBox2.Image = Properties.Resources.Sem_título1;
             pictureBox2.Location = new Point(13, 111);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(454, 559);
+            pictureBox2.Size = new Size(454, 626);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 14;
             pictureBox2.TabStop = false;
@@ -72,18 +79,20 @@
             // listViewProdutos
             // 
             listViewProdutos.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            listViewProdutos.Location = new Point(73, 195);
+            listViewProdutos.Location = new Point(50, 251);
             listViewProdutos.Name = "listViewProdutos";
-            listViewProdutos.Size = new Size(321, 280);
+            listViewProdutos.Size = new Size(381, 285);
             listViewProdutos.TabIndex = 15;
             listViewProdutos.UseCompatibleStateImageBehavior = false;
+            listViewProdutos.DrawItem += listViewProdutos_DrawItem;
+            listViewProdutos.DrawSubItem += listViewProdutos_DrawSubItem;
             // 
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.Sem_título1;
-            pictureBox3.Location = new Point(487, 111);
+            pictureBox3.Location = new Point(564, 111);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(454, 559);
+            pictureBox3.Size = new Size(454, 626);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 16;
             pictureBox3.TabStop = false;
@@ -91,9 +100,9 @@
             // listViewCarrinho
             // 
             listViewCarrinho.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            listViewCarrinho.Location = new Point(531, 195);
+            listViewCarrinho.Location = new Point(605, 211);
             listViewCarrinho.Name = "listViewCarrinho";
-            listViewCarrinho.Size = new Size(381, 292);
+            listViewCarrinho.Size = new Size(381, 304);
             listViewCarrinho.TabIndex = 17;
             listViewCarrinho.UseCompatibleStateImageBehavior = false;
             // 
@@ -103,7 +112,7 @@
             labelTotal.BackColor = Color.White;
             labelTotal.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelTotal.ForeColor = Color.Black;
-            labelTotal.Location = new Point(806, 490);
+            labelTotal.Location = new Point(858, 524);
             labelTotal.Name = "labelTotal";
             labelTotal.Size = new Size(106, 37);
             labelTotal.TabIndex = 18;
@@ -116,7 +125,7 @@
             label3.BackColor = Color.White;
             label3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ActiveBorder;
-            label3.Location = new Point(531, 475);
+            label3.Location = new Point(605, 509);
             label3.Name = "label3";
             label3.Size = new Size(387, 15);
             label3.TabIndex = 19;
@@ -127,7 +136,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.White;
             label2.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(531, 151);
+            label2.Location = new Point(605, 151);
             label2.Name = "label2";
             label2.Size = new Size(126, 31);
             label2.TabIndex = 20;
@@ -138,7 +147,7 @@
             label4.AutoSize = true;
             label4.BackColor = Color.White;
             label4.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(542, 490);
+            label4.Location = new Point(605, 524);
             label4.Name = "label4";
             label4.Size = new Size(89, 37);
             label4.TabIndex = 21;
@@ -156,7 +165,7 @@
             btnFinalizar.FlatStyle = FlatStyle.Flat;
             btnFinalizar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnFinalizar.ForeColor = Color.White;
-            btnFinalizar.Location = new Point(542, 550);
+            btnFinalizar.Location = new Point(605, 611);
             btnFinalizar.Name = "btnFinalizar";
             btnFinalizar.Size = new Size(370, 63);
             btnFinalizar.TabIndex = 22;
@@ -189,7 +198,7 @@
             btnAdicionar.FlatStyle = FlatStyle.Flat;
             btnAdicionar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdicionar.ForeColor = Color.White;
-            btnAdicionar.Location = new Point(244, 486);
+            btnAdicionar.Location = new Point(224, 542);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(207, 63);
             btnAdicionar.TabIndex = 24;
@@ -210,7 +219,7 @@
             btnDiminuir.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDiminuir.ForeColor = Color.Black;
             btnDiminuir.Image = (Image)resources.GetObject("btnDiminuir.Image");
-            btnDiminuir.Location = new Point(68, 500);
+            btnDiminuir.Location = new Point(50, 542);
             btnDiminuir.Name = "btnDiminuir";
             btnDiminuir.RightToLeft = RightToLeft.No;
             btnDiminuir.Size = new Size(28, 30);
@@ -229,7 +238,7 @@
             btnAumentar.FlatStyle = FlatStyle.Flat;
             btnAumentar.ForeColor = SystemColors.ControlText;
             btnAumentar.Image = (Image)resources.GetObject("btnAumentar.Image");
-            btnAumentar.Location = new Point(169, 500);
+            btnAumentar.Location = new Point(141, 542);
             btnAumentar.Name = "btnAumentar";
             btnAumentar.Size = new Size(28, 30);
             btnAumentar.TabIndex = 26;
@@ -243,7 +252,7 @@
             lblQuantidade.AutoSize = true;
             lblQuantidade.BackColor = Color.White;
             lblQuantidade.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblQuantidade.Location = new Point(124, 505);
+            lblQuantidade.Location = new Point(101, 544);
             lblQuantidade.Name = "lblQuantidade";
             lblQuantidade.Size = new Size(20, 25);
             lblQuantidade.TabIndex = 27;
@@ -252,7 +261,7 @@
             // btnRemover
             // 
             btnRemover.BackColor = Color.White;
-            btnRemover.BackgroundImage = Properties.Resources.Sem_título__2_;
+            btnRemover.BackgroundImage = Properties.Resources.Semtitulo2;
             btnRemover.BackgroundImageLayout = ImageLayout.Stretch;
             btnRemover.FlatAppearance.BorderColor = Color.White;
             btnRemover.FlatAppearance.BorderSize = 0;
@@ -261,7 +270,7 @@
             btnRemover.FlatStyle = FlatStyle.Flat;
             btnRemover.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRemover.ForeColor = Color.White;
-            btnRemover.Location = new Point(244, 568);
+            btnRemover.Location = new Point(224, 611);
             btnRemover.Name = "btnRemover";
             btnRemover.Size = new Size(207, 63);
             btnRemover.TabIndex = 28;
@@ -271,12 +280,48 @@
             btnRemover.MouseEnter += btnRemover_MouseEnter;
             btnRemover.MouseLeave += btnRemover_MouseLeave;
             // 
+            // txtPesquisa
+            // 
+            txtPesquisa.BackColor = Color.FromArgb(243, 241, 238);
+            txtPesquisa.BorderStyle = BorderStyle.None;
+            txtPesquisa.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPesquisa.Location = new Point(104, 205);
+            txtPesquisa.Name = "txtPesquisa";
+            txtPesquisa.PlaceholderText = "Pesquisar produto...";
+            txtPesquisa.Size = new Size(306, 26);
+            txtPesquisa.TabIndex = 29;
+            txtPesquisa.TextChanged += txtPesquisa_TextChanged;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.White;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(50, 195);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(381, 50);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 30;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(74, 211);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(18, 20);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 31;
+            pictureBox5.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(243, 241, 238);
-            ClientSize = new Size(995, 692);
+            ClientSize = new Size(1030, 749);
+            Controls.Add(pictureBox5);
+            Controls.Add(txtPesquisa);
+            Controls.Add(pictureBox4);
             Controls.Add(btnRemover);
             Controls.Add(lblQuantidade);
             Controls.Add(btnAumentar);
@@ -299,6 +344,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -320,5 +367,8 @@
         private Button btnAumentar;
         private Label lblQuantidade;
         private Button btnRemover;
+        private TextBox txtPesquisa;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox5;
     }
 }

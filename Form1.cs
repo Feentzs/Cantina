@@ -1,12 +1,35 @@
 using System;
 using System.Globalization;
+using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Cantina
 {
     public partial class Form1 : Form
     {
         private int _quantidade = 1;
+        private List<string[]> produtosOriginais = new List<string[]>();
+
+        private string RemoverAcentos(string texto)
+        {
+            if (string.IsNullOrEmpty(texto))
+                return texto;
+
+            var normalizedString = texto.Normalize(NormalizationForm.FormD);
+            var stringBuilder = new StringBuilder();
+
+            foreach (var c in normalizedString)
+            {
+                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                if (unicodeCategory != UnicodeCategory.NonSpacingMark && c != '-')
+                {
+                    stringBuilder.Append(c);
+                }
+            }
+
+            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
+        }
 
         public Form1()
         {
@@ -20,7 +43,7 @@ namespace Cantina
 
             listViewProdutos.View = View.Details;
             listViewProdutos.FullRowSelect = true;
-            listViewProdutos.Columns.Add("Produto", 150);
+            listViewProdutos.Columns.Add("Produto", 295);
             listViewProdutos.Columns.Add("Preço", 80);
 
             // Configuração da ListView do carrinho
@@ -35,6 +58,7 @@ namespace Cantina
         private void CarregarProdutosDisponiveis()
         {
             listViewProdutos.Items.Clear();
+            produtosOriginais.Clear();
 
             string[] produtos = {
                 "Pão de Queijo - R$3,50",
@@ -55,10 +79,13 @@ namespace Cantina
                 string nome = partes[0];
                 string preco = "R$" + partes[1];
 
+                produtosOriginais.Add(new string[] { nome, preco });
+
                 var item = new ListViewItem(nome);
                 item.SubItems.Add(preco);
                 listViewProdutos.Items.Add(item);
             }
+            
         }
 
         private void btnAumentar_Click(object sender, EventArgs e)
@@ -138,15 +165,21 @@ namespace Cantina
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-            if (listViewCarrinho.Items.Count == 0)
             {
-                MessageBox.Show("Adicione produtos ao carrinho primeiro!");
-                return;
-            }
+                try
+                {
+                    // Teste básico - ignora todo o código existente
+                    var formTeste = new Form();
+                    formTeste.Text = "TESTE - Formulário Simples";
+                    formTeste.ShowDialog();
 
-            MessageBox.Show($"Pedido finalizado!\nTotal: {labelTotal.Text}");
-            listViewCarrinho.Items.Clear();
-            UpdateTotal();
+                    MessageBox.Show("Se esta mensagem aparecer, o problema está no FormFinalizarPedido");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"ERRO CRÍTICO: {ex.ToString()}");
+                }
+            }
         }
 
         private void UpdateTotal()
@@ -195,7 +228,7 @@ namespace Cantina
                 return;
             }
 
-            MessageBox.Show($"Pedido finalizado!\nTotal: {labelTotal.Text}");
+            
             listViewCarrinho.Items.Clear();
             UpdateTotal();
         }
@@ -255,6 +288,7 @@ namespace Cantina
             _quantidade = 1;
             lblQuantidade.Text = "1";
             UpdateTotal();
+            txtPesquisa.Clear();
         }
 
         private void btnDiminuir_MouseEnter(object sender, EventArgs e)
@@ -317,6 +351,35 @@ namespace Cantina
             var itemSelecionado = listViewCarrinho.SelectedItems[0];
             listViewCarrinho.Items.Remove(itemSelecionado);
             UpdateTotal();
+        }
+
+        private void listViewProdutos_DrawItem(object sender, DrawListViewItemEventArgs e)
+        {
+
+
+        }
+
+        private void listViewProdutos_DrawSubItem(object sender, DrawListViewSubItemEventArgs e)
+        {
+
+        }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            string termo = RemoverAcentos(txtPesquisa.Text.ToLower());
+
+            var resultados = produtosOriginais
+                .Where(p => RemoverAcentos(p[0].ToLower()).Contains(termo))
+                .ToList();
+
+            listViewProdutos.Items.Clear();
+
+            foreach (var produto in resultados)
+            {
+                var item = new ListViewItem(produto[0]);
+                item.SubItems.Add(produto[1]);
+                listViewProdutos.Items.Add(item);
+            }
         }
     }
 }

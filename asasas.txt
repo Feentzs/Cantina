@@ -1,0 +1,344 @@
+namespace Cantina
+{
+    partial class FormFinalizarPedido
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            lblNome = new Label();
+            txtNome = new TextBox();
+            lblValor = new Label();
+            txtValor = new TextBox();
+            lblTroco = new Label();
+            btnConfirmar = new Button();
+            Dinheiro = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button1 = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            label1 = new Label();
+            pictureBox3 = new PictureBox();
+            label2 = new Label();
+            label3 = new Label();
+            insiravalor = new PictureBox();
+            trocoimg = new PictureBox();
+            sla = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)insiravalor).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)trocoimg).BeginInit();
+            ///SuspendLayout();
+            // 
+            // lblNome
+            // 
+            lblNome.AutoSize = true;
+            lblNome.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNome.Location = new Point(27, 123);
+            lblNome.Name = "lblNome";
+            lblNome.Size = new Size(138, 21);
+            lblNome.TabIndex = 0;
+            lblNome.Text = "Nome do Cliente:";
+            // 
+            // txtNome
+            // 
+            txtNome.BackColor = Color.White;
+            txtNome.BorderStyle = BorderStyle.None;
+            txtNome.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNome.Location = new Point(29, 158);
+            txtNome.Name = "txtNome";
+            txtNome.PlaceholderText = "Digite o nome do cliente...";
+            txtNome.Size = new Size(217, 18);
+            txtNome.TabIndex = 1;
+            // 
+            // lblValor
+            // 
+            lblValor.AutoSize = true;
+            lblValor.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblValor.Location = new Point(19, 421);
+            lblValor.Name = "lblValor";
+            lblValor.Size = new Size(125, 21);
+            lblValor.TabIndex = 3;
+            lblValor.Text = "Valor Recebido:";
+            // 
+            // txtValor
+            // 
+            txtValor.BorderStyle = BorderStyle.None;
+            txtValor.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtValor.Location = new Point(150, 424);
+            txtValor.Name = "txtValor";
+            txtValor.PlaceholderText = "Insira o Valor...";
+            txtValor.Size = new Size(139, 18);
+            txtValor.TabIndex = 4;
+            // 
+            // lblTroco
+            // 
+            lblTroco.AutoSize = true;
+            lblTroco.BackColor = Color.White;
+            lblTroco.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTroco.Location = new Point(321, 500);
+            lblTroco.Name = "lblTroco";
+            lblTroco.Size = new Size(113, 37);
+            lblTroco.TabIndex = 5;
+            lblTroco.Text = " R$0,00";
+            // 
+            // btnConfirmar
+            // 
+            btnConfirmar.BackColor = Color.White;
+            btnConfirmar.BackgroundImage = Properties.Resources.Semtitulo2;
+            btnConfirmar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnConfirmar.FlatAppearance.BorderColor = Color.White;
+            btnConfirmar.FlatAppearance.BorderSize = 0;
+            btnConfirmar.FlatAppearance.MouseDownBackColor = Color.White;
+            btnConfirmar.FlatAppearance.MouseOverBackColor = Color.White;
+            btnConfirmar.FlatStyle = FlatStyle.Flat;
+            btnConfirmar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnConfirmar.ForeColor = Color.White;
+            btnConfirmar.Location = new Point(518, 482);
+            btnConfirmar.Name = "btnConfirmar";
+            btnConfirmar.Size = new Size(358, 59);
+            btnConfirmar.TabIndex = 6;
+            btnConfirmar.Text = "Confirmar Pedido";
+            btnConfirmar.UseVisualStyleBackColor = false;
+            // btnConfirmar.Click += btnConfirmar_Click_1;
+           // btnConfirmar.MouseEnter += btnConfirmar_MouseEnter;
+           /// btnConfirmar.MouseLeave += btnConfirmar_MouseLeave;
+            // 
+            // Dinheiro
+            // 
+            Dinheiro.BackColor = Color.White;
+            Dinheiro.FlatAppearance.BorderSize = 0;
+            Dinheiro.FlatStyle = FlatStyle.Flat;
+            Dinheiro.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Dinheiro.Location = new Point(19, 339);
+            Dinheiro.Name = "Dinheiro";
+            Dinheiro.Size = new Size(135, 49);
+            Dinheiro.TabIndex = 8;
+            Dinheiro.Text = "Dinheiro";
+            Dinheiro.UseVisualStyleBackColor = false;
+            Dinheiro.Click += button1_Click;
+            Dinheiro.Enter += Dinheiro_Enter;
+            Dinheiro.Leave += Dinheiro_Leave;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.White;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Location = new Point(162, 264);
+            button2.Name = "button2";
+            button2.Size = new Size(133, 52);
+            button2.TabIndex = 9;
+            button2.Text = "Cartão Débito";
+            button2.UseVisualStyleBackColor = false;
+            button2.Enter += button2_Enter;
+            button2.Leave += button2_Leave;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.White;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.Location = new Point(19, 264);
+            button3.Name = "button3";
+            button3.Size = new Size(137, 52);
+            button3.TabIndex = 10;
+            button3.Text = "Cartão Crédito";
+            button3.UseVisualStyleBackColor = false;
+            button3.Enter += button3_Enter;
+            button3.Leave += button3_Leave;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.White;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(162, 339);
+            button1.Name = "button1";
+            button1.Size = new Size(136, 49);
+            button1.TabIndex = 11;
+            button1.Text = "Pix";
+            button1.UseVisualStyleBackColor = false;
+            button1.Enter += button1_Enter;
+            button1.Leave += button1_Leave;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.White;
+            pictureBox1.Location = new Point(473, -4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(431, 597);
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.Bolt_Finance_New__3_;
+            pictureBox2.Location = new Point(0, -19);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(189, 101);
+            pictureBox2.TabIndex = 13;
+            pictureBox2.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(174, 30);
+            label1.Name = "label1";
+            label1.Size = new Size(171, 37);
+            label1.TabIndex = 14;
+            label1.Text = "| Pagamento";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.Semtitulo;
+            pictureBox3.Location = new Point(12, 138);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(301, 55);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 15;
+            pictureBox3.TabStop = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(19, 228);
+            label2.Name = "label2";
+            label2.Size = new Size(170, 21);
+            label2.TabIndex = 16;
+            label2.Text = "Forma de Pagamento:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.White;
+            label3.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(495, 30);
+            label3.Name = "label3";
+            label3.Size = new Size(245, 37);
+            label3.TabIndex = 17;
+            label3.Text = "Resumo do Pedido";
+            // 
+            // insiravalor
+            // 
+            insiravalor.Image = Properties.Resources.Semtitulo;
+            insiravalor.Location = new Point(142, 405);
+            insiravalor.Name = "insiravalor";
+            insiravalor.Size = new Size(164, 55);
+            insiravalor.SizeMode = PictureBoxSizeMode.StretchImage;
+            insiravalor.TabIndex = 18;
+            insiravalor.TabStop = false;
+            // 
+            // trocoimg
+            // 
+            trocoimg.Image = Properties.Resources.Semtitulo;
+            trocoimg.Location = new Point(0, 466);
+            trocoimg.Name = "trocoimg";
+            trocoimg.Size = new Size(467, 102);
+            trocoimg.SizeMode = PictureBoxSizeMode.StretchImage;
+            trocoimg.TabIndex = 19;
+            trocoimg.TabStop = false;
+            // 
+            // sla
+            // 
+            sla.AutoSize = true;
+            sla.BackColor = Color.White;
+            sla.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            sla.Location = new Point(29, 500);
+            sla.Name = "sla";
+            sla.Size = new Size(96, 37);
+            sla.TabIndex = 20;
+            sla.Text = "Troco:";
+            // 
+            // FormFinalizarPedido
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(243, 241, 238);
+            ClientSize = new Size(900, 587);
+            ControlBox = false;
+            Controls.Add(sla);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(button2);
+            Controls.Add(Dinheiro);
+            Controls.Add(lblNome);
+            Controls.Add(txtNome);
+            Controls.Add(pictureBox3);
+            Controls.Add(label1);
+            Controls.Add(pictureBox2);
+            Controls.Add(button1);
+            Controls.Add(button3);
+            Controls.Add(btnConfirmar);
+            Controls.Add(lblTroco);
+            Controls.Add(txtValor);
+            Controls.Add(lblValor);
+            Controls.Add(pictureBox1);
+            Controls.Add(insiravalor);
+            Controls.Add(trocoimg);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "FormFinalizarPedido";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Finalizar Pedido";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)insiravalor).EndInit();
+            ((System.ComponentModel.ISupportInitialize)trocoimg).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Label lblNome;
+        private TextBox txtNome;
+        private Label lblValor;
+        private TextBox txtValor;
+        private Label lblTroco;
+        private Button btnConfirmar;
+        private Button Dinheiro;
+        private Button button2;
+        private Button button3;
+        private Button button1;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private Label label1;
+        private PictureBox pictureBox3;
+        private Label label2;
+        private Label label3;
+        private PictureBox insiravalor;
+        private PictureBox trocoimg;
+        private Label sla;
+    }
+}

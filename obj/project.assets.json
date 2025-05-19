@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\Cantina\\Cantina.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\Cantina\\Cantina\\Cantina.csproj",
       "projectName": "Cantina",
-      "projectPath": "C:\\Users\\Administrator\\source\\repos\\Cantina\\Cantina.csproj",
+      "projectPath": "C:\\Users\\Administrator\\source\\repos\\Cantina\\Cantina\\Cantina.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\source\\repos\\Cantina\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\source\\repos\\Cantina\\Cantina\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"
