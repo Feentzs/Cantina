@@ -47,7 +47,7 @@ namespace Cantina
             listViewProdutos.Columns.Add("Produto", 295);
             listViewProdutos.Columns.Add("Preço", 80);
 
-            // Configuração da ListView do carrinho
+          
             listViewCarrinho.View = View.Details;
             listViewCarrinho.FullRowSelect = true;
             listViewCarrinho.Columns.Add("Produto", 150);
@@ -61,22 +61,11 @@ namespace Cantina
             listViewProdutos.Items.Clear();
             produtosOriginais.Clear();
 
-            string[] produtos = {
-                "Pão de Queijo - R$3,50",
-                "Coxinha - R$5,00",
-                "Pastel de Carne - R$6,00",
-                "Pastel de Queijo - R$5,50",
-                "Suco Natural (300ml) - R$4,00",
-                "Refrigerante Lata - R$4,50",
-                "Hamburger Simples - R$8,00",
-                "Hamburger com Queijo - R$9,00",
-                "X-Tudo - R$12,00",
-                "Água Mineral (500ml) - R$2,50"
-            };
+            string[] linhas = File.ReadAllLines("./Arquivos/produtos.txt");
 
-            foreach (string produto in produtos)
+            foreach (string linha in linhas)
             {
-                string[] partes = produto.Split(new[] { " - R$" }, StringSplitOptions.None);
+                string[] partes = linha.Split(new[] { " - R$" }, StringSplitOptions.None);
                 string nome = partes[0];
                 string preco = "R$" + partes[1];
 
@@ -87,7 +76,8 @@ namespace Cantina
                 listViewProdutos.Items.Add(item);
             }
 
-        }
+            }
+        
 
         private void btnAumentar_Click(object sender, EventArgs e)
         {
@@ -151,7 +141,9 @@ namespace Cantina
             UpdateTotal();
         }
 
-        private void btnRemover_Click(object sender, EventArgs e)
+        
+        
+            private void btnRemover_Click_1(object sender, EventArgs e)
         {
             if (listViewCarrinho.SelectedItems.Count == 0)
             {
@@ -160,9 +152,29 @@ namespace Cantina
             }
 
             var itemSelecionado = listViewCarrinho.SelectedItems[0];
-            listViewCarrinho.Items.Remove(itemSelecionado);
+            string nomeProduto = itemSelecionado.Text;
+            int quantidadeAtual = int.Parse(itemSelecionado.SubItems[2].Text);
+            int quantidadeRemover = _quantidade; // Usa a quantidade dos botões +/-
+            decimal precoUnitario = decimal.Parse(itemSelecionado.SubItems[1].Text.Replace("R$", "").Trim(),
+                                                NumberStyles.Currency, new CultureInfo("pt-BR"));
+
+            if (quantidadeRemover >= quantidadeAtual)
+            {
+                listViewCarrinho.Items.Remove(itemSelecionado);
+            }
+            else
+            {
+                quantidadeAtual -= quantidadeRemover;
+                itemSelecionado.SubItems[2].Text = quantidadeAtual.ToString();
+                itemSelecionado.SubItems[3].Text = (quantidadeAtual * precoUnitario).ToString("C", new CultureInfo("pt-BR"));
+            }
+
             UpdateTotal();
-        }
+            _quantidade = 1; 
+            lblQuantidade.Text = "1";
+            }
+        
+        
 
 
         private void UpdateTotal()
@@ -219,25 +231,12 @@ namespace Cantina
             var formFinalizar = new FormFinalizarPedido(listViewCarrinho.Items, total);
             if (formFinalizar.ShowDialog() == DialogResult.OK)
             {
-                // Pedido confirmado
+                
                 listViewCarrinho.Items.Clear();
                 UpdateTotal();
             }
         }
-        private void CalcularTotal()
-        {
-            TotalCarrinho = 0;
-            foreach (ListViewItem item in listViewCarrinho.Items)
-            {
-                // Converte o subtotal (R$5,00 → 5.00)
-                string subtotalStr = item.SubItems[3].Text.Replace("R$", "").Trim();
-                if (decimal.TryParse(subtotalStr, out decimal subtotal))
-                {
-                    TotalCarrinho += subtotal;
-                }
-            }
-            
-        }
+ 
 
         private void btnAdicionar_MouseEnter(object sender, EventArgs e)
         {
@@ -262,7 +261,7 @@ namespace Cantina
             string precoText = selecionado.SubItems[1].Text.Replace("R$", "").Trim();
             decimal preco = decimal.Parse(precoText, NumberStyles.Currency, new CultureInfo("pt-BR"));
 
-            // Verifica se o produto já existe no carrinho
+           
             ListViewItem existente = null;
             foreach (ListViewItem item in listViewCarrinho.Items)
             {
@@ -275,14 +274,14 @@ namespace Cantina
 
             if (existente != null)
             {
-                // Atualiza quantidade existente
+                
                 int qtd = int.Parse(existente.SubItems[2].Text) + _quantidade;
                 existente.SubItems[2].Text = qtd.ToString();
                 existente.SubItems[3].Text = (qtd * preco).ToString("C", new CultureInfo("pt-BR"));
             }
             else
             {
-                // Adiciona novo item ao carrinho
+                
                 var novoItem = new ListViewItem(nome);
                 novoItem.SubItems.Add(preco.ToString("C", new CultureInfo("pt-BR")));
                 novoItem.SubItems.Add(_quantidade.ToString());
@@ -290,7 +289,7 @@ namespace Cantina
                 listViewCarrinho.Items.Add(novoItem);
             }
 
-            // Reseta a quantidade
+            
             _quantidade = 1;
             lblQuantidade.Text = "1";
             UpdateTotal();
@@ -346,19 +345,7 @@ namespace Cantina
             btnRemover.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
         }
 
-        private void btnRemover_Click_1(object sender, EventArgs e)
-        {
-            if (listViewCarrinho.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Selecione um produto no carrinho para remover.");
-                return;
-            }
-
-            var itemSelecionado = listViewCarrinho.SelectedItems[0];
-            listViewCarrinho.Items.Remove(itemSelecionado);
-            UpdateTotal();
-        }
-
+        
         private void listViewProdutos_DrawItem(object sender, DrawListViewItemEventArgs e)
         {
 

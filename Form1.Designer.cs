@@ -200,9 +200,9 @@
             btnAdicionar.FlatStyle = FlatStyle.Flat;
             btnAdicionar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdicionar.ForeColor = Color.White;
-            btnAdicionar.Location = new Point(224, 542);
+            btnAdicionar.Location = new Point(192, 554);
             btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(207, 63);
+            btnAdicionar.Size = new Size(239, 59);
             btnAdicionar.TabIndex = 24;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = false;
@@ -221,7 +221,7 @@
             btnDiminuir.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDiminuir.ForeColor = Color.Black;
             btnDiminuir.Image = (Image)resources.GetObject("btnDiminuir.Image");
-            btnDiminuir.Location = new Point(50, 542);
+            btnDiminuir.Location = new Point(50, 566);
             btnDiminuir.Name = "btnDiminuir";
             btnDiminuir.RightToLeft = RightToLeft.No;
             btnDiminuir.Size = new Size(28, 30);
@@ -240,7 +240,7 @@
             btnAumentar.FlatStyle = FlatStyle.Flat;
             btnAumentar.ForeColor = SystemColors.ControlText;
             btnAumentar.Image = (Image)resources.GetObject("btnAumentar.Image");
-            btnAumentar.Location = new Point(141, 542);
+            btnAumentar.Location = new Point(146, 566);
             btnAumentar.Name = "btnAumentar";
             btnAumentar.Size = new Size(28, 30);
             btnAumentar.TabIndex = 26;
@@ -254,7 +254,7 @@
             lblQuantidade.AutoSize = true;
             lblQuantidade.BackColor = Color.White;
             lblQuantidade.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblQuantidade.Location = new Point(101, 544);
+            lblQuantidade.Location = new Point(101, 567);
             lblQuantidade.Name = "lblQuantidade";
             lblQuantidade.Size = new Size(20, 25);
             lblQuantidade.TabIndex = 27;
@@ -272,9 +272,9 @@
             btnRemover.FlatStyle = FlatStyle.Flat;
             btnRemover.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRemover.ForeColor = Color.White;
-            btnRemover.Location = new Point(224, 611);
+            btnRemover.Location = new Point(192, 648);
             btnRemover.Name = "btnRemover";
-            btnRemover.Size = new Size(207, 63);
+            btnRemover.Size = new Size(239, 59);
             btnRemover.TabIndex = 28;
             btnRemover.Text = "Remover";
             btnRemover.UseVisualStyleBackColor = false;

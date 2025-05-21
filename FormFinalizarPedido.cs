@@ -14,13 +14,13 @@ namespace Cantina
             InitializeComponent();
             this.totalPedido = total;
 
-            // Configuração inicial
+            
             ConfigurarListViewResumo();
             CarregarItensCarrinho(itensCarrinho);
             ConfigurarBotoesPagamento();
             EsconderControlesTroco();
 
-            // Exibe o total
+            
             lblTotal.Text = total.ToString("C", new CultureInfo("pt-BR"));
         }
 
@@ -38,9 +38,9 @@ namespace Cantina
             listViewResumo.Items.Clear();
             foreach (ListViewItem item in itensCarrinho)
             {
-                ListViewItem novoItem = new ListViewItem(item.Text); // Nome do produto
-                novoItem.SubItems.Add(item.SubItems[2].Text); // Quantidade
-                novoItem.SubItems.Add(item.SubItems[3].Text); // Subtotal
+                ListViewItem novoItem = new ListViewItem(item.Text); 
+                novoItem.SubItems.Add(item.SubItems[2].Text); 
+                novoItem.SubItems.Add(item.SubItems[3].Text); 
                 listViewResumo.Items.Add(novoItem);
             }
         }
@@ -56,6 +56,7 @@ namespace Cantina
         private void EsconderControlesTroco()
         {
             lblValorRecebido.Visible = false;
+            btnCancelar.Visible = true;
             txtValorRecebido.Visible = false;
             lblTroco.Visible = false;
             lblValorTroco.Visible = false;
@@ -72,6 +73,7 @@ namespace Cantina
             lblTroco.Visible = true;
             lblValorTroco.Visible = true;
             trocoimg.Visible = true;
+            btnCancelar.Visible = false;
             txtValorRecebido.Focus();
         }
 
@@ -181,15 +183,23 @@ namespace Cantina
                     return false;
                 }
             }
-            
+
 
             return true;
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click_1(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Deseja cancelar o pedido?", "Cantina", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                
+            }
+           
         }
 
         private void btnConfirmar_MouseEnter(object sender, EventArgs e)
@@ -204,6 +214,14 @@ namespace Cantina
             btnConfirmar.Image = Properties.Resources.Semtitulo2;
         }
 
-        
+        private void btnCancelar_MouseEnter(object sender, EventArgs e)
+        {
+            btnCancelar.ForeColor = ColorTranslator.FromHtml("#ff3000");
+        }
+
+        private void btnCancelar_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancelar.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+        }
     }
 }

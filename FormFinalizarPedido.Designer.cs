@@ -50,6 +50,8 @@
             listViewResumo = new ListView();
             lblTotal = new Label();
             label4 = new Label();
+            btnCancelar = new Button();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -284,7 +286,7 @@
             listViewResumo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listViewResumo.Location = new Point(495, 84);
             listViewResumo.Name = "listViewResumo";
-            listViewResumo.Size = new Size(381, 304);
+            listViewResumo.Size = new Size(381, 337);
             listViewResumo.TabIndex = 21;
             listViewResumo.UseCompatibleStateImageBehavior = false;
             // 
@@ -304,11 +306,44 @@
             label4.AutoSize = true;
             label4.BackColor = Color.White;
             label4.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(495, 424);
+            label4.Location = new Point(502, 424);
             label4.Name = "label4";
             label4.Size = new Size(89, 37);
             label4.TabIndex = 23;
             label4.Text = "Total:";
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackgroundImage = Properties.Resources.Semtitulo2;
+            btnCancelar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnCancelar.FlatAppearance.BorderColor = Color.FromArgb(243, 241, 238);
+            btnCancelar.FlatAppearance.BorderSize = 0;
+            btnCancelar.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 241, 238);
+            btnCancelar.FlatAppearance.MouseOverBackColor = Color.FromArgb(243, 241, 238);
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.Location = new Point(106, 478);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(239, 59);
+            btnCancelar.TabIndex = 24;
+            btnCancelar.Text = "Cancelar Pedido";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click_1;
+            btnCancelar.MouseEnter += btnCancelar_MouseEnter;
+            btnCancelar.MouseLeave += btnCancelar_MouseLeave;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.White;
+            label5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.ActiveBorder;
+            label5.Location = new Point(495, 409);
+            label5.Name = "label5";
+            label5.Size = new Size(387, 15);
+            label5.TabIndex = 25;
+            label5.Text = "-----------------------------------------------------------------------------------------------";
             // 
             // FormFinalizarPedido
             // 
@@ -317,6 +352,8 @@
             BackColor = Color.FromArgb(243, 241, 238);
             ClientSize = new Size(900, 587);
             ControlBox = false;
+            Controls.Add(label5);
+            Controls.Add(btnCancelar);
             Controls.Add(label4);
             Controls.Add(lblTotal);
             Controls.Add(listViewResumo);
@@ -377,5 +414,7 @@
         private ListView listViewResumo;
         private Label lblTotal;
         private Label label4;
+        private Button btnCancelar;
+        private Label label5;
     }
 }
