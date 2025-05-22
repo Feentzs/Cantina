@@ -79,7 +79,7 @@
             // listViewProdutos
             // 
             listViewProdutos.BorderStyle = BorderStyle.None;
-            listViewProdutos.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            listViewProdutos.Font = new Font("Inter", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listViewProdutos.Location = new Point(50, 251);
             listViewProdutos.Name = "listViewProdutos";
             listViewProdutos.Size = new Size(381, 285);
@@ -112,11 +112,11 @@
             // 
             labelTotal.AutoSize = true;
             labelTotal.BackColor = Color.White;
-            labelTotal.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTotal.Font = new Font("Inter", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelTotal.ForeColor = Color.Black;
-            labelTotal.Location = new Point(858, 524);
+            labelTotal.Location = new Point(858, 529);
             labelTotal.Name = "labelTotal";
-            labelTotal.Size = new Size(106, 37);
+            labelTotal.Size = new Size(112, 33);
             labelTotal.TabIndex = 18;
             labelTotal.Text = "R$0,00";
             labelTotal.Click += labelTotal_Click;
@@ -137,10 +137,10 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.White;
-            label2.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Agrandir Narrow Bold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(605, 151);
             label2.Name = "label2";
-            label2.Size = new Size(126, 31);
+            label2.Size = new Size(126, 36);
             label2.TabIndex = 20;
             label2.Text = "Carrinho";
             // 
@@ -148,10 +148,10 @@
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.White;
-            label4.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(605, 524);
+            label4.Font = new Font("Inter", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(605, 529);
             label4.Name = "label4";
-            label4.Size = new Size(89, 37);
+            label4.Size = new Size(90, 33);
             label4.TabIndex = 21;
             label4.Text = "Total:";
             // 
@@ -165,7 +165,7 @@
             btnFinalizar.FlatAppearance.MouseDownBackColor = Color.White;
             btnFinalizar.FlatAppearance.MouseOverBackColor = Color.White;
             btnFinalizar.FlatStyle = FlatStyle.Flat;
-            btnFinalizar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFinalizar.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnFinalizar.ForeColor = Color.White;
             btnFinalizar.Location = new Point(605, 611);
             btnFinalizar.Name = "btnFinalizar";
@@ -181,10 +181,10 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.White;
-            label1.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Agrandir Narrow Bold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(50, 151);
             label1.Name = "label1";
-            label1.Size = new Size(131, 31);
+            label1.Size = new Size(130, 36);
             label1.TabIndex = 23;
             label1.Text = "Produtos";
             // 
@@ -198,7 +198,7 @@
             btnAdicionar.FlatAppearance.MouseDownBackColor = Color.White;
             btnAdicionar.FlatAppearance.MouseOverBackColor = Color.White;
             btnAdicionar.FlatStyle = FlatStyle.Flat;
-            btnAdicionar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdicionar.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdicionar.ForeColor = Color.White;
             btnAdicionar.Location = new Point(192, 554);
             btnAdicionar.Name = "btnAdicionar";
@@ -253,10 +253,10 @@
             // 
             lblQuantidade.AutoSize = true;
             lblQuantidade.BackColor = Color.White;
-            lblQuantidade.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblQuantidade.Location = new Point(101, 567);
+            lblQuantidade.Font = new Font("Inter", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblQuantidade.Location = new Point(101, 573);
             lblQuantidade.Name = "lblQuantidade";
-            lblQuantidade.Size = new Size(20, 25);
+            lblQuantidade.Size = new Size(18, 23);
             lblQuantidade.TabIndex = 27;
             lblQuantidade.Text = "1";
             // 
@@ -270,7 +270,7 @@
             btnRemover.FlatAppearance.MouseDownBackColor = Color.White;
             btnRemover.FlatAppearance.MouseOverBackColor = Color.White;
             btnRemover.FlatStyle = FlatStyle.Flat;
-            btnRemover.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRemover.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRemover.ForeColor = Color.White;
             btnRemover.Location = new Point(192, 648);
             btnRemover.Name = "btnRemover";
@@ -286,11 +286,11 @@
             // 
             txtPesquisa.BackColor = Color.FromArgb(243, 241, 238);
             txtPesquisa.BorderStyle = BorderStyle.None;
-            txtPesquisa.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPesquisa.Location = new Point(104, 205);
+            txtPesquisa.Font = new Font("Inter", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPesquisa.Location = new Point(104, 209);
             txtPesquisa.Name = "txtPesquisa";
             txtPesquisa.PlaceholderText = "Pesquisar produto...";
-            txtPesquisa.Size = new Size(306, 26);
+            txtPesquisa.Size = new Size(306, 23);
             txtPesquisa.TabIndex = 29;
             txtPesquisa.TextChanged += txtPesquisa_TextChanged;
             // 

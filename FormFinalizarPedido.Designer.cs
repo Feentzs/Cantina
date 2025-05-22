@@ -62,10 +62,10 @@
             // lblNome
             // 
             lblNome.AutoSize = true;
-            lblNome.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNome.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblNome.Location = new Point(27, 123);
             lblNome.Name = "lblNome";
-            lblNome.Size = new Size(138, 21);
+            lblNome.Size = new Size(141, 20);
             lblNome.TabIndex = 0;
             lblNome.Text = "Nome do Cliente:";
             // 
@@ -73,31 +73,31 @@
             // 
             txtNomeCliente.BackColor = Color.White;
             txtNomeCliente.BorderStyle = BorderStyle.None;
-            txtNomeCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNomeCliente.Location = new Point(29, 158);
+            txtNomeCliente.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNomeCliente.Location = new Point(29, 160);
             txtNomeCliente.Name = "txtNomeCliente";
             txtNomeCliente.PlaceholderText = "Digite o nome do cliente...";
-            txtNomeCliente.Size = new Size(217, 18);
+            txtNomeCliente.Size = new Size(217, 16);
             txtNomeCliente.TabIndex = 1;
             // 
             // lblValorRecebido
             // 
             lblValorRecebido.AutoSize = true;
-            lblValorRecebido.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblValorRecebido.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblValorRecebido.Location = new Point(19, 421);
             lblValorRecebido.Name = "lblValorRecebido";
-            lblValorRecebido.Size = new Size(125, 21);
+            lblValorRecebido.Size = new Size(129, 20);
             lblValorRecebido.TabIndex = 3;
             lblValorRecebido.Text = "Valor Recebido:";
             // 
             // txtValorRecebido
             // 
             txtValorRecebido.BorderStyle = BorderStyle.None;
-            txtValorRecebido.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtValorRecebido.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtValorRecebido.Location = new Point(150, 424);
             txtValorRecebido.Name = "txtValorRecebido";
             txtValorRecebido.PlaceholderText = "Insira o Valor...";
-            txtValorRecebido.Size = new Size(139, 18);
+            txtValorRecebido.Size = new Size(139, 16);
             txtValorRecebido.TabIndex = 4;
             txtValorRecebido.TextChanged += txtValorRecebido_TextChanged;
             // 
@@ -105,10 +105,10 @@
             // 
             lblValorTroco.AutoSize = true;
             lblValorTroco.BackColor = Color.White;
-            lblValorTroco.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblValorTroco.Location = new Point(321, 500);
+            lblValorTroco.Font = new Font("Inter", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblValorTroco.Location = new Point(321, 505);
             lblValorTroco.Name = "lblValorTroco";
-            lblValorTroco.Size = new Size(113, 37);
+            lblValorTroco.Size = new Size(118, 33);
             lblValorTroco.TabIndex = 5;
             lblValorTroco.Text = " R$0,00";
             // 
@@ -122,9 +122,9 @@
             btnConfirmar.FlatAppearance.MouseDownBackColor = Color.White;
             btnConfirmar.FlatAppearance.MouseOverBackColor = Color.White;
             btnConfirmar.FlatStyle = FlatStyle.Flat;
-            btnConfirmar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnConfirmar.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConfirmar.ForeColor = Color.White;
-            btnConfirmar.Location = new Point(518, 482);
+            btnConfirmar.Location = new Point(518, 487);
             btnConfirmar.Name = "btnConfirmar";
             btnConfirmar.Size = new Size(358, 59);
             btnConfirmar.TabIndex = 6;
@@ -139,7 +139,7 @@
             btnDinheiro.BackColor = Color.White;
             btnDinheiro.FlatAppearance.BorderSize = 0;
             btnDinheiro.FlatStyle = FlatStyle.Flat;
-            btnDinheiro.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDinheiro.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDinheiro.Location = new Point(19, 339);
             btnDinheiro.Name = "btnDinheiro";
             btnDinheiro.Size = new Size(135, 49);
@@ -153,7 +153,7 @@
             btnDebito.BackColor = Color.White;
             btnDebito.FlatAppearance.BorderSize = 0;
             btnDebito.FlatStyle = FlatStyle.Flat;
-            btnDebito.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDebito.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDebito.Location = new Point(162, 264);
             btnDebito.Name = "btnDebito";
             btnDebito.Size = new Size(133, 52);
@@ -167,7 +167,7 @@
             btnCredito.BackColor = Color.White;
             btnCredito.FlatAppearance.BorderSize = 0;
             btnCredito.FlatStyle = FlatStyle.Flat;
-            btnCredito.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCredito.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCredito.Location = new Point(19, 264);
             btnCredito.Name = "btnCredito";
             btnCredito.Size = new Size(137, 52);
@@ -181,7 +181,7 @@
             btnPix.BackColor = Color.White;
             btnPix.FlatAppearance.BorderSize = 0;
             btnPix.FlatStyle = FlatStyle.Flat;
-            btnPix.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPix.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPix.Location = new Point(162, 339);
             btnPix.Name = "btnPix";
             btnPix.Size = new Size(136, 49);
@@ -211,10 +211,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(174, 30);
+            label1.Font = new Font("Inter SemiBold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(174, 38);
             label1.Name = "label1";
-            label1.Size = new Size(171, 37);
+            label1.Size = new Size(181, 33);
             label1.TabIndex = 14;
             label1.Text = "| Pagamento";
             // 
@@ -231,10 +231,10 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(19, 228);
             label2.Name = "label2";
-            label2.Size = new Size(170, 21);
+            label2.Size = new Size(175, 20);
             label2.TabIndex = 16;
             label2.Text = "Forma de Pagamento:";
             // 
@@ -242,10 +242,10 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.White;
-            label3.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Inter SemiBold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(495, 30);
             label3.Name = "label3";
-            label3.Size = new Size(245, 37);
+            label3.Size = new Size(258, 33);
             label3.TabIndex = 17;
             label3.Text = "Resumo do Pedido";
             // 
@@ -273,10 +273,10 @@
             // 
             lblTroco.AutoSize = true;
             lblTroco.BackColor = Color.White;
-            lblTroco.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTroco.Location = new Point(29, 500);
+            lblTroco.Font = new Font("Inter", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTroco.Location = new Point(29, 505);
             lblTroco.Name = "lblTroco";
-            lblTroco.Size = new Size(96, 37);
+            lblTroco.Size = new Size(100, 33);
             lblTroco.TabIndex = 20;
             lblTroco.Text = "Troco:";
             // 
@@ -294,10 +294,10 @@
             // 
             lblTotal.AutoSize = true;
             lblTotal.BackColor = Color.White;
-            lblTotal.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotal.Location = new Point(770, 424);
+            lblTotal.Font = new Font("Inter", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotal.Location = new Point(765, 429);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(106, 37);
+            lblTotal.Size = new Size(112, 33);
             lblTotal.TabIndex = 22;
             lblTotal.Text = "R$0,00";
             // 
@@ -305,10 +305,10 @@
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.White;
-            label4.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(502, 424);
+            label4.Font = new Font("Inter", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(507, 429);
             label4.Name = "label4";
-            label4.Size = new Size(89, 37);
+            label4.Size = new Size(90, 33);
             label4.TabIndex = 23;
             label4.Text = "Total:";
             // 
@@ -323,7 +323,7 @@
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(106, 478);
+            btnCancelar.Location = new Point(89, 489);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(239, 59);
             btnCancelar.TabIndex = 24;
