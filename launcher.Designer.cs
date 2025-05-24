@@ -34,6 +34,7 @@
             label1 = new Label();
             button1 = new Button();
             pictureBox2 = new PictureBox();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -114,12 +115,33 @@
             pictureBox2.TabIndex = 29;
             pictureBox2.TabStop = false;
             // 
+            // button2
+            // 
+            button2.BackColor = Color.White;
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2.FlatAppearance.BorderColor = Color.White;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseDownBackColor = Color.White;
+            button2.FlatAppearance.MouseOverBackColor = Color.White;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(255, 285);
+            button2.Name = "button2";
+            button2.Size = new Size(239, 59);
+            button2.TabIndex = 30;
+            button2.Text = "Tela Cozinha";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // launcher
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(243, 241, 238);
             ClientSize = new Size(800, 450);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
@@ -140,5 +162,6 @@
         private Label label1;
         private Button button1;
         private PictureBox pictureBox2;
+        private Button button2;
     }
 }

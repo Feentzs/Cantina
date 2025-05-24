@@ -53,5 +53,11 @@ namespace Cantina
         {
             button1.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TelaCozinha Cozinha = new TelaCozinha();
+            Cozinha.Show();
+        }
     }
 }
