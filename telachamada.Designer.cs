@@ -1,6 +1,6 @@
 ﻿namespace Cantina
 {
-    partial class telabalcão
+    partial class telachamada
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(telabalcão));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(telachamada));
             pictureBox1 = new PictureBox();
             label1 = new Label();
             pictureBox2 = new PictureBox();

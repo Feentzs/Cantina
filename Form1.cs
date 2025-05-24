@@ -61,19 +61,19 @@ namespace Cantina
             listViewProdutos.Items.Clear();
             produtosOriginais.Clear();
 
-            string[] linhas = File.ReadAllLines("./Arquivos/produtos.txt");
+           string[] linhas = File.ReadAllLines("./Arquivos/produtos.txt");
 
-            foreach (string linha in linhas)
+           foreach (string linha in linhas)
             {
-                string[] partes = linha.Split(new[] { " - R$" }, StringSplitOptions.None);
-                string nome = partes[0];
-                string preco = "R$" + partes[1];
+               string[] partes = linha.Split(new[] { " - R$" }, StringSplitOptions.None);
+               string nome = partes[0];
+               string preco = "R$" + partes[1];
 
-                produtosOriginais.Add(new string[] { nome, preco });
+               produtosOriginais.Add(new string[] { nome, preco });
 
-                var item = new ListViewItem(nome);
-                item.SubItems.Add(preco);
-                listViewProdutos.Items.Add(item);
+               var item = new ListViewItem(nome);
+               item.SubItems.Add(preco);
+               listViewProdutos.Items.Add(item);
             }
 
             }

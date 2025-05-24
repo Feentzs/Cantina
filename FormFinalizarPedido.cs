@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Cantina
 {
@@ -136,8 +137,22 @@ namespace Cantina
 
         private void btnConfirmar_Click_1(object sender, EventArgs e)
         {
+            
             if (ValidarDados())
             {
+                string pasta = Path.Combine(Application.StartupPath, "Arquivos");
+                Directory.CreateDirectory(pasta); 
+
+                string caminhoClienteAtual = Path.Combine(pasta, "cliente_atual.txt");
+                File.WriteAllText(caminhoClienteAtual, txtNomeCliente.Text.Trim());
+
+                string caminhoFila = Path.Combine(pasta, "em_preparo.txt");
+                File.AppendAllText(caminhoFila, txtNomeCliente.Text.Trim() + Environment.NewLine);
+
+                string caminhoLog = Path.Combine(pasta, "pedidos_log.txt");
+                string log = $"[{DateTime.Now}] Cliente: {txtNomeCliente.Text.Trim()} | Total: {lblTotal.Text} | Pagamento: {formaPagamento}";
+                File.AppendAllText(caminhoLog, log + Environment.NewLine);
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

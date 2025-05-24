@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Cantina
 {
-    public partial class telabalcão : Form
+    public partial class telachamada : Form
     {
-        public telabalcão()
+        public telachamada()
         {
             InitializeComponent();
         }
