@@ -7,6 +7,9 @@
     <Compile Update="FormFinalizarPedido.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="telabalcão.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="TelaPix.cs">
       <SubType>Form</SubType>
     </Compile>
