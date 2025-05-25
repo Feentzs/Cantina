@@ -40,6 +40,7 @@
             timer1 = new System.Windows.Forms.Timer(components);
             panelFila = new FlowLayoutPanel();
             timer2 = new System.Windows.Forms.Timer(components);
+            timerPiscar = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -60,11 +61,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("Agrandir Narrow Bold", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(243, 241, 238);
-            label1.Location = new Point(88, 200);
+            label1.Location = new Point(67, 200);
             label1.Name = "label1";
-            label1.Size = new Size(412, 86);
+            label1.Size = new Size(454, 86);
             label1.TabIndex = 1;
-            label1.Text = "Cliente Atual";
+            label1.Text = "Pedido Pronto";
             // 
             // pictureBox2
             // 
@@ -132,9 +133,11 @@
             // 
             // panelFila
             // 
+            panelFila.Font = new Font("Inter SemiBold", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            panelFila.ForeColor = Color.FromArgb(243, 241, 238);
             panelFila.Location = new Point(636, 308);
             panelFila.Name = "panelFila";
-            panelFila.Size = new Size(396, 395);
+            panelFila.Size = new Size(396, 421);
             panelFila.TabIndex = 7;
             // 
             // timer2
@@ -142,6 +145,12 @@
             timer2.Enabled = true;
             timer2.Interval = 3000;
             timer2.Tick += timer2_Tick;
+            // 
+            // timerPiscar
+            // 
+            timerPiscar.Enabled = true;
+            timerPiscar.Interval = 300;
+            timerPiscar.Tick += timerPiscar_Tick;
             // 
             // telachamada
             // 
@@ -180,5 +189,6 @@
         private System.Windows.Forms.Timer timer1;
         private FlowLayoutPanel panelFila;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timerPiscar;
     }
 }

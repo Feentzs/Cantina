@@ -47,11 +47,14 @@
             btnRemover = new Button();
             txtPesquisa = new TextBox();
             pictureBox4 = new PictureBox();
+            pictureBox6 = new PictureBox();
+            label5 = new Label();
             pictureBox5 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
@@ -200,7 +203,7 @@
             btnAdicionar.FlatStyle = FlatStyle.Flat;
             btnAdicionar.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdicionar.ForeColor = Color.White;
-            btnAdicionar.Location = new Point(192, 554);
+            btnAdicionar.Location = new Point(18, 651);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(239, 59);
             btnAdicionar.TabIndex = 24;
@@ -214,14 +217,15 @@
             // 
             btnDiminuir.BackColor = Color.White;
             btnDiminuir.BackgroundImageLayout = ImageLayout.Stretch;
-            btnDiminuir.FlatAppearance.BorderColor = Color.Black;
-            btnDiminuir.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnDiminuir.FlatAppearance.MouseOverBackColor = Color.Black;
+            btnDiminuir.FlatAppearance.BorderColor = Color.White;
+            btnDiminuir.FlatAppearance.BorderSize = 0;
+            btnDiminuir.FlatAppearance.MouseDownBackColor = Color.White;
+            btnDiminuir.FlatAppearance.MouseOverBackColor = Color.White;
             btnDiminuir.FlatStyle = FlatStyle.Flat;
             btnDiminuir.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDiminuir.ForeColor = Color.Black;
-            btnDiminuir.Image = (Image)resources.GetObject("btnDiminuir.Image");
-            btnDiminuir.Location = new Point(50, 566);
+            btnDiminuir.Image = Properties.Resources.menos;
+            btnDiminuir.Location = new Point(48, 595);
             btnDiminuir.Name = "btnDiminuir";
             btnDiminuir.RightToLeft = RightToLeft.No;
             btnDiminuir.Size = new Size(28, 30);
@@ -234,13 +238,14 @@
             // btnAumentar
             // 
             btnAumentar.BackColor = Color.White;
-            btnAumentar.FlatAppearance.BorderColor = Color.Black;
-            btnAumentar.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnAumentar.FlatAppearance.MouseOverBackColor = Color.Black;
+            btnAumentar.FlatAppearance.BorderColor = Color.White;
+            btnAumentar.FlatAppearance.BorderSize = 0;
+            btnAumentar.FlatAppearance.MouseDownBackColor = Color.White;
+            btnAumentar.FlatAppearance.MouseOverBackColor = Color.White;
             btnAumentar.FlatStyle = FlatStyle.Flat;
-            btnAumentar.ForeColor = SystemColors.ControlText;
-            btnAumentar.Image = (Image)resources.GetObject("btnAumentar.Image");
-            btnAumentar.Location = new Point(146, 566);
+            btnAumentar.ForeColor = Color.White;
+            btnAumentar.Image = Properties.Resources.mais;
+            btnAumentar.Location = new Point(161, 594);
             btnAumentar.Name = "btnAumentar";
             btnAumentar.Size = new Size(28, 30);
             btnAumentar.TabIndex = 26;
@@ -254,7 +259,7 @@
             lblQuantidade.AutoSize = true;
             lblQuantidade.BackColor = Color.White;
             lblQuantidade.Font = new Font("Inter", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblQuantidade.Location = new Point(101, 573);
+            lblQuantidade.Location = new Point(110, 599);
             lblQuantidade.Name = "lblQuantidade";
             lblQuantidade.Size = new Size(18, 23);
             lblQuantidade.TabIndex = 27;
@@ -263,7 +268,7 @@
             // btnRemover
             // 
             btnRemover.BackColor = Color.White;
-            btnRemover.BackgroundImage = Properties.Resources.Semtitulo2;
+            btnRemover.BackgroundImage = (Image)resources.GetObject("btnRemover.BackgroundImage");
             btnRemover.BackgroundImageLayout = ImageLayout.Stretch;
             btnRemover.FlatAppearance.BorderColor = Color.White;
             btnRemover.FlatAppearance.BorderSize = 0;
@@ -272,11 +277,10 @@
             btnRemover.FlatStyle = FlatStyle.Flat;
             btnRemover.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRemover.ForeColor = Color.White;
-            btnRemover.Location = new Point(192, 648);
+            btnRemover.Location = new Point(364, 638);
             btnRemover.Name = "btnRemover";
-            btnRemover.Size = new Size(239, 59);
+            btnRemover.Size = new Size(82, 72);
             btnRemover.TabIndex = 28;
-            btnRemover.Text = "Remover";
             btnRemover.UseVisualStyleBackColor = false;
             btnRemover.Click += btnRemover_Click_1;
             btnRemover.MouseEnter += btnRemover_MouseEnter;
@@ -305,14 +309,36 @@
             pictureBox4.TabIndex = 30;
             pictureBox4.TabStop = false;
             // 
+            // pictureBox6
+            // 
+            pictureBox6.BackColor = Color.White;
+            pictureBox6.Image = Properties.Resources.image__3_;
+            pictureBox6.Location = new Point(18, 574);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(203, 71);
+            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox6.TabIndex = 32;
+            pictureBox6.TabStop = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.White;
+            label5.Font = new Font("Inter SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(26, 553);
+            label5.Name = "label5";
+            label5.Size = new Size(93, 19);
+            label5.TabIndex = 33;
+            label5.Text = "Quantidade";
+            // 
             // pictureBox5
             // 
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(74, 211);
+            pictureBox5.Location = new Point(71, 204);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(18, 20);
+            pictureBox5.Size = new Size(30, 32);
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 31;
+            pictureBox5.TabIndex = 34;
             pictureBox5.TabStop = false;
             // 
             // Form1
@@ -322,13 +348,15 @@
             BackColor = Color.FromArgb(243, 241, 238);
             ClientSize = new Size(1030, 749);
             Controls.Add(pictureBox5);
+            Controls.Add(label5);
+            Controls.Add(btnRemover);
+            Controls.Add(btnDiminuir);
+            Controls.Add(btnAumentar);
+            Controls.Add(lblQuantidade);
+            Controls.Add(btnAdicionar);
+            Controls.Add(pictureBox6);
             Controls.Add(txtPesquisa);
             Controls.Add(pictureBox4);
-            Controls.Add(btnRemover);
-            Controls.Add(lblQuantidade);
-            Controls.Add(btnAumentar);
-            Controls.Add(btnDiminuir);
-            Controls.Add(btnAdicionar);
             Controls.Add(label1);
             Controls.Add(btnFinalizar);
             Controls.Add(label4);
@@ -340,13 +368,15 @@
             Controls.Add(listViewProdutos);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormCantina";
+            Text = "Vendas";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -371,6 +401,8 @@
         private Button btnRemover;
         private TextBox txtPesquisa;
         private PictureBox pictureBox4;
+        private PictureBox pictureBox6;
+        private Label label5;
         private PictureBox pictureBox5;
     }
 }

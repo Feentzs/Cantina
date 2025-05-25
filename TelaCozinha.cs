@@ -30,47 +30,6 @@ namespace Cantina
 
             string[] linhas = File.ReadAllLines(caminho);
 
-            foreach (string linha in linhas)
-            {
-                if (string.IsNullOrWhiteSpace(linha)) continue;
-
-                string[] partes = linha.Split(';');
-                if (partes.Length < 3) continue;
-
-                string nome = partes[0];
-                string horario = partes[1];
-                string[] itens = partes[2].Split('|');
-
-                Panel card = new Panel();
-                card.Size = new Size(250, 130);
-                card.Margin = new Padding(10);
-                card.BackColor = Color.White;
-                card.BorderStyle = BorderStyle.FixedSingle;
-
-                Label lblNome = new Label();
-                lblNome.Text = nome;
-                lblNome.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                lblNome.Location = new Point(10, 10);
-                lblNome.AutoSize = true;
-
-                Label lblHora = new Label();
-                lblHora.Text = horario;
-                lblHora.Location = new Point(10, 30);
-                lblHora.AutoSize = true;
-
-                Label lblItens = new Label();
-                lblItens.Text = string.Join("\n", itens);
-                lblItens.Location = new Point(10, 50);
-                lblItens.Size = new Size(230, 60);
-
-                card.Controls.Add(lblNome);
-                card.Controls.Add(lblHora);
-                card.Controls.Add(lblItens);
-
-                AplicarEventoClick(card, linha, card);
-
-                flowLayoutPanelPedidos.Controls.Add(card);
-            }
             bool isPrimeiro = true;
 
             foreach (string linha in linhas)
@@ -84,26 +43,30 @@ namespace Cantina
                 string horario = partes[1];
                 string[] itens = partes[2].Split('|');
 
-                Panel card = new Panel();
-                card.Size = new Size(250, 130);
+                RoundedPanel card = new RoundedPanel();
+                card.Size = new Size(210, 130);
                 card.Margin = new Padding(10);
-                card.BackColor = Color.White;
-                card.BorderStyle = BorderStyle.FixedSingle;
+                card.BackColor = ColorTranslator.FromHtml("#1A1F15");
 
                 Label lblNome = new Label();
                 lblNome.Text = nome;
-                lblNome.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                lblNome.Location = new Point(10, 10);
+                lblNome.Font = new Font("Inter", 12, FontStyle.Bold);
+                lblNome.ForeColor = ColorTranslator.FromHtml("#F3F1EE");
+                lblNome.Location = new Point(10, 20);
                 lblNome.AutoSize = true;
 
                 Label lblHora = new Label();
                 lblHora.Text = horario;
-                lblHora.Location = new Point(10, 30);
+                lblHora.Font = new Font("Inter", 10, FontStyle.Regular);
+                lblHora.ForeColor = ColorTranslator.FromHtml("#CAC4B7");
+                lblHora.Location = new Point(10, 40);
                 lblHora.AutoSize = true;
 
                 Label lblItens = new Label();
                 lblItens.Text = string.Join("\n", itens);
-                lblItens.Location = new Point(10, 50);
+                lblItens.Font = new Font("Inter", 12, FontStyle.Regular);
+                lblItens.ForeColor = ColorTranslator.FromHtml("#CAC4B7");
+                lblItens.Location = new Point(10, 60);
                 lblItens.Size = new Size(230, 60);
 
                 card.Controls.Add(lblNome);
@@ -115,12 +78,15 @@ namespace Cantina
                 {
                     Label lblPrioridade = new Label();
                     lblPrioridade.Text = "PRIORIDADE";
-                    lblPrioridade.BackColor = Color.Gold;
+                    lblPrioridade.BackColor = ColorTranslator.FromHtml("#E1FF00"); ;
                     lblPrioridade.ForeColor = Color.Black;
-                    lblPrioridade.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+                    lblPrioridade.Font = new Font("Inter", 12, FontStyle.Bold);
                     lblPrioridade.AutoSize = true;
-                    lblPrioridade.Padding = new Padding(4, 2, 4, 2);
-                    lblPrioridade.Location = new Point(150, 10); // ajusta conforme o layout
+                    lblPrioridade.Padding = new Padding(100, 3, 800, 7);
+                    lblPrioridade.Location = new Point(-50, 0);
+                    lblNome.Location = new Point(10, 40);
+                    lblHora.Location = new Point(10, 60);
+                    lblItens.Location = new Point(10, 80);
                     card.Controls.Add(lblPrioridade);
                 }
 
@@ -129,9 +95,11 @@ namespace Cantina
 
                 isPrimeiro = false;
             }
-
-
         }
+
+
+
+        
         private void AplicarEventoClick(Control controle, string linhaOriginal, Panel panel)
         {
             controle.Click += (s, ev) =>

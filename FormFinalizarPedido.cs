@@ -143,8 +143,7 @@ namespace Cantina
                 string pasta = Path.Combine(Application.StartupPath, "Arquivos");
                 Directory.CreateDirectory(pasta); 
 
-                string caminhoClienteAtual = Path.Combine(pasta, "cliente_atual.txt");
-                File.WriteAllText(caminhoClienteAtual, txtNomeCliente.Text.Trim());
+                
 
                 string caminhoFila = Path.Combine(pasta, "em_preparo.txt");
                 string nome = txtNomeCliente.Text.Trim();

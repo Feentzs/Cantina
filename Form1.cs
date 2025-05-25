@@ -298,26 +298,29 @@ namespace Cantina
 
         private void btnDiminuir_MouseEnter(object sender, EventArgs e)
         {
-            btnDiminuir.BackColor = ColorTranslator.FromHtml("#000000");
-            btnDiminuir.Image = Properties.Resources.keyboard_arrow_down_verde;
+          
+            btnDiminuir.Image = Properties.Resources.menosselecionado;
+            btnDiminuir.BackColor = Color.White;
         }
 
 
         private void btnDiminuir_MouseLeave(object sender, EventArgs e)
         {
-            btnDiminuir.BackColor = ColorTranslator.FromHtml("#FFFFFF");
-            btnDiminuir.Image = Properties.Resources.keyboard_arrow_down;
+           
+            btnDiminuir.Image = Properties.Resources.menos;
 
         }
 
         private void btnAumentar_MouseEnter(object sender, EventArgs e)
         {
-            btnAumentar.Image = Properties.Resources.keyboard_arrow_up_verde;
+            btnAumentar.Image = Properties.Resources.maisselecionado;
+            btnAumentar.BackColor = Color.White;
+            
         }
 
         private void btnAumentar_MouseLeave(object sender, EventArgs e)
         {
-            btnAumentar.Image = Properties.Resources.keyboard_arrow_up;
+            btnAumentar.Image = Properties.Resources.mais;
         }
 
         private void btnAumentar_Click_1(object sender, EventArgs e)
@@ -337,12 +340,12 @@ namespace Cantina
 
         private void btnRemover_MouseEnter(object sender, EventArgs e)
         {
-            btnRemover.ForeColor = ColorTranslator.FromHtml("#ff3000");
+            btnRemover.BackgroundImage = Properties.Resources.excluir;
         }
 
         private void btnRemover_MouseLeave(object sender, EventArgs e)
         {
-            btnRemover.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+            btnRemover.BackgroundImage = Properties.Resources.lixo;
         }
 
         

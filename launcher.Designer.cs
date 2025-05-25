@@ -147,6 +147,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(btnAdicionar);
             Controls.Add(pictureBox2);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "launcher";
             Text = "launcher";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

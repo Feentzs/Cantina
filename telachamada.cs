@@ -12,6 +12,8 @@ namespace Cantina
 {
     public partial class telachamada : Form
     {
+        private int contadorPiscar = 0;
+        private string ultimoCliente = "";
         public telachamada()
         {
             InitializeComponent();
@@ -21,16 +23,37 @@ namespace Cantina
         private void AtualizarClienteAtual()
         {
             string caminho = Path.Combine(Application.StartupPath, "Arquivos", "cliente_atual.txt");
-
+            string nome = File.ReadAllText(caminho).Trim();
             if (File.Exists(caminho))
             {
-                string nome = File.ReadAllText(caminho).Trim();
+                
                 lblClienteAtual.Text = string.IsNullOrEmpty(nome) ? "Aguardando..." : nome;
             }
             else
             {
                 lblClienteAtual.Text = "Aguardando...";
             }
+            
+            if (nome != ultimoCliente) // Só pisca se o nome mudou
+            {
+                ultimoCliente = nome;
+                lblClienteAtual.Text = nome;
+                IniciarPiscar(); // <-- chama o piscar
+            }
+        }
+
+        private void IniciarPiscar()
+        {
+            contadorPiscar = 0;
+
+            if (timerPiscar == null)
+            {
+                
+                
+                timerPiscar.Tick += timerPiscar_Tick;
+            }
+
+            timerPiscar.Start();
         }
 
         private void AtualizarEmPreparoComLabels()
@@ -53,8 +76,6 @@ namespace Cantina
 
                     Label lbl = new Label();
                     lbl.Text = nome;
-                    lbl.Font = new Font("Segoe UI", 14, FontStyle.Bold);
-                    lbl.ForeColor = Color.White;
                     lbl.BackColor = Color.FromArgb(30, 30, 30); // cinza escuro discreto
                     lbl.AutoSize = true;
                     lbl.Margin = new Padding(5);
@@ -76,6 +97,19 @@ namespace Cantina
         {
             AtualizarClienteAtual();
             AtualizarEmPreparoComLabels();
+        }
+
+        private void timerPiscar_Tick(object sender, EventArgs e)
+        {
+            lblClienteAtual.Visible = !lblClienteAtual.Visible;
+            contadorPiscar++;
+
+            // 6 mudanças = 3 piscadas (aparece/some 3x)
+            if (contadorPiscar >= 6)
+            {
+                timerPiscar.Stop();
+                lblClienteAtual.Visible = true; // garante que fique visível no final
+            }
         }
     }
 }
