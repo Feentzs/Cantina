@@ -147,7 +147,18 @@ namespace Cantina
                 File.WriteAllText(caminhoClienteAtual, txtNomeCliente.Text.Trim());
 
                 string caminhoFila = Path.Combine(pasta, "em_preparo.txt");
-                File.AppendAllText(caminhoFila, txtNomeCliente.Text.Trim() + Environment.NewLine);
+                string nome = txtNomeCliente.Text.Trim();
+                string horario = DateTime.Now.ToString("HH:mm");
+
+                List<string> produtos = new List<string>();
+
+                foreach (ListViewItem item in listViewResumo.Items)
+                {
+                    produtos.Add(item.SubItems[0].Text); 
+                }
+
+                string linhaPedido = $"{nome};{horario};{string.Join("|", produtos)}";
+                File.AppendAllText(caminhoFila, linhaPedido + Environment.NewLine);
 
                 string caminhoLog = Path.Combine(pasta, "pedidos_log.txt");
                 string log = $"[{DateTime.Now}] Cliente: {txtNomeCliente.Text.Trim()} | Total: {lblTotal.Text} | Pagamento: {formaPagamento}";

@@ -34,10 +34,12 @@
             label1 = new Label();
             pictureBox2 = new PictureBox();
             label2 = new Label();
-            label3 = new Label();
+            lblClienteAtual = new Label();
             pictureBox3 = new PictureBox();
             lblRelogio = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            panelFila = new FlowLayoutPanel();
+            timer2 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -86,18 +88,18 @@
             label2.TabIndex = 3;
             label2.Text = "Em Preparo:";
             // 
-            // label3
+            // lblClienteAtual
             // 
-            label3.Anchor = AnchorStyles.Bottom;
-            label3.AutoEllipsis = true;
-            label3.Font = new Font("Agrandir Narrow Bold", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.FromArgb(230, 255, 0);
-            label3.Location = new Point(12, 286);
-            label3.Name = "label3";
-            label3.Size = new Size(558, 209);
-            label3.TabIndex = 4;
-            label3.Text = "Exemplo Cliente Atual";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
+            lblClienteAtual.Anchor = AnchorStyles.Bottom;
+            lblClienteAtual.AutoEllipsis = true;
+            lblClienteAtual.Font = new Font("Agrandir Narrow Bold", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblClienteAtual.ForeColor = Color.FromArgb(230, 255, 0);
+            lblClienteAtual.Location = new Point(12, 286);
+            lblClienteAtual.Name = "lblClienteAtual";
+            lblClienteAtual.Size = new Size(558, 209);
+            lblClienteAtual.TabIndex = 4;
+            lblClienteAtual.Text = "Exemplo Cliente Atual";
+            lblClienteAtual.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox3
             // 
@@ -128,20 +130,34 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick_1;
             // 
-            // telabalcão
+            // panelFila
+            // 
+            panelFila.Location = new Point(636, 308);
+            panelFila.Name = "panelFila";
+            panelFila.Size = new Size(396, 395);
+            panelFila.TabIndex = 7;
+            // 
+            // timer2
+            // 
+            timer2.Enabled = true;
+            timer2.Interval = 3000;
+            timer2.Tick += timer2_Tick;
+            // 
+            // telachamada
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 25, 12);
             ClientSize = new Size(1361, 729);
+            Controls.Add(panelFila);
             Controls.Add(lblRelogio);
-            Controls.Add(label3);
+            Controls.Add(lblClienteAtual);
             Controls.Add(label2);
             Controls.Add(pictureBox2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox3);
-            Name = "telabalcão";
+            Name = "telachamada";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "telabalcão";
             WindowState = FormWindowState.Maximized;
@@ -158,9 +174,11 @@
         private Label label1;
         private PictureBox pictureBox2;
         private Label label2;
-        private Label label3;
+        private Label lblClienteAtual;
         private PictureBox pictureBox3;
         private Label lblRelogio;
         private System.Windows.Forms.Timer timer1;
+        private FlowLayoutPanel panelFila;
+        private System.Windows.Forms.Timer timer2;
     }
 }

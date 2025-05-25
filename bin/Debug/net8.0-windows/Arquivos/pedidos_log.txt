@@ -1,1 +1,9 @@
 [24/05/2025 16:11:32] Cliente: Codornildo | Total: R$ 6,00 | Pagamento: PIX
+[24/05/2025 20:28:11] Cliente: Codornilson | Total: R$ 5,50 | Pagamento: PIX
+[24/05/2025 20:41:34] Cliente: Codornilson | Total: R$ 6,00 | Pagamento: CRÉDITO
+[24/05/2025 20:48:16] Cliente: Lensdro | Total: R$ 18,50 | Pagamento: CRÉDITO
+[24/05/2025 20:52:49] Cliente: Nada | Total: R$ 5,00 | Pagamento: CRÉDITO
+[24/05/2025 21:25:02] Cliente: Ronaldo | Total: R$ 12,00 | Pagamento: CRÉDITO
+[24/05/2025 21:26:27] Cliente: Ronaldo | Total: R$ 3,50 | Pagamento: CRÉDITO
+[24/05/2025 21:53:52] Cliente: Codorna | Total: R$ 6,00 | Pagamento: CRÉDITO
+[24/05/2025 21:54:48] Cliente: Ronaldo | Total: R$ 15,50 | Pagamento: DÉBITO
