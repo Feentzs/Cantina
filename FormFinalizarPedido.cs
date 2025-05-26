@@ -82,7 +82,7 @@ namespace Cantina
         private void SelecionarFormaPagamento(Button botaoSelecionado, string forma)
         {
 
-            btnCredito.BackColor = SystemColors.Control;
+            btnCredito.BackColor = Color.White;
             btnDebito.BackColor = SystemColors.Control;
             btnDinheiro.BackColor = SystemColors.Control;
             btnPix.BackColor = SystemColors.Control;

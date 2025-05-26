@@ -54,11 +54,11 @@
             btnAdicionar.FlatStyle = FlatStyle.Flat;
             btnAdicionar.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdicionar.ForeColor = Color.White;
-            btnAdicionar.Location = new Point(510, 122);
+            btnAdicionar.Location = new Point(481, 165);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(239, 59);
             btnAdicionar.TabIndex = 25;
-            btnAdicionar.Text = "Tela de Vendas";
+            btnAdicionar.Text = " Vendas";
             btnAdicionar.UseVisualStyleBackColor = false;
             btnAdicionar.Click += btnAdicionar_Click;
             btnAdicionar.MouseEnter += btnAdicionar_MouseEnter;
@@ -98,11 +98,11 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(510, 187);
+            button1.Location = new Point(481, 230);
             button1.Name = "button1";
             button1.Size = new Size(239, 59);
             button1.TabIndex = 28;
-            button1.Text = "Tela Chamada";
+            button1.Text = "Chamada";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             button1.MouseEnter += button1_MouseEnter;
@@ -111,7 +111,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.Semtitulo;
-            pictureBox2.Location = new Point(397, -37);
+            pictureBox2.Location = new Point(444, -47);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(315, 582);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -130,11 +130,11 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(510, 252);
+            button2.Location = new Point(481, 295);
             button2.Name = "button2";
             button2.Size = new Size(239, 59);
             button2.TabIndex = 30;
-            button2.Text = "Tela Cozinha";
+            button2.Text = "Cozinha";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
@@ -143,7 +143,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.White;
             label2.Font = new Font("Agrandir Narrow Bold", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(489, 75);
+            label2.Location = new Point(464, 99);
             label2.Name = "label2";
             label2.Size = new Size(233, 26);
             label2.TabIndex = 31;
