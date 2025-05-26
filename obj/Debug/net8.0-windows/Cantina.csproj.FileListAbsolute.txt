@@ -78,3 +78,6 @@ C:\Users\Administrator\source\repos\Cantina\Cantina\Cantina\obj\Debug\net8.0-win
 C:\Users\Administrator\source\repos\Cantina\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.launcher.resources
 C:\Users\Administrator\source\repos\Cantina\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.telachamada.resources
 C:\Users\Administrator\source\repos\Cantina\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.TelaCozinha.resources
+C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.launcher.resources
+C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.telachamada.resources
+C:\Users\25162920\source\repos\Cantina\Cantina\obj\Debug\net8.0-windows\Cantina.TelaCozinha.resources

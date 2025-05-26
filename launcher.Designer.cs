@@ -35,8 +35,11 @@
             button1 = new Button();
             pictureBox2 = new PictureBox();
             button2 = new Button();
+            label2 = new Label();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // btnAdicionar
@@ -51,7 +54,7 @@
             btnAdicionar.FlatStyle = FlatStyle.Flat;
             btnAdicionar.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdicionar.ForeColor = Color.White;
-            btnAdicionar.Location = new Point(255, 110);
+            btnAdicionar.Location = new Point(510, 122);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(239, 59);
             btnAdicionar.TabIndex = 25;
@@ -95,7 +98,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(255, 202);
+            button1.Location = new Point(510, 187);
             button1.Name = "button1";
             button1.Size = new Size(239, 59);
             button1.TabIndex = 28;
@@ -108,7 +111,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.Semtitulo;
-            pictureBox2.Location = new Point(215, -42);
+            pictureBox2.Location = new Point(397, -37);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(315, 582);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -127,7 +130,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(255, 285);
+            button2.Location = new Point(510, 252);
             button2.Name = "button2";
             button2.Size = new Size(239, 59);
             button2.TabIndex = 30;
@@ -135,12 +138,35 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.White;
+            label2.Font = new Font("Agrandir Narrow Bold", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(489, 75);
+            label2.Name = "label2";
+            label2.Size = new Size(233, 26);
+            label2.TabIndex = 31;
+            label2.Text = "Selecione a Tela Desejada:";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.Adobe_Express___file;
+            pictureBox3.Location = new Point(44, 102);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(328, 336);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 32;
+            pictureBox3.TabStop = false;
+            // 
             // launcher
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(243, 241, 238);
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox3);
+            Controls.Add(label2);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
@@ -152,6 +178,7 @@
             Text = "launcher";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -164,5 +191,7 @@
         private Button button1;
         private PictureBox pictureBox2;
         private Button button2;
+        private Label label2;
+        private PictureBox pictureBox3;
     }
 }

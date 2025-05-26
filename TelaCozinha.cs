@@ -73,7 +73,7 @@ namespace Cantina
                 card.Controls.Add(lblHora);
                 card.Controls.Add(lblItens);
 
-                // 🔥 Só adiciona essa label se for o primeiro card
+                
                 if (isPrimeiro)
                 {
                     Label lblPrioridade = new Label();

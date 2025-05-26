@@ -75,6 +75,7 @@ namespace Cantina
             lblValorTroco.Visible = true;
             trocoimg.Visible = true;
             btnCancelar.Visible = false;
+            insiravalor.Visible = true;
             txtValorRecebido.Focus();
         }
 
@@ -160,7 +161,7 @@ namespace Cantina
                 File.AppendAllText(caminhoFila, linhaPedido + Environment.NewLine);
 
                 string caminhoLog = Path.Combine(pasta, "pedidos_log.txt");
-                string log = $"[{DateTime.Now}] Cliente: {txtNomeCliente.Text.Trim()} | Total: {lblTotal.Text} | Pagamento: {formaPagamento}";
+                string log = $"[{DateTime.Now}] Cliente: {txtNomeCliente.Text.Trim()} | Total: {lblTotal.Text} | Pagamento: {formaPagamento} |Produtos: {string.Join(" | ", produtos)}";
                 File.AppendAllText(caminhoLog, log + Environment.NewLine);
 
                 this.DialogResult = DialogResult.OK;

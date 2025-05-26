@@ -1,2 +1,2 @@
-Codornildao;10:15;Suco Natural (300ml)
-Nildo;10:26;Água Mineral (500ml)
+Codornildo;09:23;Pastel de Queijo|Hamburger com Queijo
+CodornildoDiferente;09:24;Hamburger Simples|Refrigerante Lata

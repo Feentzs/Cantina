@@ -99,7 +99,7 @@
             lblClienteAtual.Name = "lblClienteAtual";
             lblClienteAtual.Size = new Size(558, 209);
             lblClienteAtual.TabIndex = 4;
-            lblClienteAtual.Text = "Exemplo Cliente Atual";
+            lblClienteAtual.Text = "Aguardando....";
             lblClienteAtual.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox3
@@ -169,7 +169,6 @@
             Name = "telachamada";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "telabalcão";
-            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

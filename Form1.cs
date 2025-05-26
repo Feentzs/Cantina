@@ -47,7 +47,7 @@ namespace Cantina
             listViewProdutos.Columns.Add("Produto", 295);
             listViewProdutos.Columns.Add("Preço", 80);
 
-          
+
             listViewCarrinho.View = View.Details;
             listViewCarrinho.FullRowSelect = true;
             listViewCarrinho.Columns.Add("Produto", 150);
@@ -61,23 +61,23 @@ namespace Cantina
             listViewProdutos.Items.Clear();
             produtosOriginais.Clear();
 
-           string[] linhas = File.ReadAllLines("./Arquivos/produtos.txt");
+            string[] linhas = File.ReadAllLines("./Arquivos/produtos.txt");
 
-           foreach (string linha in linhas)
+            foreach (string linha in linhas)
             {
-               string[] partes = linha.Split(new[] { " - R$" }, StringSplitOptions.None);
-               string nome = partes[0];
-               string preco = "R$" + partes[1];
+                string[] partes = linha.Split(new[] { " - R$" }, StringSplitOptions.None);
+                string nome = partes[0];
+                string preco = "R$" + partes[1];
 
-               produtosOriginais.Add(new string[] { nome, preco });
+                produtosOriginais.Add(new string[] { nome, preco });
 
-               var item = new ListViewItem(nome);
-               item.SubItems.Add(preco);
-               listViewProdutos.Items.Add(item);
+                var item = new ListViewItem(nome);
+                item.SubItems.Add(preco);
+                listViewProdutos.Items.Add(item);
             }
 
-            }
-        
+        }
+
 
         private void btnAumentar_Click(object sender, EventArgs e)
         {
@@ -129,8 +129,8 @@ namespace Cantina
             {
 
                 var novoItem = new ListViewItem(nome);
-                novoItem.SubItems.Add(preco.ToString("C", new CultureInfo("pt-BR")));
                 novoItem.SubItems.Add(_quantidade.ToString());
+                novoItem.SubItems.Add(preco.ToString("C", new CultureInfo("pt-BR")));
                 novoItem.SubItems.Add((_quantidade * preco).ToString("C", new CultureInfo("pt-BR")));
                 listViewCarrinho.Items.Add(novoItem);
             }
@@ -141,9 +141,9 @@ namespace Cantina
             UpdateTotal();
         }
 
-        
-        
-            private void btnRemover_Click_1(object sender, EventArgs e)
+
+
+        private void btnRemover_Click_1(object sender, EventArgs e)
         {
             if (listViewCarrinho.SelectedItems.Count == 0)
             {
@@ -154,7 +154,7 @@ namespace Cantina
             var itemSelecionado = listViewCarrinho.SelectedItems[0];
             string nomeProduto = itemSelecionado.Text;
             int quantidadeAtual = int.Parse(itemSelecionado.SubItems[2].Text);
-            int quantidadeRemover = _quantidade; // Usa a quantidade dos botões +/-
+            int quantidadeRemover = _quantidade; 
             decimal precoUnitario = decimal.Parse(itemSelecionado.SubItems[1].Text.Replace("R$", "").Trim(),
                                                 NumberStyles.Currency, new CultureInfo("pt-BR"));
 
@@ -170,11 +170,11 @@ namespace Cantina
             }
 
             UpdateTotal();
-            _quantidade = 1; 
+            _quantidade = 1;
             lblQuantidade.Text = "1";
-            }
-        
-        
+        }
+
+
 
 
         private void UpdateTotal()
@@ -231,12 +231,12 @@ namespace Cantina
             var formFinalizar = new FormFinalizarPedido(listViewCarrinho.Items, total);
             if (formFinalizar.ShowDialog() == DialogResult.OK)
             {
-                
+
                 listViewCarrinho.Items.Clear();
                 UpdateTotal();
             }
         }
- 
+
 
         private void btnAdicionar_MouseEnter(object sender, EventArgs e)
         {
@@ -261,7 +261,7 @@ namespace Cantina
             string precoText = selecionado.SubItems[1].Text.Replace("R$", "").Trim();
             decimal preco = decimal.Parse(precoText, NumberStyles.Currency, new CultureInfo("pt-BR"));
 
-           
+
             ListViewItem existente = null;
             foreach (ListViewItem item in listViewCarrinho.Items)
             {
@@ -274,14 +274,14 @@ namespace Cantina
 
             if (existente != null)
             {
-                
+
                 int qtd = int.Parse(existente.SubItems[2].Text) + _quantidade;
                 existente.SubItems[2].Text = qtd.ToString();
                 existente.SubItems[3].Text = (qtd * preco).ToString("C", new CultureInfo("pt-BR"));
             }
             else
             {
-                
+
                 var novoItem = new ListViewItem(nome);
                 novoItem.SubItems.Add(preco.ToString("C", new CultureInfo("pt-BR")));
                 novoItem.SubItems.Add(_quantidade.ToString());
@@ -289,7 +289,7 @@ namespace Cantina
                 listViewCarrinho.Items.Add(novoItem);
             }
 
-            
+
             _quantidade = 1;
             lblQuantidade.Text = "1";
             UpdateTotal();
@@ -298,7 +298,7 @@ namespace Cantina
 
         private void btnDiminuir_MouseEnter(object sender, EventArgs e)
         {
-          
+
             btnDiminuir.Image = Properties.Resources.menosselecionado;
             btnDiminuir.BackColor = Color.White;
         }
@@ -306,7 +306,7 @@ namespace Cantina
 
         private void btnDiminuir_MouseLeave(object sender, EventArgs e)
         {
-           
+
             btnDiminuir.Image = Properties.Resources.menos;
 
         }
@@ -315,7 +315,7 @@ namespace Cantina
         {
             btnAumentar.Image = Properties.Resources.maisselecionado;
             btnAumentar.BackColor = Color.White;
-            
+
         }
 
         private void btnAumentar_MouseLeave(object sender, EventArgs e)
@@ -348,7 +348,7 @@ namespace Cantina
             btnRemover.BackgroundImage = Properties.Resources.lixo;
         }
 
-        
+
         private void listViewProdutos_DrawItem(object sender, DrawListViewItemEventArgs e)
         {
 
@@ -378,6 +378,9 @@ namespace Cantina
             }
         }
 
-        
+        private void listViewCarrinho_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

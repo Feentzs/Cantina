@@ -110,6 +110,7 @@
             listViewCarrinho.Size = new Size(381, 304);
             listViewCarrinho.TabIndex = 17;
             listViewCarrinho.UseCompatibleStateImageBehavior = false;
+            listViewCarrinho.SelectedIndexChanged += listViewCarrinho_SelectedIndexChanged;
             // 
             // labelTotal
             // 

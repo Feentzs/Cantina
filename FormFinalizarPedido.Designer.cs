@@ -84,7 +84,7 @@
             // 
             lblValorRecebido.AutoSize = true;
             lblValorRecebido.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblValorRecebido.Location = new Point(19, 421);
+            lblValorRecebido.Location = new Point(19, 407);
             lblValorRecebido.Name = "lblValorRecebido";
             lblValorRecebido.Size = new Size(129, 20);
             lblValorRecebido.TabIndex = 3;
@@ -94,7 +94,7 @@
             // 
             txtValorRecebido.BorderStyle = BorderStyle.None;
             txtValorRecebido.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtValorRecebido.Location = new Point(150, 424);
+            txtValorRecebido.Location = new Point(29, 450);
             txtValorRecebido.Name = "txtValorRecebido";
             txtValorRecebido.PlaceholderText = "Insira o Valor...";
             txtValorRecebido.Size = new Size(139, 16);
@@ -252,9 +252,9 @@
             // insiravalor
             // 
             insiravalor.Image = Properties.Resources.Semtitulo;
-            insiravalor.Location = new Point(142, 405);
+            insiravalor.Location = new Point(13, 432);
             insiravalor.Name = "insiravalor";
-            insiravalor.Size = new Size(164, 55);
+            insiravalor.Size = new Size(300, 55);
             insiravalor.SizeMode = PictureBoxSizeMode.StretchImage;
             insiravalor.TabIndex = 18;
             insiravalor.TabStop = false;
