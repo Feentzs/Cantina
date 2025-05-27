@@ -59,5 +59,11 @@ namespace Cantina
             TelaCozinha Cozinha = new TelaCozinha();
             Cozinha.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            balcao telabalcao = new balcao();
+            telabalcao.Show();
+        }
     }
 }

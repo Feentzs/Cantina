@@ -86,3 +86,4 @@ C:\Users\Administrator\source\repos\Cantina\obj\Debug\net8.0-windows\Cantina.lau
 C:\Users\Administrator\source\repos\Cantina\obj\Debug\net8.0-windows\Cantina.telachamada.resources
 C:\Users\Administrator\source\repos\Cantina\obj\Debug\net8.0-windows\Cantina.TelaCozinha.resources
 C:\Users\Administrator\source\repos\Cantina\obj\Debug\net8.0-windows\Cantina.TelaPix.resources
+C:\Users\Administrator\source\repos\Cantina\obj\Debug\net8.0-windows\Cantina.balcao.resources
