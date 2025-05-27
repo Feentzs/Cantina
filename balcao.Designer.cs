@@ -31,6 +31,10 @@
             components = new System.ComponentModel.Container();
             flowLayoutPanelPedidos = new FlowLayoutPanel();
             panelDetalhes = new Panel();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
             lblStatus = new Label();
             btnFecharDetalhes = new Button();
             listBoxProdutos = new ListBox();
@@ -59,6 +63,10 @@
             // panelDetalhes
             // 
             panelDetalhes.BackColor = Color.White;
+            panelDetalhes.Controls.Add(label4);
+            panelDetalhes.Controls.Add(label3);
+            panelDetalhes.Controls.Add(label2);
+            panelDetalhes.Controls.Add(label1);
             panelDetalhes.Controls.Add(lblStatus);
             panelDetalhes.Controls.Add(btnFecharDetalhes);
             panelDetalhes.Controls.Add(listBoxProdutos);
@@ -70,10 +78,50 @@
             panelDetalhes.TabIndex = 1;
             panelDetalhes.Visible = false;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Agrandir Narrow Bold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(34, 192);
+            label4.Name = "label4";
+            label4.Size = new Size(83, 22);
+            label4.TabIndex = 8;
+            label4.Text = "Produtos:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Agrandir Narrow Bold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(34, 133);
+            label3.Name = "label3";
+            label3.Size = new Size(72, 22);
+            label3.TabIndex = 7;
+            label3.Text = "Horário:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Agrandir Narrow Bold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(34, 77);
+            label2.Name = "label2";
+            label2.Size = new Size(136, 22);
+            label2.TabIndex = 6;
+            label2.Text = "Nome do Cliente:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Agrandir Narrow Bold", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(17, 30);
+            label1.Name = "label1";
+            label1.Size = new Size(178, 26);
+            label1.TabIndex = 5;
+            label1.Text = "Detalhes do Pedido";
+            // 
             // lblStatus
             // 
             lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(182, 16);
+            lblStatus.Location = new Point(249, 30);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(38, 15);
             lblStatus.TabIndex = 4;
@@ -81,7 +129,7 @@
             // 
             // btnFecharDetalhes
             // 
-            btnFecharDetalhes.Location = new Point(20, 320);
+            btnFecharDetalhes.Location = new Point(20, 450);
             btnFecharDetalhes.Name = "btnFecharDetalhes";
             btnFecharDetalhes.Size = new Size(100, 30);
             btnFecharDetalhes.TabIndex = 3;
@@ -91,28 +139,33 @@
             // 
             // listBoxProdutos
             // 
+            listBoxProdutos.BorderStyle = BorderStyle.None;
+            listBoxProdutos.Font = new Font("Inter SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             listBoxProdutos.FormattingEnabled = true;
-            listBoxProdutos.ItemHeight = 15;
-            listBoxProdutos.Location = new Point(20, 100);
+            listBoxProdutos.ItemHeight = 19;
+            listBoxProdutos.Location = new Point(36, 217);
             listBoxProdutos.Name = "listBoxProdutos";
-            listBoxProdutos.Size = new Size(240, 199);
+            listBoxProdutos.SelectionMode = SelectionMode.None;
+            listBoxProdutos.Size = new Size(240, 190);
             listBoxProdutos.TabIndex = 2;
             // 
             // lblHorario
             // 
             lblHorario.AutoSize = true;
-            lblHorario.Location = new Point(20, 60);
+            lblHorario.Font = new Font("Inter SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHorario.Location = new Point(34, 156);
             lblHorario.Name = "lblHorario";
-            lblHorario.Size = new Size(50, 15);
+            lblHorario.Size = new Size(68, 19);
             lblHorario.TabIndex = 1;
             lblHorario.Text = "Horário:";
             // 
             // lblNomeCliente
             // 
             lblNomeCliente.AutoSize = true;
-            lblNomeCliente.Location = new Point(20, 20);
+            lblNomeCliente.Font = new Font("Inter SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNomeCliente.Location = new Point(34, 102);
             lblNomeCliente.Name = "lblNomeCliente";
-            lblNomeCliente.Size = new Size(47, 15);
+            lblNomeCliente.Size = new Size(65, 19);
             lblNomeCliente.TabIndex = 0;
             lblNomeCliente.Text = "Cliente:";
             // 
@@ -177,7 +230,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(961, 683);
+            BackColor = Color.FromArgb(243, 241, 238);
+            ClientSize = new Size(939, 683);
             Controls.Add(toolStripContainer1);
             Controls.Add(btnFiltro);
             Controls.Add(panelDetalhes);
@@ -209,5 +263,9 @@
         private ToolStripMenuItem prontoToolStripMenuItem;
         private ToolStripMenuItem entregueToolStripMenuItem;
         private ToolStripContainer toolStripContainer1;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
     }
 }

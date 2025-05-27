@@ -1,16 +1,1 @@
-{
-  "ShowEmptyProjects": false,
-  "SelectedGroups": [],
-  "ExpandedProjects": [],
-  "EnableSpellChecker": true,
-  "ColumnOrder": [
-    "name",
-    "type",
-    "neutral-value",
-    "neutral-comment"
-  ],
-  "VisibleColumnKeys": [
-    "name",
-    "neutral-value"
-  ]
-}
+{"ShowEmptyProjects":false,"CustomColumnOrderings":{"name":0,"type":1,"neutral-value":2,"neutral-comment":3},"ShowValidationErrors":true,"SelectedResourceGroupsByProjectFilePath":{"C:\\Users\\25162920\\source\\repos\\Cantina\\Cantina.csproj":["C:\\Users\\25162920\\source\\repos\\Cantina\\launcher.resx"]},"VisibleColumnKeys":["name","neutral-value","neutral-comment"]}

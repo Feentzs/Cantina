@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 
 namespace Cantina
 {
@@ -54,7 +55,7 @@ namespace Cantina
             {
                 Width = 520,
                 Height = 130,
-                BackColor = Color.WhiteSmoke,
+                BackColor = Color.White,
                 Margin = new Padding(10),
                 Tag = new Pedido { NomeCliente = nome, Horario = horario, Produtos = produtos, Status = status }
             };
@@ -78,16 +79,16 @@ namespace Cantina
 
             Label lblCliente = new Label
             {
-                Text = $"Cliente: {nome}",
-                Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                Text = $"{nome}",
+                //Font = new Font("Segoe UI", 11, FontStyle.Bold),
                 Location = new Point(20, 10),
                 AutoSize = true
             };
 
             Label lblHora = new Label
             {
-                Text = $"Horário: {horario}",
-                Font = new Font("Segoe UI", 9),
+                Text = $"{horario}",
+                //Font = new Font("Segoe UI", 9),
                 Location = new Point(20, 35),
                 AutoSize = true
             };
@@ -105,7 +106,9 @@ namespace Cantina
             {
                 Text = "Ver Detalhes",
                 Location = new Point(20, 90),
-                Size = new Size(110, 30),
+                Font = new Font("Inter", 11, FontStyle.Bold),
+                FlatStyle = FlatStyle.Flat,
+                Size = new Size(130, 40),
                 BackColor = Color.Black,
                 ForeColor = Color.White
             };
@@ -122,7 +125,9 @@ namespace Cantina
                 Text = "Chamar Cliente",
                 Location = new Point(150, 90),
                 Size = new Size(130, 30),
-                BackColor = ColorTranslator.FromHtml("#E1FF00"),
+                //BackColor = ColorTranslator.FromHtml("#E1FF00"),
+                BackgroundImage = Properties.Resources.vai,
+                FlatStyle = FlatStyle.Flat,
                 ForeColor = Color.Black
             };
             btnChamar.Click += (s, e) =>
@@ -140,21 +145,22 @@ namespace Cantina
             Panel card = btn.Parent as Panel;
             Pedido pedido = card.Tag as Pedido;
 
-            lblNomeCliente.Text = $"Cliente: {pedido.NomeCliente}";
-            lblHorario.Text = $"Horário: {pedido.Horario}";
-            lblStatus.Text = $"Status: {pedido.Status}";
+            lblNomeCliente.Text = $"{pedido.NomeCliente}";
+            lblHorario.Text = $"{pedido.Horario}";
+            lblStatus.Text = $"{pedido.Status}";
             listBoxProdutos.Items.Clear();
             listBoxProdutos.Items.AddRange(pedido.Produtos);
+            
 
             panelDetalhes.Visible = true;
             panelDetalhes.BringToFront();
-            panelOverlay.Visible = true;
+            
         }
 
         private void btnFecharDetalhes_Click(object sender, EventArgs e)
         {
             panelDetalhes.Visible = false;
-            panelOverlay.Visible = false;
+            
         }
 
         public class Pedido
@@ -202,7 +208,7 @@ namespace Cantina
 
         private void balcao_Load(object sender, EventArgs e)
         {
-            panelOverlay.BackColor = Color.FromArgb(100, 0, 0);
+            
         }
     }
 }
