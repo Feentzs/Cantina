@@ -1,3 +1,7 @@
 [26/05/2025 09:23:44] Cliente: Codornildo | Total: R$ 50,50 | Pagamento: PIX |Produtos: Pastel de Queijo|Hamburger com Queijo
 [26/05/2025 09:24:39] Cliente: CodornildoDiferente | Total: R$ 12,50 | Pagamento: PIX |Produtos: Hamburger Simples | Refrigerante Lata
 [26/05/2025 22:16:04] Cliente: Codornildsa | Total: R$ 12,00 | Pagamento: PIX |Produtos: Pastel de Carne
+[27/05/2025 17:29:53] Cliente: Carlos | Total: R$ 7,50 | Pagamento: CRÉDITO |Produtos: Água Mineral (500ml)
+[27/05/2025 17:50:18] Cliente: Flavin | Total: R$ 2,50 | Pagamento: PIX |Produtos: Água Mineral (500ml)
+[27/05/2025 18:00:10] Cliente: Rogerin | Total: R$ 6,00 | Pagamento: PIX |Produtos: Pastel de Carne
+[27/05/2025 18:02:48] Cliente: roferin | Total: R$ 5,50 | Pagamento: PIX |Produtos: Pastel de Queijo

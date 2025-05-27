@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(balcao));
             flowLayoutPanelPedidos = new FlowLayoutPanel();
             panelDetalhes = new Panel();
+            btnFecharDetalhes = new Button();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             lblStatus = new Label();
-            btnFecharDetalhes = new Button();
             listBoxProdutos = new ListBox();
             lblHorario = new Label();
             lblNomeCliente = new Label();
@@ -47,28 +48,32 @@
             prontoToolStripMenuItem = new ToolStripMenuItem();
             entregueToolStripMenuItem = new ToolStripMenuItem();
             toolStripContainer1 = new ToolStripContainer();
+            pictureBox1 = new PictureBox();
+            timer1 = new System.Windows.Forms.Timer(components);
             panelDetalhes.SuspendLayout();
             contextMenuFiltro.SuspendLayout();
             toolStripContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanelPedidos
             // 
             flowLayoutPanelPedidos.AutoScroll = true;
-            flowLayoutPanelPedidos.Location = new Point(20, 100);
+            flowLayoutPanelPedidos.Location = new Point(20, 166);
             flowLayoutPanelPedidos.Name = "flowLayoutPanelPedidos";
-            flowLayoutPanelPedidos.Size = new Size(600, 620);
+            flowLayoutPanelPedidos.Size = new Size(600, 554);
             flowLayoutPanelPedidos.TabIndex = 0;
             // 
             // panelDetalhes
             // 
+            panelDetalhes.AutoSize = true;
             panelDetalhes.BackColor = Color.White;
+            panelDetalhes.Controls.Add(btnFecharDetalhes);
             panelDetalhes.Controls.Add(label4);
             panelDetalhes.Controls.Add(label3);
             panelDetalhes.Controls.Add(label2);
             panelDetalhes.Controls.Add(label1);
             panelDetalhes.Controls.Add(lblStatus);
-            panelDetalhes.Controls.Add(btnFecharDetalhes);
             panelDetalhes.Controls.Add(listBoxProdutos);
             panelDetalhes.Controls.Add(lblHorario);
             panelDetalhes.Controls.Add(lblNomeCliente);
@@ -77,6 +82,26 @@
             panelDetalhes.Size = new Size(300, 700);
             panelDetalhes.TabIndex = 1;
             panelDetalhes.Visible = false;
+            // 
+            // btnFecharDetalhes
+            // 
+            btnFecharDetalhes.BackColor = Color.White;
+            btnFecharDetalhes.BackgroundImage = (Image)resources.GetObject("btnFecharDetalhes.BackgroundImage");
+            btnFecharDetalhes.BackgroundImageLayout = ImageLayout.Stretch;
+            btnFecharDetalhes.FlatAppearance.BorderColor = Color.White;
+            btnFecharDetalhes.FlatAppearance.BorderSize = 0;
+            btnFecharDetalhes.FlatAppearance.MouseDownBackColor = Color.White;
+            btnFecharDetalhes.FlatAppearance.MouseOverBackColor = Color.White;
+            btnFecharDetalhes.FlatStyle = FlatStyle.Flat;
+            btnFecharDetalhes.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFecharDetalhes.ForeColor = Color.White;
+            btnFecharDetalhes.Location = new Point(57, 413);
+            btnFecharDetalhes.Name = "btnFecharDetalhes";
+            btnFecharDetalhes.Size = new Size(182, 46);
+            btnFecharDetalhes.TabIndex = 26;
+            btnFecharDetalhes.Text = "Fechar";
+            btnFecharDetalhes.UseVisualStyleBackColor = false;
+            btnFecharDetalhes.Click += btnFecharDetalhes_Click_1;
             // 
             // label4
             // 
@@ -121,21 +146,14 @@
             // lblStatus
             // 
             lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(249, 30);
+            lblStatus.BackColor = Color.FromArgb(230, 255, 0);
+            lblStatus.Font = new Font("Inter SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStatus.ForeColor = SystemColors.ControlText;
+            lblStatus.Location = new Point(201, 35);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(38, 15);
+            lblStatus.Size = new Size(55, 19);
             lblStatus.TabIndex = 4;
-            lblStatus.Text = "label1";
-            // 
-            // btnFecharDetalhes
-            // 
-            btnFecharDetalhes.Location = new Point(20, 450);
-            btnFecharDetalhes.Name = "btnFecharDetalhes";
-            btnFecharDetalhes.Size = new Size(100, 30);
-            btnFecharDetalhes.TabIndex = 3;
-            btnFecharDetalhes.Text = "Fechar";
-            btnFecharDetalhes.UseVisualStyleBackColor = true;
-            btnFecharDetalhes.Click += btnFecharDetalhes_Click;
+            lblStatus.Text = "Status";
             // 
             // listBoxProdutos
             // 
@@ -171,12 +189,22 @@
             // 
             // btnFiltro
             // 
-            btnFiltro.Location = new Point(238, 42);
+            btnFiltro.BackColor = Color.White;
+            btnFiltro.BackgroundImage = Properties.Resources.Semtitulo;
+            btnFiltro.BackgroundImageLayout = ImageLayout.Stretch;
+            btnFiltro.FlatAppearance.BorderSize = 0;
+            btnFiltro.FlatAppearance.MouseDownBackColor = Color.White;
+            btnFiltro.FlatAppearance.MouseOverBackColor = Color.White;
+            btnFiltro.FlatStyle = FlatStyle.Flat;
+            btnFiltro.Font = new Font("Inter", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFiltro.Image = (Image)resources.GetObject("btnFiltro.Image");
+            btnFiltro.ImageAlign = ContentAlignment.MiddleLeft;
+            btnFiltro.Location = new Point(33, 121);
             btnFiltro.Name = "btnFiltro";
-            btnFiltro.Size = new Size(75, 23);
+            btnFiltro.Size = new Size(112, 34);
             btnFiltro.TabIndex = 2;
             btnFiltro.Text = "Filtro";
-            btnFiltro.UseVisualStyleBackColor = true;
+            btnFiltro.UseVisualStyleBackColor = false;
             btnFiltro.Click += btnFiltro_Click;
             // 
             // contextMenuFiltro
@@ -226,12 +254,30 @@
             toolStripContainer1.TabIndex = 4;
             toolStripContainer1.Text = "toolStripContainer1";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImageLayout = ImageLayout.None;
+            pictureBox1.Image = Properties.Resources.Bolt_Finance_New__3_;
+            pictureBox1.Location = new Point(-7, -25);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(189, 101);
+            pictureBox1.TabIndex = 27;
+            pictureBox1.TabStop = false;
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 3000;
+            timer1.Tick += timer1_Tick;
+            // 
             // balcao
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(243, 241, 238);
             ClientSize = new Size(939, 683);
+            Controls.Add(pictureBox1);
             Controls.Add(toolStripContainer1);
             Controls.Add(btnFiltro);
             Controls.Add(panelDetalhes);
@@ -244,7 +290,9 @@
             contextMenuFiltro.ResumeLayout(false);
             toolStripContainer1.ResumeLayout(false);
             toolStripContainer1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -254,7 +302,6 @@
         private ListBox listBoxProdutos;
         private Label lblHorario;
         private Label lblNomeCliente;
-        private Button btnFecharDetalhes;
         private Label lblStatus;
         private Button btnFiltro;
         private ContextMenuStrip contextMenuFiltro;
@@ -267,5 +314,8 @@
         private Label label2;
         private Label label3;
         private Label label4;
+        private Button btnFecharDetalhes;
+        private PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

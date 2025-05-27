@@ -126,6 +126,7 @@ namespace Cantina
                 dadosPedidoSelecionado = "";
             }
         }
+
         private void btnChamar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(dadosPedidoSelecionado))
@@ -134,17 +135,27 @@ namespace Cantina
                 return;
             }
 
-            string[] partes = dadosPedidoSelecionado.Split(';');
-            if (partes.Length >= 1)
-            {
-                string nome = partes[0];
-                string caminho = Path.Combine(Application.StartupPath, "Arquivos", "cliente_atual.txt");
-                File.WriteAllText(caminho, nome);
+            
+            string caminho = "./Arquivos/em_preparo.txt";
+            if (!File.Exists(caminho)) return;
 
-                RemoverPedidoSelecionado();
-                MessageBox.Show($"Cliente {nome} foi chamado!");
+            var linhas = File.ReadAllLines(caminho).ToList();
+
+            for (int i = 0; i < linhas.Count; i++)
+            {
+                string[] cliente = linhas[i].Split(';');
+                string nome = cliente[0];
+                if (cliente.Length == 4 && cliente[0] == nome && cliente[3] == "Em Preparo")
+                {
+                    cliente[3] = "Pronto"; 
+                    linhas[i] = string.Join(";", cliente);
+                    break;
+                }
             }
+
+            File.WriteAllLines(caminho, linhas);
         }
+        
         private void btnProblema_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(dadosPedidoSelecionado))

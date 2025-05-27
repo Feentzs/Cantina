@@ -41,7 +41,7 @@ namespace Cantina
                 string[] produtos = partes[2].Split('|');
                 string status = partes[3];
 
-                // Filtro
+
                 if (statusFiltroSelecionado != "Todos" && status != statusFiltroSelecionado)
                     continue;
 
@@ -80,7 +80,7 @@ namespace Cantina
             Label lblCliente = new Label
             {
                 Text = $"{nome}",
-                //Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                Font = new Font("Inter", 11, FontStyle.Bold),
                 Location = new Point(20, 10),
                 AutoSize = true
             };
@@ -88,28 +88,31 @@ namespace Cantina
             Label lblHora = new Label
             {
                 Text = $"{horario}",
-                //Font = new Font("Segoe UI", 9),
+                Font = new Font("Inter", 9),
                 Location = new Point(20, 35),
                 AutoSize = true
             };
 
             Label lblStatus = new Label
             {
-                Text = $"Status: {status}",
-                Font = new Font("Segoe UI", 9, FontStyle.Italic),
-                Location = new Point(20, 60),
-                ForeColor = Color.DarkGreen,
-                AutoSize = true
+                Text = $"{status}",
+                Font = new Font("Inter", 11, FontStyle.Bold),
+                Location = new Point(430, 0),
+                ForeColor = Color.Black,
+                BackColor = Color.FromArgb(230, 255, 0),
+                AutoSize = false
             };
 
             Button btnDetalhes = new Button
             {
-                Text = "Ver Detalhes",
-                Location = new Point(20, 90),
+                Text = "Detalhes",
+                Location = new Point(20, 80),
                 Font = new Font("Inter", 11, FontStyle.Bold),
+                BackgroundImage = Properties.Resources.Semtitulo2,
+                BackgroundImageLayout = ImageLayout.Stretch,
                 FlatStyle = FlatStyle.Flat,
                 Size = new Size(130, 40),
-                BackColor = Color.Black,
+                BackColor = Color.White,
                 ForeColor = Color.White
             };
             btnDetalhes.Click += BtnDetalhes_Click;
@@ -123,18 +126,49 @@ namespace Cantina
             Button btnChamar = new Button
             {
                 Text = "Chamar Cliente",
-                Location = new Point(150, 90),
-                Size = new Size(130, 30),
-                //BackColor = ColorTranslator.FromHtml("#E1FF00"),
+                Location = new Point(360, 90),
+                Font = new Font("Inter", 11, FontStyle.Bold),
                 BackgroundImage = Properties.Resources.vai,
+                BackgroundImageLayout = ImageLayout.Stretch,
+                Size = new Size(130, 31),
                 FlatStyle = FlatStyle.Flat,
                 ForeColor = Color.Black
             };
+            btnChamar.FlatAppearance.BorderSize = 0;
+            btnChamar.FlatAppearance.MouseOverBackColor = Color.White;
+            btnChamar.FlatAppearance.MouseDownBackColor = Color.White;
+            btnDetalhes.FlatAppearance.MouseOverBackColor = Color.White;
+            btnDetalhes.FlatAppearance.MouseDownBackColor = Color.White;
+            btnChamar.TextAlign = ContentAlignment.BottomCenter;
             btnChamar.Click += (s, e) =>
             {
                 MessageBox.Show($"Chamando: {nome}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Aqui você pode salvar em cliente_atual.txt também se quiser
-            };
+                
+                   
+                    string caminho = Path.Combine(Application.StartupPath, "Arquivos", "cliente_atual.txt");
+                    File.WriteAllText(caminho, nome);
+
+                string segundocaminho = "./Arquivos/em_preparo.txt";
+                if (!File.Exists(caminho)) return;
+
+                var linhas = File.ReadAllLines(segundocaminho).ToList();
+
+                for (int i = 0; i < linhas.Count; i++)
+                {
+                    string[] cliente = linhas[i].Split(';');
+                    string nome = cliente[0];
+                    if (cliente.Length == 4 && cliente[0] == nome && cliente[3] == "Pronto")
+                    {
+                        cliente[3] = "Entregue";
+                        linhas[i] = string.Join(";", cliente);
+                        break;
+                    }
+                }
+
+                File.WriteAllLines(segundocaminho, linhas);
+
+            }
+                ;
 
             card.Controls.Add(btnChamar);
         }
@@ -150,17 +184,17 @@ namespace Cantina
             lblStatus.Text = $"{pedido.Status}";
             listBoxProdutos.Items.Clear();
             listBoxProdutos.Items.AddRange(pedido.Produtos);
-            
+
 
             panelDetalhes.Visible = true;
             panelDetalhes.BringToFront();
-            
+
         }
 
         private void btnFecharDetalhes_Click(object sender, EventArgs e)
         {
             panelDetalhes.Visible = false;
-            
+
         }
 
         public class Pedido
@@ -208,7 +242,18 @@ namespace Cantina
 
         private void balcao_Load(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void btnFecharDetalhes_Click_1(object sender, EventArgs e)
+        {
+            panelDetalhes.Visible = false;
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            CarregarPedidos();
         }
     }
 }
