@@ -5,3 +5,11 @@
 [27/05/2025 17:50:18] Cliente: Flavin | Total: R$ 2,50 | Pagamento: PIX |Produtos: Água Mineral (500ml)
 [27/05/2025 18:00:10] Cliente: Rogerin | Total: R$ 6,00 | Pagamento: PIX |Produtos: Pastel de Carne
 [27/05/2025 18:02:48] Cliente: roferin | Total: R$ 5,50 | Pagamento: PIX |Produtos: Pastel de Queijo
+[28/05/2025 08:18:51] Cliente: Sla | Total: R$ 13,00 | Pagamento: DINHEIRO |Produtos: Suco Natural (300ml) | Hamburger com Queijo
+[28/05/2025 08:25:36] Cliente: Leandro | Total: R$ 10,50 | Pagamento: CRÉDITO |Produtos: Hamburger Simples | Água Mineral (500ml)
+[28/05/2025 08:32:45] Cliente: Rogerio | Total: R$ 25,00 | Pagamento: DÉBITO |Produtos: Pastel de Queijo | X-Tudo | Água Mineral (500ml)
+[28/05/2025 08:33:05] Cliente: Marcelo | Total: R$ 42,00 | Pagamento: PIX |Produtos: Pastel de Queijo | Coxinha
+[28/05/2025 08:33:21] Cliente: Marcelina | Total: R$ 7,50 | Pagamento: DÉBITO |Produtos: Suco Natural (300ml) | Pão de Queijo
+[28/05/2025 08:33:55] Cliente: Marcio | Total: R$ 12,50 | Pagamento: CRÉDITO |Produtos: Hamburger com Queijo | Pão de Queijo
+[28/05/2025 09:39:01] Cliente: Roberto | Total: R$ 23,00 | Pagamento: DINHEIRO |Produtos: Coxinha | Suco Natural (300ml)
+[28/05/2025 09:42:14] Cliente: Roberto | Total: R$ 9,50 | Pagamento: DINHEIRO |Produtos: Pão de Queijo | Pastel de Carne

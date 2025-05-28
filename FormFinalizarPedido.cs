@@ -157,7 +157,7 @@ namespace Cantina
                     produtos.Add(item.SubItems[0].Text); 
                 }
 
-                string linhaPedido = $"{nome};{horario};{string.Join(";",produtos)};Em Preparo";
+                string linhaPedido = $"{nome};{horario};{string.Join("|",produtos)};Em Preparo";
                 File.AppendAllText(caminhoFila, linhaPedido + Environment.NewLine);
 
                 string caminhoLog = Path.Combine(pasta, "pedidos_log.txt");

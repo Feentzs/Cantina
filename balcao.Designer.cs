@@ -59,9 +59,9 @@
             // flowLayoutPanelPedidos
             // 
             flowLayoutPanelPedidos.AutoScroll = true;
-            flowLayoutPanelPedidos.Location = new Point(20, 166);
+            flowLayoutPanelPedidos.Location = new Point(12, 190);
             flowLayoutPanelPedidos.Name = "flowLayoutPanelPedidos";
-            flowLayoutPanelPedidos.Size = new Size(600, 554);
+            flowLayoutPanelPedidos.Size = new Size(600, 510);
             flowLayoutPanelPedidos.TabIndex = 0;
             // 
             // panelDetalhes
@@ -102,6 +102,8 @@
             btnFecharDetalhes.Text = "Fechar";
             btnFecharDetalhes.UseVisualStyleBackColor = false;
             btnFecharDetalhes.Click += btnFecharDetalhes_Click_1;
+            btnFecharDetalhes.MouseEnter += btnFecharDetalhes_MouseEnter;
+            btnFecharDetalhes.MouseLeave += btnFecharDetalhes_MouseLeave;
             // 
             // label4
             // 
@@ -209,35 +211,38 @@
             // 
             // contextMenuFiltro
             // 
+            contextMenuFiltro.BackColor = Color.White;
+            contextMenuFiltro.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             contextMenuFiltro.Items.AddRange(new ToolStripItem[] { todosToolStripMenuItem, emPreparoToolStripMenuItem, prontoToolStripMenuItem, entregueToolStripMenuItem });
+            contextMenuFiltro.LayoutStyle = ToolStripLayoutStyle.Table;
             contextMenuFiltro.Name = "contextMenuFiltro";
-            contextMenuFiltro.Size = new Size(136, 92);
+            contextMenuFiltro.Size = new Size(147, 92);
             // 
             // todosToolStripMenuItem
             // 
             todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            todosToolStripMenuItem.Size = new Size(135, 22);
+            todosToolStripMenuItem.Size = new Size(146, 22);
             todosToolStripMenuItem.Text = "Todos";
             todosToolStripMenuItem.Click += todosToolStripMenuItem_Click;
             // 
             // emPreparoToolStripMenuItem
             // 
             emPreparoToolStripMenuItem.Name = "emPreparoToolStripMenuItem";
-            emPreparoToolStripMenuItem.Size = new Size(135, 22);
+            emPreparoToolStripMenuItem.Size = new Size(146, 22);
             emPreparoToolStripMenuItem.Text = "Em preparo";
             emPreparoToolStripMenuItem.Click += emPreparoToolStripMenuItem_Click;
             // 
             // prontoToolStripMenuItem
             // 
             prontoToolStripMenuItem.Name = "prontoToolStripMenuItem";
-            prontoToolStripMenuItem.Size = new Size(135, 22);
+            prontoToolStripMenuItem.Size = new Size(146, 22);
             prontoToolStripMenuItem.Text = "Pronto";
             prontoToolStripMenuItem.Click += prontoToolStripMenuItem_Click;
             // 
             // entregueToolStripMenuItem
             // 
             entregueToolStripMenuItem.Name = "entregueToolStripMenuItem";
-            entregueToolStripMenuItem.Size = new Size(135, 22);
+            entregueToolStripMenuItem.Size = new Size(146, 22);
             entregueToolStripMenuItem.Text = "Entregue";
             entregueToolStripMenuItem.Click += entregueToolStripMenuItem_Click;
             // 
@@ -276,7 +281,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(243, 241, 238);
-            ClientSize = new Size(939, 683);
+            ClientSize = new Size(939, 699);
             Controls.Add(pictureBox1);
             Controls.Add(toolStripContainer1);
             Controls.Add(btnFiltro);

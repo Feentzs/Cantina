@@ -100,7 +100,7 @@ namespace Cantina
                 Location = new Point(430, 0),
                 ForeColor = Color.Black,
                 BackColor = Color.FromArgb(230, 255, 0),
-                AutoSize = false
+                AutoSize = true
             };
 
             Button btnDetalhes = new Button
@@ -125,12 +125,12 @@ namespace Cantina
 
             Button btnChamar = new Button
             {
-                Text = "Chamar Cliente",
-                Location = new Point(360, 90),
+                Text = "Chamar",
+                Location = new Point(360, 80),
                 Font = new Font("Inter", 11, FontStyle.Bold),
                 BackgroundImage = Properties.Resources.vai,
                 BackgroundImageLayout = ImageLayout.Stretch,
-                Size = new Size(130, 31),
+                Size = new Size(130, 40),
                 FlatStyle = FlatStyle.Flat,
                 ForeColor = Color.Black
             };
@@ -139,14 +139,16 @@ namespace Cantina
             btnChamar.FlatAppearance.MouseDownBackColor = Color.White;
             btnDetalhes.FlatAppearance.MouseOverBackColor = Color.White;
             btnDetalhes.FlatAppearance.MouseDownBackColor = Color.White;
-            btnChamar.TextAlign = ContentAlignment.BottomCenter;
-            btnChamar.Click += (s, e) =>
+           
+            
+            
+        btnChamar.Click += (s, e) =>
             {
                 MessageBox.Show($"Chamando: {nome}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
-                   
-                    string caminho = Path.Combine(Application.StartupPath, "Arquivos", "cliente_atual.txt");
-                    File.WriteAllText(caminho, nome);
+
+
+                string caminho = Path.Combine(Application.StartupPath, "Arquivos", "cliente_atual.txt");
+                File.WriteAllText(caminho, nome);
 
                 string segundocaminho = "./Arquivos/em_preparo.txt";
                 if (!File.Exists(caminho)) return;
@@ -219,7 +221,7 @@ namespace Cantina
 
         private void emPreparoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            statusFiltroSelecionado = "Em preparo";
+            statusFiltroSelecionado = "Em Preparo";
             CarregarPedidos();
         }
 
@@ -254,6 +256,21 @@ namespace Cantina
         private void timer1_Tick(object sender, EventArgs e)
         {
             CarregarPedidos();
+        }
+
+        private void btnFecharDetalhes_MouseEnter(object sender, EventArgs e)
+        {
+            btnFecharDetalhes.ForeColor = ColorTranslator.FromHtml("#CAC4B7");
+        } 
+
+        private void btnFecharDetalhes_MouseLeave(object sender, EventArgs e)
+        {
+            btnFecharDetalhes.ForeColor = Color.White;
+        }
+
+        private void btnDetalhes_MouseLeave(object sender, EventArgs e)
+        {
+           
         }
     }
 }
