@@ -19,6 +19,8 @@ namespace Cantina
             InitializeComponent();
             CarregarPedidos();
             SendToBack();
+            AtualizarContadores();
+
         }
 
         private string statusFiltroSelecionado = "Todos";
@@ -272,5 +274,37 @@ namespace Cantina
         {
            
         }
+        private void AtualizarContadores()
+        {
+            int total = 0;
+            int prontos = 0;
+            int entregues = 0;
+            int emPreparo = 0;
+
+            foreach (var linha in File.ReadAllLines("./Arquivos/em_preparo.txt"))
+            {
+                if (string.IsNullOrWhiteSpace(linha)) continue;
+
+                string[] partes = linha.Split(';');
+                if (partes.Length < 4) continue;
+
+                string status = partes[3].Trim().ToLower();
+
+                total++;
+
+                if (status == "pronto")
+                    prontos++;
+                else if (status == "entregue")
+                    entregues++;
+                else if (status == "em preparo")
+                    emPreparo++;
+            }
+
+            lblTotalPedidos.Text = $"Total: {total}";
+            lblPedidosEmPreparo.Text = $"• Em preparo: {emPreparo}";
+            lblPedidosProntos.Text = $"• Prontos: {prontos}";
+            lblPedidosEntregues.Text = $"• Entregues: {entregues}";
+        }
+
     }
 }
