@@ -7,7 +7,11 @@
       "RelativeMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|solutionrelative:formfinalizarpedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|c:\\users\\25162920\\source\\repos\\cantina\\telacozinha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|c:\\users\\25162920\\source\\repos\\cantina\\formfinalizarpedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|solutionrelative:formfinalizarpedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|C:\\Users\\25162920\\source\\repos\\Cantina\\telacozinha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|solutionrelative:telacozinha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -22,8 +26,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormFinalizarPedido.cs",
+              "DocumentMoniker": "C:\\Users\\25162920\\source\\repos\\Cantina\\FormFinalizarPedido.cs",
+              "RelativeDocumentMoniker": "FormFinalizarPedido.cs",
+              "ToolTip": "C:\\Users\\25162920\\source\\repos\\Cantina\\FormFinalizarPedido.cs",
+              "RelativeToolTip": "FormFinalizarPedido.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAmwFcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T13:19:02.292Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -38,7 +55,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "TelaCozinha.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\25162920\\source\\repos\\Cantina\\TelaCozinha.cs",
               "RelativeDocumentMoniker": "TelaCozinha.cs",
@@ -50,7 +67,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "TelaCozinha.cs",
               "DocumentMoniker": "C:\\Users\\25162920\\source\\repos\\Cantina\\TelaCozinha.cs",
               "RelativeDocumentMoniker": "TelaCozinha.cs",

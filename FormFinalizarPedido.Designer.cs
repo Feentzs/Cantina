@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFinalizarPedido));
             lblNome = new Label();
             txtNomeCliente = new TextBox();
             lblValorRecebido = new Label();
@@ -52,6 +53,10 @@
             label4 = new Label();
             btnCancelar = new Button();
             label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -140,11 +145,11 @@
             btnDinheiro.FlatAppearance.BorderSize = 0;
             btnDinheiro.FlatStyle = FlatStyle.Flat;
             btnDinheiro.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDinheiro.Location = new Point(19, 339);
+            btnDinheiro.Image = (Image)resources.GetObject("btnDinheiro.Image");
+            btnDinheiro.Location = new Point(27, 328);
             btnDinheiro.Name = "btnDinheiro";
-            btnDinheiro.Size = new Size(135, 49);
+            btnDinheiro.Size = new Size(69, 49);
             btnDinheiro.TabIndex = 8;
-            btnDinheiro.Text = "Dinheiro";
             btnDinheiro.UseVisualStyleBackColor = false;
             btnDinheiro.Click += btnDinheiro_Click;
             // 
@@ -154,11 +159,11 @@
             btnDebito.FlatAppearance.BorderSize = 0;
             btnDebito.FlatStyle = FlatStyle.Flat;
             btnDebito.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDebito.Location = new Point(162, 264);
+            btnDebito.Image = (Image)resources.GetObject("btnDebito.Image");
+            btnDebito.Location = new Point(155, 246);
             btnDebito.Name = "btnDebito";
-            btnDebito.Size = new Size(133, 52);
+            btnDebito.Size = new Size(67, 52);
             btnDebito.TabIndex = 9;
-            btnDebito.Text = "Cartão Débito";
             btnDebito.UseVisualStyleBackColor = false;
             btnDebito.Click += btnDebito_Click_1;
             // 
@@ -168,11 +173,11 @@
             btnCredito.FlatAppearance.BorderSize = 0;
             btnCredito.FlatStyle = FlatStyle.Flat;
             btnCredito.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCredito.Location = new Point(19, 264);
+            btnCredito.Image = Properties.Resources.Sem_título__3_;
+            btnCredito.Location = new Point(27, 246);
             btnCredito.Name = "btnCredito";
-            btnCredito.Size = new Size(137, 52);
+            btnCredito.Size = new Size(69, 52);
             btnCredito.TabIndex = 10;
-            btnCredito.Text = "Cartão Crédito";
             btnCredito.UseVisualStyleBackColor = false;
             btnCredito.Click += btnCredito_Click_1;
             // 
@@ -182,11 +187,11 @@
             btnPix.FlatAppearance.BorderSize = 0;
             btnPix.FlatStyle = FlatStyle.Flat;
             btnPix.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPix.Location = new Point(162, 339);
+            btnPix.Image = (Image)resources.GetObject("btnPix.Image");
+            btnPix.Location = new Point(155, 328);
             btnPix.Name = "btnPix";
-            btnPix.Size = new Size(136, 49);
+            btnPix.Size = new Size(67, 49);
             btnPix.TabIndex = 11;
-            btnPix.Text = "Pix";
             btnPix.UseVisualStyleBackColor = false;
             btnPix.Click += btnPix_Click_1;
             // 
@@ -232,7 +237,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(19, 228);
+            label2.Location = new Point(19, 213);
             label2.Name = "label2";
             label2.Size = new Size(175, 20);
             label2.TabIndex = 16;
@@ -345,6 +350,47 @@
             label5.TabIndex = 25;
             label5.Text = "-----------------------------------------------------------------------------------------------";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Inter SemiBold", 9F, FontStyle.Bold);
+            label6.Location = new Point(145, 301);
+            label6.Name = "label6";
+            label6.Size = new Size(86, 15);
+            label6.TabIndex = 26;
+            label6.Text = "Cartão Débito";
+            label6.Click += label6_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Inter SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(19, 301);
+            label7.Name = "label7";
+            label7.Size = new Size(91, 15);
+            label7.TabIndex = 27;
+            label7.Text = "Cartão Crédito";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Inter SemiBold", 9F, FontStyle.Bold);
+            label8.Location = new Point(176, 380);
+            label8.Name = "label8";
+            label8.Size = new Size(25, 15);
+            label8.TabIndex = 28;
+            label8.Text = "Pix";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Inter SemiBold", 9F, FontStyle.Bold);
+            label9.Location = new Point(35, 380);
+            label9.Name = "label9";
+            label9.Size = new Size(55, 15);
+            label9.TabIndex = 29;
+            label9.Text = "Dinheiro";
+            // 
             // FormFinalizarPedido
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -352,6 +398,11 @@
             BackColor = Color.FromArgb(243, 241, 238);
             ClientSize = new Size(900, 587);
             ControlBox = false;
+            Controls.Add(btnPix);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(btnCancelar);
             Controls.Add(label4);
@@ -367,7 +418,6 @@
             Controls.Add(pictureBox3);
             Controls.Add(label1);
             Controls.Add(pictureBox2);
-            Controls.Add(btnPix);
             Controls.Add(btnCredito);
             Controls.Add(btnConfirmar);
             Controls.Add(lblValorTroco);
@@ -416,5 +466,9 @@
         private Label label4;
         private Button btnCancelar;
         private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private Label label9;
     }
 }
