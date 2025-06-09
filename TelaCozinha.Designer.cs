@@ -36,8 +36,11 @@
             timer1 = new System.Windows.Forms.Timer(components);
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanelPedidos
@@ -45,13 +48,13 @@
             flowLayoutPanelPedidos.AutoScroll = true;
             flowLayoutPanelPedidos.Location = new Point(12, 154);
             flowLayoutPanelPedidos.Name = "flowLayoutPanelPedidos";
-            flowLayoutPanelPedidos.Size = new Size(930, 443);
+            flowLayoutPanelPedidos.Size = new Size(1007, 443);
             flowLayoutPanelPedidos.TabIndex = 28;
             flowLayoutPanelPedidos.MouseClick += flowLayoutPanelPedidos_MouseClick;
             // 
             // btnChamar
             // 
-            btnChamar.BackColor = Color.FromArgb(17, 25, 12);
+            btnChamar.BackColor = Color.FromArgb(243, 241, 238);
             btnChamar.BackgroundImage = Properties.Resources.vai;
             btnChamar.BackgroundImageLayout = ImageLayout.Stretch;
             btnChamar.FlatAppearance.BorderColor = Color.White;
@@ -71,7 +74,7 @@
             // 
             // btnProblema
             // 
-            btnProblema.BackColor = Color.FromArgb(17, 25, 12);
+            btnProblema.BackColor = Color.FromArgb(243, 241, 238);
             btnProblema.BackgroundImage = (Image)resources.GetObject("btnProblema.BackgroundImage");
             btnProblema.BackgroundImageLayout = ImageLayout.Stretch;
             btnProblema.FlatAppearance.BorderColor = Color.White;
@@ -111,17 +114,39 @@
             pictureBox2.Image = Properties.Resources.Bolt_Finance_New__3_;
             pictureBox2.Location = new Point(1, -7);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(176, 127);
+            pictureBox2.Size = new Size(217, 155);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 32;
             pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.Sem_título__1_1;
+            pictureBox3.Location = new Point(921, 27);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(98, 90);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 33;
+            pictureBox3.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Inter SemiBold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(993, 60);
+            label1.Name = "label1";
+            label1.Size = new Size(140, 33);
+            label1.TabIndex = 34;
+            label1.Text = "| Cozinha";
             // 
             // TelaCozinha
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(124, 122, 106);
+            BackColor = Color.FromArgb(243, 241, 238);
             ClientSize = new Size(1203, 711);
+            Controls.Add(label1);
+            Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(btnProblema);
@@ -131,7 +156,9 @@
             Text = "TelaCozinha";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -141,5 +168,7 @@
         private System.Windows.Forms.Timer timer1;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private Label label1;
     }
 }

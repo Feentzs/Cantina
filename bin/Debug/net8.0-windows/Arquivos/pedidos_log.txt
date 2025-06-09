@@ -13,3 +13,4 @@
 [28/05/2025 08:33:55] Cliente: Marcio | Total: R$ 12,50 | Pagamento: CRÉDITO |Produtos: Hamburger com Queijo | Pão de Queijo
 [28/05/2025 09:39:01] Cliente: Roberto | Total: R$ 23,00 | Pagamento: DINHEIRO |Produtos: Coxinha | Suco Natural (300ml)
 [28/05/2025 09:42:14] Cliente: Roberto | Total: R$ 9,50 | Pagamento: DINHEIRO |Produtos: Pão de Queijo | Pastel de Carne
+[06/06/2025 08:37:35] Cliente: Jose | Total: R$ 12,00 | Pagamento: DINHEIRO |Produtos: Pastel de Carne

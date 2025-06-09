@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\25162920\\source\\repos\\Cantina\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|c:\\users\\25162920\\source\\repos\\cantina\\balcao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|solutionrelative:balcao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|c:\\users\\25162920\\source\\repos\\cantina\\telacozinha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|solutionrelative:telacozinha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|c:\\users\\25162920\\source\\repos\\cantina\\formfinalizarpedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|solutionrelative:formfinalizarpedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|c:\\users\\25162920\\source\\repos\\cantina\\telacozinha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|solutionrelative:telacozinha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|c:\\users\\25162920\\source\\repos\\cantina\\formfinalizarpedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|solutionrelative:formfinalizarpedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|c:\\users\\25162920\\source\\repos\\cantina\\launcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|solutionrelative:launcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|C:\\Users\\25162920\\source\\repos\\Cantina\\balcao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|solutionrelative:balcao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|C:\\Users\\25162920\\source\\repos\\Cantina\\launcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{06DD9CD9-A0B3-481D-871E-DC6A811D3DEC}|Cantina.csproj|solutionrelative:launcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,83 +22,44 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormFinalizarPedido.cs",
+              "DocumentIndex": 1,
+              "Title": "FormFinalizarPedido.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\25162920\\source\\repos\\Cantina\\FormFinalizarPedido.cs",
               "RelativeDocumentMoniker": "FormFinalizarPedido.cs",
-              "ToolTip": "C:\\Users\\25162920\\source\\repos\\Cantina\\FormFinalizarPedido.cs",
-              "RelativeToolTip": "FormFinalizarPedido.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwJ8AAABHAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\25162920\\source\\repos\\Cantina\\FormFinalizarPedido.cs [Projeto]",
+              "RelativeToolTip": "FormFinalizarPedido.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T20:21:44.636Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TelaCozinha.cs",
-              "DocumentMoniker": "C:\\Users\\25162920\\source\\repos\\Cantina\\TelaCozinha.cs",
-              "RelativeDocumentMoniker": "TelaCozinha.cs",
-              "ToolTip": "C:\\Users\\25162920\\source\\repos\\Cantina\\TelaCozinha.cs",
-              "RelativeToolTip": "TelaCozinha.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAIoAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T11:51:44.094Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "launcher.cs",
-              "DocumentMoniker": "C:\\Users\\25162920\\source\\repos\\Cantina\\launcher.cs",
-              "RelativeDocumentMoniker": "launcher.cs",
-              "ToolTip": "C:\\Users\\25162920\\source\\repos\\Cantina\\launcher.cs",
-              "RelativeToolTip": "launcher.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAMwEEAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T22:54:27.007Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-09T12:21:06.105Z",
+              "EditorCaption": " [Projeto]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "balcao.cs",
-              "DocumentMoniker": "C:\\Users\\25162920\\source\\repos\\Cantina\\balcao.cs",
-              "RelativeDocumentMoniker": "balcao.cs",
-              "ToolTip": "C:\\Users\\25162920\\source\\repos\\Cantina\\balcao.cs",
-              "RelativeToolTip": "balcao.cs",
-              "ViewState": "AgIAAAEBAAAAAAAAAAAowI0AAAALAAAAAAAAAA==",
+              "Title": "TelaCozinha.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\25162920\\source\\repos\\Cantina\\TelaCozinha.cs",
+              "RelativeDocumentMoniker": "TelaCozinha.cs",
+              "ToolTip": "C:\\Users\\25162920\\source\\repos\\Cantina\\TelaCozinha.cs [Projeto]*",
+              "RelativeToolTip": "TelaCozinha.cs [Projeto]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T22:52:28.086Z",
+              "WhenOpened": "2025-06-09T11:29:17.275Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TelaCozinha.cs",
+              "DocumentMoniker": "C:\\Users\\25162920\\source\\repos\\Cantina\\TelaCozinha.cs",
+              "RelativeDocumentMoniker": "TelaCozinha.cs",
+              "ToolTip": "C:\\Users\\25162920\\source\\repos\\Cantina\\TelaCozinha.cs*",
+              "RelativeToolTip": "TelaCozinha.cs*",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAowFUAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T11:51:44.094Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "balcao.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\25162920\\source\\repos\\Cantina\\balcao.cs",
-              "RelativeDocumentMoniker": "balcao.cs",
-              "ToolTip": "C:\\Users\\25162920\\source\\repos\\Cantina\\balcao.cs [Projeto]",
-              "RelativeToolTip": "balcao.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T22:41:55.54Z",
-              "EditorCaption": " [Projeto]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "launcher.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\25162920\\source\\repos\\Cantina\\launcher.cs",
-              "RelativeDocumentMoniker": "launcher.cs",
-              "ToolTip": "C:\\Users\\25162920\\source\\repos\\Cantina\\launcher.cs [Projeto]",
-              "RelativeToolTip": "launcher.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T22:41:24.539Z",
-              "EditorCaption": " [Projeto]"
             }
           ]
         }
