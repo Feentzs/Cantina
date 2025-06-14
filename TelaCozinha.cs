@@ -46,26 +46,26 @@ namespace Cantina
                 RoundedPanel card = new RoundedPanel();
                 card.Size = new Size(210, 130);
                 card.Margin = new Padding(10);
-                card.BackColor = ColorTranslator.FromHtml("#1A1F15");
+                card.BackColor = ColorTranslator.FromHtml("#FFFFFF");
 
                 Label lblNome = new Label();
                 lblNome.Text = nome;
                 lblNome.Font = new Font("Inter", 12, FontStyle.Bold);
-                lblNome.ForeColor = ColorTranslator.FromHtml("#F3F1EE");
+                lblNome.ForeColor = ColorTranslator.FromHtml("#11190C");
                 lblNome.Location = new Point(10, 20);
                 lblNome.AutoSize = true;
 
                 Label lblHora = new Label();
                 lblHora.Text = horario;
                 lblHora.Font = new Font("Inter", 10, FontStyle.Regular);
-                lblHora.ForeColor = ColorTranslator.FromHtml("#CAC4B7");
+                lblHora.ForeColor = ColorTranslator.FromHtml("#11190C");
                 lblHora.Location = new Point(10, 40);
                 lblHora.AutoSize = true;
 
                 Label lblItens = new Label();
                 lblItens.Text = string.Join("\n", itens);
                 lblItens.Font = new Font("Inter", 12, FontStyle.Regular);
-                lblItens.ForeColor = ColorTranslator.FromHtml("#CAC4B7");
+                lblItens.ForeColor = ColorTranslator.FromHtml("#11190C");
                 lblItens.Location = new Point(10, 60);
                 lblItens.Size = new Size(230, 60);
 
@@ -80,13 +80,11 @@ namespace Cantina
                     lblPrioridade.Text = "PRIORIDADE";
                     lblPrioridade.BackColor = ColorTranslator.FromHtml("#E1FF00"); ;
                     lblPrioridade.ForeColor = Color.Black;
-                    lblPrioridade.Font = new Font("Inter", 12, FontStyle.Bold);
+                    lblPrioridade.Font = new Font("Inter", 11, FontStyle.Bold);
                     lblPrioridade.AutoSize = true;
-                    lblPrioridade.Padding = new Padding(100, 3, 800, 7);
-                    lblPrioridade.Location = new Point(-50, 0);
-                    lblNome.Location = new Point(10, 40);
-                    lblHora.Location = new Point(10, 60);
-                    lblItens.Location = new Point(10, 80);
+                    lblPrioridade.Padding = new Padding(0, 0, 0, 0);
+                    lblPrioridade.Location = new Point(100, 20);
+                    
                     card.Controls.Add(lblPrioridade);
                 }
 

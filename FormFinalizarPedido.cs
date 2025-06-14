@@ -15,13 +15,13 @@ namespace Cantina
             InitializeComponent();
             this.totalPedido = total;
 
-            
+
             ConfigurarListViewResumo();
             CarregarItensCarrinho(itensCarrinho);
             ConfigurarBotoesPagamento();
             EsconderControlesTroco();
 
-            
+
             lblTotal.Text = total.ToString("C", new CultureInfo("pt-BR"));
         }
 
@@ -39,19 +39,19 @@ namespace Cantina
             listViewResumo.Items.Clear();
             foreach (ListViewItem item in itensCarrinho)
             {
-                ListViewItem novoItem = new ListViewItem(item.Text); 
-                novoItem.SubItems.Add(item.SubItems[2].Text); 
-                novoItem.SubItems.Add(item.SubItems[3].Text); 
+                ListViewItem novoItem = new ListViewItem(item.Text);
+                novoItem.SubItems.Add(item.SubItems[2].Text);
+                novoItem.SubItems.Add(item.SubItems[3].Text);
                 listViewResumo.Items.Add(novoItem);
             }
         }
 
         private void ConfigurarBotoesPagamento()
         {
-            btnCredito.BackColor = SystemColors.Control;
-            btnDebito.BackColor = SystemColors.Control;
-            btnDinheiro.BackColor = SystemColors.Control;
-            btnPix.BackColor = SystemColors.Control;
+            btnCredito.BackColor = Color.White;
+            btnDebito.BackColor = Color.White;
+            btnDinheiro.BackColor = Color.White;
+            btnPix.BackColor = Color.White;
         }
 
         private void EsconderControlesTroco()
@@ -83,9 +83,9 @@ namespace Cantina
         {
 
             btnCredito.BackColor = Color.White;
-            btnDebito.BackColor = SystemColors.Control;
-            btnDinheiro.BackColor = SystemColors.Control;
-            btnPix.BackColor = SystemColors.Control;
+            btnDebito.BackColor = Color.White;
+            btnDinheiro.BackColor = Color.White;
+            btnPix.BackColor = Color.White;
 
 
             botaoSelecionado.BackColor = ColorTranslator.FromHtml("#E1FF00");
@@ -138,13 +138,13 @@ namespace Cantina
 
         private void btnConfirmar_Click_1(object sender, EventArgs e)
         {
-            
+
             if (ValidarDados())
             {
                 string pasta = Path.Combine(Application.StartupPath, "Arquivos");
-                Directory.CreateDirectory(pasta); 
+                Directory.CreateDirectory(pasta);
 
-                
+
 
                 string caminhoFila = Path.Combine(pasta, "em_preparo.txt");
                 string nome = txtNomeCliente.Text.Trim();
@@ -154,10 +154,10 @@ namespace Cantina
 
                 foreach (ListViewItem item in listViewResumo.Items)
                 {
-                    produtos.Add(item.SubItems[0].Text); 
+                    produtos.Add(item.SubItems[0].Text);
                 }
 
-                string linhaPedido = $"{nome};{horario};{string.Join("|",produtos)};Em Preparo";
+                string linhaPedido = $"{nome};{horario};{string.Join("|", produtos)};Em Preparo";
                 File.AppendAllText(caminhoFila, linhaPedido + Environment.NewLine);
 
                 string caminhoLog = Path.Combine(pasta, "pedidos_log.txt");
@@ -223,9 +223,9 @@ namespace Cantina
             }
             else if (dialogResult == DialogResult.No)
             {
-                
+
             }
-           
+
         }
 
         private void btnConfirmar_MouseEnter(object sender, EventArgs e)
@@ -248,6 +248,11 @@ namespace Cantina
         private void btnCancelar_MouseLeave(object sender, EventArgs e)
         {
             btnCancelar.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

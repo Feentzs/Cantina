@@ -65,5 +65,16 @@ namespace Cantina
             balcao telabalcao = new balcao();
             telabalcao.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            FormEstoque adm = new FormEstoque();
+            adm.Show();
+        }
     }
 }

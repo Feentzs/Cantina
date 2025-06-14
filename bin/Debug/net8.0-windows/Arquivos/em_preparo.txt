@@ -2,8 +2,9 @@ Rogerin
 roferin;18:02;Pastel de Queijo;Entregue
 Leandro;08:25;Hamburger Simples|Água Mineral (500ml);Entregue
 Rogerio;08:32;Pastel de Queijo|X-Tudo|Água Mineral (500ml);Entregue
-Marcelo;08:33;Pastel de Queijo|Coxinha;Pronto
+Marcelo;08:33;Pastel de Queijo|Coxinha;Entregue
 Marcelina;08:33;Suco Natural (300ml)|Pão de Queijo;Em Preparo
 Marcio;08:33;Hamburger com Queijo|Pão de Queijo;Em Preparo
 Roberto;09:39;Coxinha|Suco Natural (300ml);Em Preparo
 Roberto;09:42;Pão de Queijo|Pastel de Carne;Em Preparo
+Jose;08:37;Pastel de Carne;Em Preparo

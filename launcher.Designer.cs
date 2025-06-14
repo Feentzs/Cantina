@@ -38,6 +38,7 @@
             label2 = new Label();
             pictureBox3 = new PictureBox();
             button3 = new Button();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -180,12 +181,33 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
+            // button4
+            // 
+            button4.BackColor = Color.White;
+            button4.BackgroundImage = (Image)resources.GetObject("button4.BackgroundImage");
+            button4.BackgroundImageLayout = ImageLayout.Stretch;
+            button4.FlatAppearance.BorderColor = Color.White;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatAppearance.MouseDownBackColor = Color.White;
+            button4.FlatAppearance.MouseOverBackColor = Color.White;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.ForeColor = Color.White;
+            button4.Location = new Point(464, 12);
+            button4.Name = "button4";
+            button4.Size = new Size(239, 59);
+            button4.TabIndex = 34;
+            button4.Text = "Balcão";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click_1;
+            // 
             // launcher
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(243, 241, 238);
             ClientSize = new Size(800, 450);
+            Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(pictureBox3);
             Controls.Add(label2);
@@ -216,5 +238,6 @@
         private Label label2;
         private PictureBox pictureBox3;
         private Button button3;
+        private Button button4;
     }
 }

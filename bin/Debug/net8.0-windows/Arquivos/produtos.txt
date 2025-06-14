@@ -1,10 +1,10 @@
-Pão de Queijo - R$3,50
-Coxinha - R$5,00
-Pastel de Carne - R$6,00
-Pastel de Queijo - R$5,50
-Suco Natural (300ml) - R$4,00
-Refrigerante Lata - R$4,50
-Hamburger Simples - R$8,00
-Hamburger com Queijo - R$9,00
-X-Tudo - R$12,00
-Água Mineral (500ml) - R$2,50
+Pão de Queijo - Salgado - R$3,50 - 20
+Coxinha - Salgado - R$5,00 - 20
+Pastel de Carne - Salgado - R$6,00 - 20
+Pastel de Queijo - Salgado - R$5,50 - 20
+Suco Natural (300ml) - Salgado - R$4,00 - 20
+Refrigerante Lata - Bebida - R$4,50 - 20
+Hamburger Simples - Salgado - R$8,00 - 20
+Hamburger com Queijo - Salgado - R$9,00 - 20
+X-Tudo - Salgado - R$12,00 - 20
+Água Mineral (500ml) - Salgado - R$2,50 - 20
