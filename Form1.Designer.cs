@@ -88,6 +88,7 @@
             listViewProdutos.Size = new Size(381, 285);
             listViewProdutos.TabIndex = 15;
             listViewProdutos.UseCompatibleStateImageBehavior = false;
+            listViewProdutos.View = View.Details;
             listViewProdutos.DrawItem += listViewProdutos_DrawItem;
             listViewProdutos.DrawSubItem += listViewProdutos_DrawSubItem;
             // 

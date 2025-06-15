@@ -14,3 +14,6 @@
 [28/05/2025 09:39:01] Cliente: Roberto | Total: R$ 23,00 | Pagamento: DINHEIRO |Produtos: Coxinha | Suco Natural (300ml)
 [28/05/2025 09:42:14] Cliente: Roberto | Total: R$ 9,50 | Pagamento: DINHEIRO |Produtos: Pão de Queijo | Pastel de Carne
 [06/06/2025 08:37:35] Cliente: Jose | Total: R$ 12,00 | Pagamento: DINHEIRO |Produtos: Pastel de Carne
+[15/06/2025 12:10:22] Cliente: Rogerin | Total: R$ 11,50 | Pagamento: DÉBITO |Produtos: Refrigerante Lata | Codorna Tuxedo
+[15/06/2025 12:20:38] Cliente: Ronaldo | Total: R$ 21,00 | Pagamento: DINHEIRO | Produtos: 3x Codorna Tuxedo
+[15/06/2025 12:26:50] Cliente: louco por codorna | Total: R$ 7.000,00 | Pagamento: PIX | Produtos: 10x Codorna Tuxedo

@@ -323,8 +323,6 @@ namespace Cantina
                 TopMost = true
             };
 
-           
-
             // Cantos arredondados
             adicionar.Paint += (s, e) =>
             {
@@ -356,19 +354,19 @@ namespace Cantina
             // Campos texto
             TextBox txtNome = new TextBox() { PlaceholderText = "Insira o nome do produto aqui...", Location = new Point(50, 105), Width = 250, Font = new Font("Inter", 10, FontStyle.Regular) };
             TextBox txtCategoria = new TextBox() { PlaceholderText = "Insira a categoria do produto aqui...", Location = new Point(50, 175), Width = 250, Font = new Font("Inter", 10, FontStyle.Regular) };
-            TextBox txtPreco = new TextBox() { PlaceholderText = "Insira o valor do prodto aqui", Location = new Point(50, 250), Width = 250, Font = new Font("Inter", 10, FontStyle.Regular) };
-
+            TextBox txtPreco = new TextBox() { PlaceholderText = "Insira o valor do produto aqui", Location = new Point(50, 250), Width = 250, Font = new Font("Inter", 10, FontStyle.Regular) };
 
             Button btnMais = new Button() { Text = "+", Location = new Point(160, 340), Size = new Size(38, 30), Image = Properties.Resources.mais, FlatStyle = FlatStyle.Flat };
             Button btnMenos = new Button() { Text = "-", Location = new Point(50, 340), Size = new Size(38, 30), Image = Properties.Resources.menos, FlatStyle = FlatStyle.Flat };
-            Label lblQtd = new Label() { Text = produtoSelecionado.Quantidade.ToString(), Location = new Point(115, 345), AutoSize = true, Font = new Font("Inter", 14, FontStyle.Bold), };
-            Label edicao = new Label() { Text = "Adicionar Itens", Location = new Point(10, 20), AutoSize = true, Font = new Font("Agrandir Narrow Bold", 25, FontStyle.Bold), };
-            Label lblnome = new Label() { Text = "Nome do Produto :", Location = new Point(40, 80), AutoSize = true, Font = new Font("Inter", 14, FontStyle.Bold), };
-            Label lblcategoria = new Label() { Text = "Categoria :", Location = new Point(40, 150), AutoSize = true, Font = new Font("Inter", 14, FontStyle.Bold), };
-            Label lblpreco = new Label() { Text = "Preço :", Location = new Point(40, 220), AutoSize = true, Font = new Font("Inter", 14, FontStyle.Bold), };
-            Label lblquantidade = new Label() { Text = "Quantidade :", Location = new Point(40, 290), AutoSize = true, Font = new Font("Inter", 14, FontStyle.Bold), };
-            btnMais.Click += (s, e) => { delta++; lblQtd.Text = (produtoSelecionado.Quantidade + delta).ToString(); };
-            btnMenos.Click += (s, e) => { delta = Math.Max(-produtoSelecionado.Quantidade, delta - 1); lblQtd.Text = (produtoSelecionado.Quantidade + delta).ToString(); };
+            Label lblQtd = new Label() { Text = "0", Location = new Point(115, 345), AutoSize = true, Font = new Font("Inter", 14, FontStyle.Bold) };
+            Label edicao = new Label() { Text = "Adicionar Itens", Location = new Point(10, 20), AutoSize = true, Font = new Font("Agrandir Narrow Bold", 25, FontStyle.Bold) };
+            Label lblnome = new Label() { Text = "Nome do Produto :", Location = new Point(40, 80), AutoSize = true, Font = new Font("Inter", 14, FontStyle.Bold) };
+            Label lblcategoria = new Label() { Text = "Categoria :", Location = new Point(40, 150), AutoSize = true, Font = new Font("Inter", 14, FontStyle.Bold) };
+            Label lblpreco = new Label() { Text = "Preço :", Location = new Point(40, 220), AutoSize = true, Font = new Font("Inter", 14, FontStyle.Bold) };
+            Label lblquantidade = new Label() { Text = "Quantidade :", Location = new Point(40, 290), AutoSize = true, Font = new Font("Inter", 14, FontStyle.Bold) };
+
+            btnMais.Click += (s, e) => { delta++; lblQtd.Text = delta.ToString(); };
+            btnMenos.Click += (s, e) => { delta = Math.Max(0, delta - 1); lblQtd.Text = delta.ToString(); };
             btnMais.FlatAppearance.BorderSize = 0;
             btnMenos.FlatAppearance.BorderSize = 0;
 
@@ -387,7 +385,6 @@ namespace Cantina
             Button btnFechar = new Button()
             {
                 Text = "X",
-
                 FlatStyle = FlatStyle.Flat,
                 ForeColor = Color.Gray,
                 Font = new Font("Inter", 14, FontStyle.Bold),
@@ -395,7 +392,6 @@ namespace Cantina
                 Location = new Point(550, 5)
             };
             btnFechar.FlatAppearance.BorderSize = 0;
-
 
             btnSalvar.Click += (s, e) =>
             {
@@ -409,25 +405,27 @@ namespace Cantina
                         Quantidade = delta
                     });
                     AtualizarExibicao(txtBuscar.Text);
-                }
-                ;
-
-                btnFechar.Click += (s, e) =>
-                {
                     adicionar.Close();
                     overlay.Close();
-
-                };
-
-                adicionar.Controls.AddRange(new Control[] { lblquantidade, lblpreco, lblcategoria, lblnome, edicao, lblQtd, btnMenos, btnMais, txtNome, txtCategoria, txtPreco, pic, btnSalvar, btnFechar });
-                
-               
-                overlay.Show();
-                adicionar.ShowDialog();
-
-
+                }
+                else
+                {
+                    MessageBox.Show("Preço inválido.");
+                }
             };
+
+            btnFechar.Click += (s, e) =>
+            {
+                adicionar.Close();
+                overlay.Close();
+            };
+
+            adicionar.Controls.AddRange(new Control[] { lblquantidade, lblpreco, lblcategoria, lblnome, edicao, lblQtd, btnMenos, btnMais, txtNome, txtCategoria, txtPreco, pic, btnSalvar, btnFechar });
+
+            overlay.Show();
+            adicionar.ShowDialog();
         }
+        
 
         private void btnExcluirProduto_Click(object sender, EventArgs e)
         {

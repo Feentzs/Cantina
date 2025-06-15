@@ -8,3 +8,6 @@ Marcio;08:33;Hamburger com Queijo|Pão de Queijo;Em Preparo
 Roberto;09:39;Coxinha|Suco Natural (300ml);Em Preparo
 Roberto;09:42;Pão de Queijo|Pastel de Carne;Em Preparo
 Jose;08:37;Pastel de Carne;Em Preparo
+Rogerin;12:10;Refrigerante Lata|Codorna Tuxedo;Em Preparo
+Ronaldo;12:20;3x Codorna Tuxedo;Em Preparo
+louco por codorna;12:26;10x Codorna Tuxedo;Em Preparo

@@ -45,6 +45,36 @@ namespace Cantina
                 listViewResumo.Items.Add(novoItem);
             }
         }
+        private void AtualizarEstoque()
+        {
+            string caminhoEstoque = Path.Combine(Application.StartupPath, "Arquivos", "produtos.txt");
+            if (!File.Exists(caminhoEstoque)) return;
+
+            var linhasEstoque = File.ReadAllLines(caminhoEstoque).ToList();
+
+            foreach (ListViewItem item in listViewResumo.Items)
+            {
+                string nomeProduto = item.SubItems[0].Text;
+                int quantidadeVendida = int.Parse(item.SubItems[1].Text);
+
+                for (int i = 0; i < linhasEstoque.Count; i++)
+                {
+                    string[] partes = linhasEstoque[i].Split(new[] { " - " }, StringSplitOptions.None);
+                    if (partes.Length >= 4 && partes[0].Trim() == nomeProduto)
+                    {
+                        int estoqueAtual = int.Parse(partes[3].Trim());
+                        int novoEstoque = estoqueAtual - quantidadeVendida;
+                        if (novoEstoque < 0) novoEstoque = 0;
+
+                        partes[3] = novoEstoque.ToString();
+                        linhasEstoque[i] = string.Join(" - ", partes);
+                        break;
+                    }
+                }
+            }
+
+            File.WriteAllLines(caminhoEstoque, linhasEstoque);
+        }
 
         private void ConfigurarBotoesPagamento()
         {
@@ -138,13 +168,10 @@ namespace Cantina
 
         private void btnConfirmar_Click_1(object sender, EventArgs e)
         {
-
             if (ValidarDados())
             {
                 string pasta = Path.Combine(Application.StartupPath, "Arquivos");
                 Directory.CreateDirectory(pasta);
-
-
 
                 string caminhoFila = Path.Combine(pasta, "em_preparo.txt");
                 string nome = txtNomeCliente.Text.Trim();
@@ -152,17 +179,22 @@ namespace Cantina
 
                 List<string> produtos = new List<string>();
 
+                // Modificado para incluir quantidade (ex: "2x Coxinha")
                 foreach (ListViewItem item in listViewResumo.Items)
                 {
-                    produtos.Add(item.SubItems[0].Text);
+                    produtos.Add($"{item.SubItems[1].Text}x {item.SubItems[0].Text}");
                 }
 
                 string linhaPedido = $"{nome};{horario};{string.Join("|", produtos)};Em Preparo";
                 File.AppendAllText(caminhoFila, linhaPedido + Environment.NewLine);
 
                 string caminhoLog = Path.Combine(pasta, "pedidos_log.txt");
-                string log = $"[{DateTime.Now}] Cliente: {txtNomeCliente.Text.Trim()} | Total: {lblTotal.Text} | Pagamento: {formaPagamento} |Produtos: {string.Join(" | ", produtos)}";
+                string log = $"[{DateTime.Now}] Cliente: {txtNomeCliente.Text.Trim()} | Total: {lblTotal.Text} | " +
+                            $"Pagamento: {formaPagamento} | Produtos: {string.Join(", ", produtos)}";
                 File.AppendAllText(caminhoLog, log + Environment.NewLine);
+
+               
+                AtualizarEstoque();
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
