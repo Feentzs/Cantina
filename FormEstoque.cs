@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 
 namespace Cantina
 {
@@ -69,14 +70,21 @@ namespace Cantina
         private Panel CriarCardProduto(Produto p)
         {
             Panel panel = new Panel();
-            panel.Size = new Size(750, 50);
+            panel.Size = new Size(640, 50);
             panel.BorderStyle = BorderStyle.None;
             panel.BackColor = Color.White;
             panel.Padding = new Padding(10);
             panel.Margin = new Padding(10);
             panel.Cursor = Cursors.Hand;
             panel.Click += (s, e) => produtoSelecionado = p;
-            panel.Paint += (s, e) =>
+            panel.MouseClick += (s, e) =>
+            {
+                panel.BackColor = ColorTranslator.FromHtml("#E6FF00");
+            };
+            
+
+
+                panel.Paint += (s, e) =>
             {
                 Graphics g = e.Graphics;
                 g.SmoothingMode = SmoothingMode.AntiAlias;
@@ -195,7 +203,7 @@ namespace Cantina
                 TopMost = true
             };
 
-            // Cantos arredondados
+
             popup.Paint += (s, e) =>
             {
                 Graphics g = e.Graphics;
@@ -214,21 +222,21 @@ namespace Cantina
                 }
             };
 
-            // Imagem decorativa
+
             PictureBox pic = new PictureBox()
             {
-               Image = Properties.Resources.image__3_,
+                Image = Properties.Resources.image__3_,
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Size = new Size(203, 71),
                 Location = new Point(30, 320)
             };
 
-            // Campos texto
-            TextBox txtNome = new TextBox() { Text = produtoSelecionado.Nome, Location = new Point(50, 105), Width = 250,Font = new Font("Inter", 10, FontStyle.Regular) };
-            TextBox txtCategoria = new TextBox() { Text = produtoSelecionado.Categoria, Location = new Point(50, 175), Width = 250,Font = new Font("Inter", 10, FontStyle.Regular) };
+
+            TextBox txtNome = new TextBox() { Text = produtoSelecionado.Nome, Location = new Point(50, 105), Width = 250, Font = new Font("Inter", 10, FontStyle.Regular) };
+            TextBox txtCategoria = new TextBox() { Text = produtoSelecionado.Categoria, Location = new Point(50, 175), Width = 250, Font = new Font("Inter", 10, FontStyle.Regular) };
             TextBox txtPreco = new TextBox() { Text = produtoSelecionado.Preco.ToString("F2"), Location = new Point(50, 250), Width = 250, Font = new Font("Inter", 10, FontStyle.Regular) };
 
-           
+
             Button btnMais = new Button() { Text = "+", Location = new Point(160, 340), Size = new Size(38, 30), Image = Properties.Resources.mais, FlatStyle = FlatStyle.Flat };
             Button btnMenos = new Button() { Text = "-", Location = new Point(50, 340), Size = new Size(38, 30), Image = Properties.Resources.menos, FlatStyle = FlatStyle.Flat };
             Label lblQtd = new Label() { Text = produtoSelecionado.Quantidade.ToString(), Location = new Point(115, 345), AutoSize = true, Font = new Font("Inter", 14, FontStyle.Bold), };
@@ -257,7 +265,7 @@ namespace Cantina
             Button btnFechar = new Button()
             {
                 Text = "X",
-                
+
                 FlatStyle = FlatStyle.Flat,
                 ForeColor = Color.Gray,
                 Font = new Font("Inter", 14, FontStyle.Bold),
@@ -275,6 +283,13 @@ namespace Cantina
                     produtoSelecionado.Categoria = txtCategoria.Text;
                     produtoSelecionado.Preco = precoNovo;
                     produtoSelecionado.Quantidade += delta;
+                    List<string> linhas = new List<string>();
+                    foreach (var p in produtos)
+                    {
+                        linhas.Add($"{p.Nome} - {p.Categoria} - R${p.Preco} - {p.Quantidade}");
+                    }
+                    File.WriteAllLines(caminhoArquivo, linhas);
+                    MessageBox.Show("Estoque salvo.");
                     AtualizarExibicao(txtBuscar.Text);
                     popup.Close();
                     overlay.Close();
@@ -284,15 +299,32 @@ namespace Cantina
                     MessageBox.Show("Preço inválido.");
                 }
             };
+            btnSalvar.MouseEnter += (s, e) =>
+            {
+                btnSalvar.ForeColor = ColorTranslator.FromHtml("#E1FF00");
+            };
+            btnSalvar.MouseLeave += (s, e) =>
+            {
+                btnSalvar.ForeColor = Color.White;
+            };
+
+            btnSalvar.FlatAppearance.MouseOverBackColor = Color.White;
+            btnSalvar.BackColor = Color.White;
 
             btnFechar.Click += (s, e) =>
             {
-                popup.Close();
-               overlay.Close();
-               
+                DialogResult dialogResult = MessageBox.Show("Você deseja sair? Todas as alterações feitas não seram salvas", " ", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                    popup.Close();
+                    overlay.Close();
+
+                }
+
             };
 
-            popup.Controls.AddRange(new Control[] {lblquantidade,lblpreco,lblcategoria,lblnome,edicao,lblQtd,btnMenos,btnMais, txtNome, txtCategoria, txtPreco, pic, btnSalvar, btnFechar });
+            popup.Controls.AddRange(new Control[] { lblquantidade, lblpreco, lblcategoria, lblnome, edicao, lblQtd, btnMenos, btnMais, txtNome, txtCategoria, txtPreco, pic, btnSalvar, btnFechar });
             overlay.Show();
             popup.ShowDialog();
         }
@@ -323,7 +355,7 @@ namespace Cantina
                 TopMost = true
             };
 
-            // Cantos arredondados
+
             adicionar.Paint += (s, e) =>
             {
                 Graphics g = e.Graphics;
@@ -342,7 +374,7 @@ namespace Cantina
                 }
             };
 
-            // Imagem decorativa
+
             PictureBox pic = new PictureBox()
             {
                 Image = Properties.Resources.image__3_,
@@ -351,7 +383,7 @@ namespace Cantina
                 Location = new Point(30, 320)
             };
 
-            // Campos texto
+
             TextBox txtNome = new TextBox() { PlaceholderText = "Insira o nome do produto aqui...", Location = new Point(50, 105), Width = 250, Font = new Font("Inter", 10, FontStyle.Regular) };
             TextBox txtCategoria = new TextBox() { PlaceholderText = "Insira a categoria do produto aqui...", Location = new Point(50, 175), Width = 250, Font = new Font("Inter", 10, FontStyle.Regular) };
             TextBox txtPreco = new TextBox() { PlaceholderText = "Insira o valor do produto aqui", Location = new Point(50, 250), Width = 250, Font = new Font("Inter", 10, FontStyle.Regular) };
@@ -393,6 +425,17 @@ namespace Cantina
             };
             btnFechar.FlatAppearance.BorderSize = 0;
 
+            btnSalvar.MouseEnter += (s, e) =>
+            {
+                btnSalvar.ForeColor = ColorTranslator.FromHtml("#E1FF00");
+            };
+            btnSalvar.MouseLeave += (s, e) =>
+            {
+                btnSalvar.ForeColor = Color.White;
+            };
+
+            btnSalvar.FlatAppearance.MouseOverBackColor = Color.White;
+            btnSalvar.BackColor = Color.White;
             btnSalvar.Click += (s, e) =>
             {
                 if (decimal.TryParse(txtPreco.Text.Replace(",", "."), out decimal preco))
@@ -404,6 +447,13 @@ namespace Cantina
                         Preco = preco,
                         Quantidade = delta
                     });
+                    List<string> linhas = new List<string>();
+                    foreach (var p in produtos)
+                    {
+                        linhas.Add($"{p.Nome} - {p.Categoria} - R${p.Preco} - {p.Quantidade}");
+                    }
+                    File.WriteAllLines(caminhoArquivo, linhas);
+                    MessageBox.Show("Estoque salvo.");
                     AtualizarExibicao(txtBuscar.Text);
                     adicionar.Close();
                     overlay.Close();
@@ -412,12 +462,17 @@ namespace Cantina
                 {
                     MessageBox.Show("Preço inválido.");
                 }
+
             };
 
             btnFechar.Click += (s, e) =>
             {
-                adicionar.Close();
-                overlay.Close();
+                DialogResult dialogResult = MessageBox.Show("Você deseja sair? Todas as alterações feitas não seram salvas", " ", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    adicionar.Close();
+                    overlay.Close();
+                }
             };
 
             adicionar.Controls.AddRange(new Control[] { lblquantidade, lblpreco, lblcategoria, lblnome, edicao, lblQtd, btnMenos, btnMais, txtNome, txtCategoria, txtPreco, pic, btnSalvar, btnFechar });
@@ -425,9 +480,10 @@ namespace Cantina
             overlay.Show();
             adicionar.ShowDialog();
         }
-        
 
-        private void btnExcluirProduto_Click(object sender, EventArgs e)
+
+
+        private void btnRemover_Click(object sender, EventArgs e)
         {
             if (produtoSelecionado == null)
             {
@@ -436,11 +492,6 @@ namespace Cantina
             }
             produtos.Remove(produtoSelecionado);
             produtoSelecionado = null;
-            AtualizarExibicao(txtBuscar.Text);
-        }
-
-        private void btnSalvar_Click_1(object sender, EventArgs e)
-        {
             List<string> linhas = new List<string>();
             foreach (var p in produtos)
             {
@@ -448,7 +499,9 @@ namespace Cantina
             }
             File.WriteAllLines(caminhoArquivo, linhas);
             MessageBox.Show("Estoque salvo.");
+            AtualizarExibicao(txtBuscar.Text);
         }
+
 
         private class Produto
         {
@@ -458,6 +511,38 @@ namespace Cantina
             public int Quantidade { get; set; }
         }
 
+        private void btnRemover_MouseEnter(object sender, EventArgs e)
+        {
+            btnRemover.BackgroundImage = Properties.Resources.excluir;
+            btnRemover.BackColor = ColorTranslator.FromHtml("#F3F1EE");
+            btnRemover.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#F3F1EE");
+        }
 
+        private void btnRemover_MouseLeave(object sender, EventArgs e)
+        {
+            btnRemover.BackgroundImage = Properties.Resources.lixo;
+        }
+
+        private void btnNovoProduto_MouseEnter(object sender, EventArgs e)
+        {
+            btnNovoProduto.ForeColor = ColorTranslator.FromHtml("#E1FF00");
+        }
+
+        private void btnNovoProduto_MouseLeave(object sender, EventArgs e)
+        {
+            btnNovoProduto.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+        }
+
+        private void btnEditar_MouseEnter(object sender, EventArgs e)
+        {
+            btnEditar.ForeColor = ColorTranslator.FromHtml("#E1FF00");
+        }
+
+        private void btnEditar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEditar.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+        }
+
+        
     }
 }

@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEstoque));
-            txtProduto = new TextBox();
-            txtPreco = new TextBox();
-            btnRemover = new Button();
             Estoque = new Panel();
+            btnRemover = new Button();
+            label6 = new Label();
             btnEditar = new Button();
             label5 = new Label();
             label4 = new Label();
@@ -42,7 +41,6 @@
             txtBuscar = new TextBox();
             pictureBox4 = new PictureBox();
             label1 = new Label();
-            btnSalvar = new Button();
             btnNovoProduto = new Button();
             flowLayoutPanelEstoque = new FlowLayoutPanel();
             pictureBox1 = new PictureBox();
@@ -52,31 +50,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // txtProduto
-            // 
-            txtProduto.Location = new Point(827, 85);
-            txtProduto.Name = "txtProduto";
-            txtProduto.Size = new Size(100, 23);
-            txtProduto.TabIndex = 1;
-            // 
-            // txtPreco
-            // 
-            txtPreco.Location = new Point(840, 136);
-            txtPreco.Name = "txtPreco";
-            txtPreco.Size = new Size(100, 23);
-            txtPreco.TabIndex = 2;
-            // 
-            // btnRemover
-            // 
-            btnRemover.Location = new Point(852, 187);
-            btnRemover.Name = "btnRemover";
-            btnRemover.Size = new Size(75, 23);
-            btnRemover.TabIndex = 5;
-            btnRemover.Text = "remover";
-            btnRemover.UseVisualStyleBackColor = true;
-            // 
             // Estoque
             // 
+            Estoque.Controls.Add(btnRemover);
+            Estoque.Controls.Add(label6);
             Estoque.Controls.Add(btnEditar);
             Estoque.Controls.Add(label5);
             Estoque.Controls.Add(label4);
@@ -86,42 +63,71 @@
             Estoque.Controls.Add(txtBuscar);
             Estoque.Controls.Add(pictureBox4);
             Estoque.Controls.Add(label1);
-            Estoque.Controls.Add(btnSalvar);
             Estoque.Controls.Add(btnNovoProduto);
             Estoque.Controls.Add(flowLayoutPanelEstoque);
-            Estoque.Controls.Add(txtProduto);
-            Estoque.Controls.Add(txtPreco);
-            Estoque.Controls.Add(btnRemover);
             Estoque.Location = new Point(242, 1);
             Estoque.Name = "Estoque";
             Estoque.Size = new Size(975, 829);
             Estoque.TabIndex = 7;
             // 
+            // btnRemover
+            // 
+            btnRemover.BackColor = Color.FromArgb(243, 241, 238);
+            btnRemover.BackgroundImage = (Image)resources.GetObject("btnRemover.BackgroundImage");
+            btnRemover.BackgroundImageLayout = ImageLayout.Stretch;
+            btnRemover.FlatAppearance.BorderColor = Color.White;
+            btnRemover.FlatAppearance.BorderSize = 0;
+            btnRemover.FlatAppearance.MouseDownBackColor = Color.White;
+            btnRemover.FlatAppearance.MouseOverBackColor = Color.White;
+            btnRemover.FlatStyle = FlatStyle.Flat;
+            btnRemover.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRemover.ForeColor = Color.White;
+            btnRemover.Location = new Point(21, 646);
+            btnRemover.Name = "btnRemover";
+            btnRemover.Size = new Size(82, 72);
+            btnRemover.TabIndex = 42;
+            btnRemover.UseVisualStyleBackColor = false;
+            btnRemover.Click += btnRemover_Click;
+            btnRemover.MouseEnter += btnRemover_MouseEnter;
+            btnRemover.MouseLeave += btnRemover_MouseLeave;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(564, 184);
+            label6.Name = "label6";
+            label6.Size = new Size(59, 20);
+            label6.TabIndex = 41;
+            label6.Text = "Status";
+            // 
             // btnEditar
             // 
-            btnEditar.BackColor = Color.White;
+            btnEditar.BackColor = Color.FromArgb(243, 241, 238);
             btnEditar.BackgroundImage = (Image)resources.GetObject("btnEditar.BackgroundImage");
             btnEditar.BackgroundImageLayout = ImageLayout.Stretch;
-            btnEditar.FlatAppearance.BorderColor = Color.White;
+            btnEditar.FlatAppearance.BorderColor = Color.FromArgb(243, 241, 238);
             btnEditar.FlatAppearance.BorderSize = 0;
-            btnEditar.FlatAppearance.MouseDownBackColor = Color.White;
-            btnEditar.FlatAppearance.MouseOverBackColor = Color.White;
+            btnEditar.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 241, 238);
+            btnEditar.FlatAppearance.MouseOverBackColor = Color.FromArgb(243, 241, 238);
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditar.ForeColor = Color.White;
-            btnEditar.Location = new Point(541, 151);
+            btnEditar.Location = new Point(114, 653);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(239, 59);
             btnEditar.TabIndex = 40;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = false;
             btnEditar.Click += btnEditar_Click_1;
+            btnEditar.MouseEnter += btnEditar_MouseEnter;
+            btnEditar.MouseLeave += btnEditar_MouseLeave;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(461, 202);
+            label5.Location = new Point(461, 184);
             label5.Name = "label5";
             label5.Size = new Size(37, 20);
             label5.TabIndex = 39;
@@ -131,7 +137,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(361, 202);
+            label4.Location = new Point(361, 184);
             label4.Name = "label4";
             label4.Size = new Size(53, 20);
             label4.TabIndex = 38;
@@ -141,7 +147,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(241, 202);
+            label3.Location = new Point(241, 183);
             label3.Name = "label3";
             label3.Size = new Size(84, 20);
             label3.TabIndex = 37;
@@ -151,7 +157,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(48, 202);
+            label2.Location = new Point(48, 183);
             label2.Name = "label2";
             label2.Size = new Size(54, 20);
             label2.TabIndex = 36;
@@ -161,7 +167,7 @@
             // 
             pictureBox5.BackColor = Color.White;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(65, 149);
+            pictureBox5.Location = new Point(36, 111);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(30, 32);
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -172,17 +178,17 @@
             // 
             txtBuscar.BorderStyle = BorderStyle.None;
             txtBuscar.Font = new Font("Inter", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtBuscar.Location = new Point(103, 154);
+            txtBuscar.Location = new Point(72, 115);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.PlaceholderText = "Buscar";
-            txtBuscar.Size = new Size(100, 23);
+            txtBuscar.Size = new Size(319, 23);
             txtBuscar.TabIndex = 7;
             // 
             // pictureBox4
             // 
             pictureBox4.BackColor = Color.Transparent;
             pictureBox4.Image = Properties.Resources.Sem_título__1_;
-            pictureBox4.Location = new Point(50, 144);
+            pictureBox4.Location = new Point(21, 105);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(381, 43);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -200,52 +206,34 @@
             label1.TabIndex = 28;
             label1.Text = "Estoque";
             // 
-            // btnSalvar
-            // 
-            btnSalvar.BackColor = Color.White;
-            btnSalvar.BackgroundImage = (Image)resources.GetObject("btnSalvar.BackgroundImage");
-            btnSalvar.BackgroundImageLayout = ImageLayout.Stretch;
-            btnSalvar.FlatAppearance.BorderColor = Color.White;
-            btnSalvar.FlatAppearance.BorderSize = 0;
-            btnSalvar.FlatAppearance.MouseDownBackColor = Color.White;
-            btnSalvar.FlatAppearance.MouseOverBackColor = Color.White;
-            btnSalvar.FlatStyle = FlatStyle.Flat;
-            btnSalvar.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSalvar.ForeColor = Color.White;
-            btnSalvar.Location = new Point(514, 11);
-            btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(239, 59);
-            btnSalvar.TabIndex = 27;
-            btnSalvar.Text = "Salvar";
-            btnSalvar.UseVisualStyleBackColor = false;
-            btnSalvar.Click += btnSalvar_Click_1;
-            // 
             // btnNovoProduto
             // 
-            btnNovoProduto.BackColor = Color.White;
+            btnNovoProduto.BackColor = Color.FromArgb(243, 241, 238);
             btnNovoProduto.BackgroundImage = (Image)resources.GetObject("btnNovoProduto.BackgroundImage");
             btnNovoProduto.BackgroundImageLayout = ImageLayout.Stretch;
-            btnNovoProduto.FlatAppearance.BorderColor = Color.White;
+            btnNovoProduto.FlatAppearance.BorderColor = Color.FromArgb(243, 241, 238);
             btnNovoProduto.FlatAppearance.BorderSize = 0;
-            btnNovoProduto.FlatAppearance.MouseDownBackColor = Color.White;
-            btnNovoProduto.FlatAppearance.MouseOverBackColor = Color.White;
+            btnNovoProduto.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 241, 238);
+            btnNovoProduto.FlatAppearance.MouseOverBackColor = Color.FromArgb(243, 241, 238);
             btnNovoProduto.FlatStyle = FlatStyle.Flat;
             btnNovoProduto.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNovoProduto.ForeColor = Color.White;
-            btnNovoProduto.Location = new Point(514, 76);
+            btnNovoProduto.Location = new Point(509, 653);
             btnNovoProduto.Name = "btnNovoProduto";
             btnNovoProduto.Size = new Size(239, 59);
             btnNovoProduto.TabIndex = 25;
             btnNovoProduto.Text = "Adicionar";
             btnNovoProduto.UseVisualStyleBackColor = false;
             btnNovoProduto.Click += btnNovoProduto_Click_1;
+            btnNovoProduto.MouseEnter += btnNovoProduto_MouseEnter;
+            btnNovoProduto.MouseLeave += btnNovoProduto_MouseLeave;
             // 
             // flowLayoutPanelEstoque
             // 
             flowLayoutPanelEstoque.AutoScroll = true;
-            flowLayoutPanelEstoque.Location = new Point(36, 225);
+            flowLayoutPanelEstoque.Location = new Point(36, 210);
             flowLayoutPanelEstoque.Name = "flowLayoutPanelEstoque";
-            flowLayoutPanelEstoque.Size = new Size(936, 456);
+            flowLayoutPanelEstoque.Size = new Size(712, 419);
             flowLayoutPanelEstoque.TabIndex = 8;
             // 
             // pictureBox1
@@ -268,6 +256,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(Estoque);
             Name = "FormEstoque";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormEstoque";
             Estoque.ResumeLayout(false);
             Estoque.PerformLayout();
@@ -278,14 +267,10 @@
         }
 
         #endregion
-        private TextBox txtProduto;
-        private TextBox txtPreco;
-        private Button btnRemover;
         private Panel Estoque;
         private FlowLayoutPanel flowLayoutPanelEstoque;
         private TextBox txtBuscar;
         private Button btnNovoProduto;
-        private Button btnSalvar;
         private PictureBox pictureBox1;
         private Label label1;
         private PictureBox pictureBox4;
@@ -295,5 +280,7 @@
         private Label label4;
         private Label label5;
         private Button btnEditar;
+        private Label label6;
+        private Button btnRemover;
     }
 }

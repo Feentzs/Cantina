@@ -205,9 +205,9 @@
             btnAdicionar.FlatStyle = FlatStyle.Flat;
             btnAdicionar.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdicionar.ForeColor = Color.White;
-            btnAdicionar.Location = new Point(18, 651);
+            btnAdicionar.Location = new Point(27, 651);
             btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(239, 59);
+            btnAdicionar.Size = new Size(194, 59);
             btnAdicionar.TabIndex = 24;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = false;

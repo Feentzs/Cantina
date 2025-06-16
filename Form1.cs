@@ -16,7 +16,7 @@ namespace Cantina
         private List<string[]> produtosOriginais = new List<string[]>();
         private List<ProdutoInfo> produtosDisponiveis = new List<ProdutoInfo>();
 
-        // Classe para armazenar informações do produto
+       
         private class ProdutoInfo
         {
             public string Nome { get; set; }
@@ -25,7 +25,7 @@ namespace Cantina
             public int Quantidade { get; set; }
         }
 
-        // Restante do seu código existente...
+        
         private string RemoverAcentos(string texto)
         {
             if (string.IsNullOrEmpty(texto))
@@ -63,10 +63,10 @@ namespace Cantina
             var produto = produtosDisponiveis.FirstOrDefault(p => p.Nome == e.Item.Text);
             if (produto != null && produto.Quantidade == 0)
             {
-                // Texto riscado para produtos sem estoque
+              
                 e.Graphics.DrawString(e.SubItem.Text, e.Item.Font, Brushes.Gray, e.Bounds);
 
-                // Linha sobre o texto
+              
                 SizeF textSize = e.Graphics.MeasureString(e.SubItem.Text, e.Item.Font);
                 Point start = new Point(e.Bounds.Left, e.Bounds.Top + (int)(textSize.Height / 2));
                 Point end = new Point(e.Bounds.Left + (int)textSize.Width, start.Y);
@@ -81,24 +81,23 @@ namespace Cantina
 
         private void ConfigureListViews()
         {
-            // Configuração da listViewProdutos
+            
             listViewProdutos.View = View.Details;
             listViewProdutos.FullRowSelect = true;
-            listViewProdutos.GridLines = true;  // Adiciona linhas de grade
-            listViewProdutos.HeaderStyle = ColumnHeaderStyle.Nonclickable;  // Faz os cabeçalhos visíveis
-
-            // Limpa e recria as colunas
+            listViewProdutos.GridLines = true;  
+            listViewProdutos.HeaderStyle = ColumnHeaderStyle.Nonclickable;  
+            
             listViewProdutos.Columns.Clear();
             listViewProdutos.Columns.Add("Produto", 280);
             listViewProdutos.Columns.Add("Preço", 80);
 
-            // Configuração do OwnerDraw (se estiver usando desenho personalizado)
+            
             listViewProdutos.OwnerDraw = true;
             listViewProdutos.DrawItem += ListViewProdutos_DrawItem;
             listViewProdutos.DrawSubItem += ListViewProdutos_DrawSubItem;
             listViewProdutos.DrawColumnHeader += ListViewProdutos_DrawColumnHeader;
 
-            // Configuração da listViewCarrinho (mantida como estava)
+            
             listViewCarrinho.View = View.Details;
             listViewCarrinho.FullRowSelect = true;
             listViewCarrinho.Columns.Add("Produto", 150);
@@ -107,7 +106,7 @@ namespace Cantina
             listViewCarrinho.Columns.Add("Subtotal", 80);
         }
 
-        // Adicione este método para desenhar os cabeçalhos
+        
         private void ListViewProdutos_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
         {
             e.DrawDefault = true;
@@ -252,7 +251,7 @@ namespace Cantina
             var formFinalizar = new FormFinalizarPedido(listViewCarrinho.Items, total);
             if (formFinalizar.ShowDialog() == DialogResult.OK)
             {
-                // Atualiza a lista de produtos após finalizar pedido
+                
                 CarregarProdutosDisponiveis();
                 listViewCarrinho.Items.Clear();
                 UpdateTotal();
@@ -281,7 +280,7 @@ namespace Cantina
             ListViewItem selecionado = listViewProdutos.SelectedItems[0];
             string nome = selecionado.Text;
 
-            // Verifica se o produto tem estoque
+           
             var produto = produtosDisponiveis.FirstOrDefault(p => p.Nome == nome);
             if (produto == null) return;
 
@@ -314,7 +313,7 @@ namespace Cantina
             {
                 int qtd = int.Parse(existente.SubItems[2].Text) + _quantidade;
 
-                // Verifica se após adicionar ainda tem estoque
+              
                 if (qtd > produto.Quantidade)
                 {
                     MessageBox.Show($"Quantidade indisponível! Estoque atual: {produto.Quantidade}");
