@@ -14,3 +14,5 @@ louco por codorna;12:26;10x Codorna Tuxedo;Em Preparo
 José;21:50;1x Pão de Queijo;Em Preparo
 Mariana;21:51;1x Água Mineral (500ml)|1x X-Tudo;Em Preparo
 José;23:12;2x Pastel de Queijo;Em Preparo
+Rodolfo;09:16;1x X-Tudo|1x Refrigerante Lata;Em Preparo
+Jose;18:15;4x Codorna Tuxedo;Em Preparo

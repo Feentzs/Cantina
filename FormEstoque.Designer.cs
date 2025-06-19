@@ -55,6 +55,7 @@
             pictureBox1 = new PictureBox();
             contextMenuStripFiltro = new ContextMenuStrip(components);
             panelHistorico = new Panel();
+            btnFiltroData = new Button();
             lblMediaTicket = new Label();
             label14 = new Label();
             label13 = new Label();
@@ -76,6 +77,16 @@
             pictureBox7 = new PictureBox();
             btnEstoque = new Button();
             btnHistorico = new Button();
+            telas = new Button();
+            panelTelas = new Panel();
+            pictureBox14 = new PictureBox();
+            pictureBox13 = new PictureBox();
+            label16 = new Label();
+            button4 = new Button();
+            button3 = new Button();
+            button2 = new Button();
+            btnAdicionar = new Button();
+            pictureBox12 = new PictureBox();
             Estoque.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -89,6 +100,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            panelTelas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
             SuspendLayout();
             // 
             // Estoque
@@ -396,6 +411,7 @@
             // panelHistorico
             // 
             panelHistorico.AutoScroll = true;
+            panelHistorico.Controls.Add(btnFiltroData);
             panelHistorico.Controls.Add(lblMediaTicket);
             panelHistorico.Controls.Add(label14);
             panelHistorico.Controls.Add(label13);
@@ -420,6 +436,23 @@
             panelHistorico.Size = new Size(974, 753);
             panelHistorico.TabIndex = 15;
             panelHistorico.Visible = false;
+            // 
+            // btnFiltroData
+            // 
+            btnFiltroData.BackgroundImage = (Image)resources.GetObject("btnFiltroData.BackgroundImage");
+            btnFiltroData.BackgroundImageLayout = ImageLayout.Stretch;
+            btnFiltroData.FlatAppearance.BorderSize = 0;
+            btnFiltroData.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 241, 238);
+            btnFiltroData.FlatAppearance.MouseOverBackColor = Color.FromArgb(243, 241, 238);
+            btnFiltroData.FlatStyle = FlatStyle.Flat;
+            btnFiltroData.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFiltroData.Location = new Point(799, 401);
+            btnFiltroData.Name = "btnFiltroData";
+            btnFiltroData.Size = new Size(129, 46);
+            btnFiltroData.TabIndex = 19;
+            btnFiltroData.Text = "Data ↑";
+            btnFiltroData.UseVisualStyleBackColor = true;
+            btnFiltroData.Click += btnFiltroData_Click;
             // 
             // lblMediaTicket
             // 
@@ -597,10 +630,13 @@
             // 
             // flowLayoutHistorico
             // 
+            flowLayoutHistorico.AutoSize = true;
+            flowLayoutHistorico.FlowDirection = FlowDirection.TopDown;
             flowLayoutHistorico.Location = new Point(28, 464);
             flowLayoutHistorico.Name = "flowLayoutHistorico";
             flowLayoutHistorico.Size = new Size(923, 254);
             flowLayoutHistorico.TabIndex = 4;
+            flowLayoutHistorico.WrapContents = false;
             // 
             // lblValorTotal
             // 
@@ -639,6 +675,7 @@
             // btnEstoque
             // 
             btnEstoque.FlatAppearance.BorderSize = 0;
+            btnEstoque.FlatAppearance.MouseOverBackColor = Color.FromArgb(230, 255, 0);
             btnEstoque.FlatStyle = FlatStyle.Flat;
             btnEstoque.Font = new Font("Inter", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnEstoque.Image = (Image)resources.GetObject("btnEstoque.Image");
@@ -655,6 +692,7 @@
             // btnHistorico
             // 
             btnHistorico.FlatAppearance.BorderSize = 0;
+            btnHistorico.FlatAppearance.MouseOverBackColor = Color.FromArgb(230, 255, 0);
             btnHistorico.FlatStyle = FlatStyle.Flat;
             btnHistorico.Font = new Font("Inter", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHistorico.Image = (Image)resources.GetObject("btnHistorico.Image");
@@ -668,12 +706,174 @@
             btnHistorico.UseVisualStyleBackColor = true;
             btnHistorico.Click += btnHistorico_Click;
             // 
+            // telas
+            // 
+            telas.FlatAppearance.BorderSize = 0;
+            telas.FlatAppearance.MouseOverBackColor = Color.FromArgb(230, 255, 0);
+            telas.FlatStyle = FlatStyle.Flat;
+            telas.Font = new Font("Inter", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            telas.Image = (Image)resources.GetObject("telas.Image");
+            telas.ImageAlign = ContentAlignment.MiddleLeft;
+            telas.Location = new Point(35, 368);
+            telas.Name = "telas";
+            telas.Size = new Size(144, 37);
+            telas.TabIndex = 18;
+            telas.Text = "        Telas";
+            telas.UseVisualStyleBackColor = true;
+            telas.Click += button1_Click;
+            // 
+            // panelTelas
+            // 
+            panelTelas.Controls.Add(pictureBox14);
+            panelTelas.Controls.Add(pictureBox13);
+            panelTelas.Controls.Add(label16);
+            panelTelas.Controls.Add(button4);
+            panelTelas.Controls.Add(button3);
+            panelTelas.Controls.Add(button2);
+            panelTelas.Controls.Add(btnAdicionar);
+            panelTelas.Controls.Add(pictureBox12);
+            panelTelas.Location = new Point(232, 1);
+            panelTelas.Name = "panelTelas";
+            panelTelas.Size = new Size(986, 753);
+            panelTelas.TabIndex = 19;
+            panelTelas.Visible = false;
+            // 
+            // pictureBox14
+            // 
+            pictureBox14.Image = (Image)resources.GetObject("pictureBox14.Image");
+            pictureBox14.Location = new Point(0, -7);
+            pictureBox14.Name = "pictureBox14";
+            pictureBox14.Size = new Size(991, 168);
+            pictureBox14.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox14.TabIndex = 42;
+            pictureBox14.TabStop = false;
+            // 
+            // pictureBox13
+            // 
+            pictureBox13.Image = (Image)resources.GetObject("pictureBox13.Image");
+            pictureBox13.Location = new Point(0, 579);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new Size(991, 171);
+            pictureBox13.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox13.TabIndex = 41;
+            pictureBox13.TabStop = false;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Agrandir Narrow Bold", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label16.Location = new Point(31, 146);
+            label16.Name = "label16";
+            label16.Size = new Size(295, 172);
+            label16.TabIndex = 40;
+            label16.Text = "Painel de\r\nTelas\r\n";
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.FromArgb(243, 241, 238);
+            button4.BackgroundImage = (Image)resources.GetObject("button4.BackgroundImage");
+            button4.BackgroundImageLayout = ImageLayout.Stretch;
+            button4.FlatAppearance.BorderColor = Color.White;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 241, 238);
+            button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(243, 241, 238);
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.ForeColor = Color.White;
+            button4.Location = new Point(340, 488);
+            button4.Name = "button4";
+            button4.Size = new Size(239, 59);
+            button4.TabIndex = 39;
+            button4.Text = "Balcão";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            button4.MouseEnter += button4_MouseEnter;
+            button4.MouseLeave += button4_MouseLeave;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(243, 241, 238);
+            button3.BackgroundImage = (Image)resources.GetObject("button3.BackgroundImage");
+            button3.BackgroundImageLayout = ImageLayout.Stretch;
+            button3.FlatAppearance.BorderColor = Color.White;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 241, 238);
+            button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(243, 241, 238);
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(46, 488);
+            button3.Name = "button3";
+            button3.Size = new Size(239, 59);
+            button3.TabIndex = 38;
+            button3.Text = "Cozinha";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            button3.MouseEnter += button3_MouseEnter;
+            button3.MouseLeave += button3_MouseLeave;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(243, 241, 238);
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2.FlatAppearance.BorderColor = Color.White;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 241, 238);
+            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(243, 241, 238);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(340, 367);
+            button2.Name = "button2";
+            button2.Size = new Size(239, 59);
+            button2.TabIndex = 37;
+            button2.Text = "Chamada";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            button2.MouseEnter += button2_MouseEnter;
+            button2.MouseLeave += button2_MouseLeave;
+            // 
+            // btnAdicionar
+            // 
+            btnAdicionar.BackColor = Color.FromArgb(243, 241, 238);
+            btnAdicionar.BackgroundImage = (Image)resources.GetObject("btnAdicionar.BackgroundImage");
+            btnAdicionar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnAdicionar.FlatAppearance.BorderColor = Color.White;
+            btnAdicionar.FlatAppearance.BorderSize = 0;
+            btnAdicionar.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 241, 238);
+            btnAdicionar.FlatAppearance.MouseOverBackColor = Color.FromArgb(243, 241, 238);
+            btnAdicionar.FlatStyle = FlatStyle.Flat;
+            btnAdicionar.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdicionar.ForeColor = Color.White;
+            btnAdicionar.Location = new Point(46, 365);
+            btnAdicionar.Name = "btnAdicionar";
+            btnAdicionar.Size = new Size(239, 59);
+            btnAdicionar.TabIndex = 36;
+            btnAdicionar.Text = " Vendas";
+            btnAdicionar.UseVisualStyleBackColor = false;
+            btnAdicionar.Click += btnAdicionar_Click;
+            btnAdicionar.MouseEnter += btnAdicionar_MouseEnter;
+            btnAdicionar.MouseLeave += btnAdicionar_MouseLeave;
+            // 
+            // pictureBox12
+            // 
+            pictureBox12.Image = Properties.Resources.Adobe_Express___file;
+            pictureBox12.Location = new Point(521, 129);
+            pictureBox12.Name = "pictureBox12";
+            pictureBox12.Size = new Size(470, 471);
+            pictureBox12.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox12.TabIndex = 33;
+            pictureBox12.TabStop = false;
+            // 
             // FormEstoque
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(243, 241, 238);
             ClientSize = new Size(1215, 749);
+            Controls.Add(panelTelas);
+            Controls.Add(telas);
             Controls.Add(btnHistorico);
             Controls.Add(btnEstoque);
             Controls.Add(panelHistorico);
@@ -697,6 +897,11 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            panelTelas.ResumeLayout(false);
+            panelTelas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
             ResumeLayout(false);
         }
 
@@ -747,5 +952,16 @@
         private Label label11;
         private Label label13;
         private Label label14;
+        private Button btnFiltroData;
+        private Button telas;
+        private Panel panelTelas;
+        private PictureBox pictureBox12;
+        private Button btnAdicionar;
+        private Button button2;
+        private Button button3;
+        private Button button4;
+        private Label label16;
+        private PictureBox pictureBox13;
+        private PictureBox pictureBox14;
     }
 }

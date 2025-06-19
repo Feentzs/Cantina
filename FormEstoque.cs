@@ -152,27 +152,11 @@ namespace Cantina
 
 
 
-            panel.Paint += (s, e) =>
-        {
-            Graphics g = e.Graphics;
-            g.SmoothingMode = SmoothingMode.AntiAlias;
-            Rectangle bounds = panel.ClientRectangle;
-            bounds.Width -= 1;
-            bounds.Height -= 1;
-            using (GraphicsPath path = new GraphicsPath())
-            {
-                int radius = 10;
-                path.AddArc(bounds.X, bounds.Y, radius, radius, 180, 90);
-                path.AddArc(bounds.Right - radius, bounds.Y, radius, radius, 270, 90);
-                path.AddArc(bounds.Right - radius, bounds.Bottom - radius, radius, radius, 0, 90);
-                path.AddArc(bounds.X, bounds.Bottom - radius, radius, radius, 90, 90);
-                path.CloseAllFigures();
-                using (Pen pen = new Pen(Color.LightGray))
-                {
-                    g.DrawPath(pen, path);
-                }
-            }
-        };
+
+
+
+
+
 
             Label lblNome = new Label()
             {
@@ -443,6 +427,8 @@ namespace Cantina
             };
 
 
+
+
             PictureBox pic = new PictureBox()
             {
                 Image = Properties.Resources.image__3_,
@@ -630,15 +616,45 @@ namespace Cantina
         {
             Estoque.Visible = true;
             panelHistorico.Visible = false;
+            panelTelas.Visible = false;
+            if (btnEstoque != null)
+            {
+                btnEstoque.Font = new Font(btnEstoque.Font, FontStyle.Bold);
+                btnHistorico.Font = new Font(btnHistorico.Font, FontStyle.Regular);
+                telas.Font = new Font(telas.Font, FontStyle.Regular);
+            }
         }
 
         private void btnHistorico_Click(object sender, EventArgs e)
         {
             Estoque.Visible = false;
+            panelTelas.Visible = false;
             panelHistorico.Visible = true;
+            if (btnHistorico != null)
+            {
+                btnHistorico.Font = new Font(btnHistorico.Font, FontStyle.Bold);
+                btnEstoque.Font = new Font(btnEstoque.Font, FontStyle.Regular);
+                telas.Font = new Font(telas.Font, FontStyle.Regular);
+            }
+
 
             CarregarEstatisticas();
             CarregarHistorico();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Estoque.Visible = false;
+            panelHistorico.Visible = false;
+            panelTelas.Visible = true;
+            if (telas != null)
+            {
+                btnHistorico.Font = new Font(btnHistorico.Font, FontStyle.Regular);
+                btnEstoque.Font = new Font(btnEstoque.Font, FontStyle.Regular);
+                telas.Font = new Font(telas.Font, FontStyle.Bold);
+            }
+
+
         }
         ///////////////////////////////////////////////////////////////////////////////////////
         ///
@@ -659,11 +675,11 @@ namespace Cantina
                 string[] partes = linha.Split('|');
                 if (partes.Length < 3) continue;
 
-                // Data e hora
+
                 string dataHoraStr = linha.Split('[')[1].Split(']')[0];
                 if (!DateTime.TryParse(dataHoraStr, out DateTime dataHora)) continue;
 
-                // Cliente
+
                 string cliente = partes[0].Contains("Cliente:")
                     ? partes[0].Split("Cliente:")[1].Trim()
                     : partes[1].Replace("Cliente:", "").Trim();
@@ -672,24 +688,24 @@ namespace Cantina
                     clientes[cliente] = 0;
                 clientes[cliente]++;
 
-                // Só conta estatísticas do dia atual
+
                 if (dataHora.Date != DateTime.Now.Date) continue;
 
                 totalVendas++;
 
-                // Valor
+
                 string valorStr = partes[1].Contains("Total:") ? partes[1] : partes[2];
                 valorStr = valorStr.Replace("Total:", "").Trim().Replace("R$", "").Replace(",", ".");
 
                 if (decimal.TryParse(valorStr, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal valor))
                     valorTotal += valor;
 
-                // Hora agrupada
+
                 string hora = dataHora.ToString("HH:00");
                 if (!horarios.ContainsKey(hora)) horarios[hora] = 0;
                 horarios[hora]++;
 
-                // Produtos
+
                 string produtosTexto = partes.FirstOrDefault(p => p.Contains("Produtos:"));
                 if (!string.IsNullOrEmpty(produtosTexto))
                 {
@@ -708,10 +724,10 @@ namespace Cantina
                 }
             }
 
-            // Cálculos finais
+
             decimal media = totalVendas > 0 ? valorTotal / totalVendas : 0;
 
-            // Horário de pico
+
             string horarioInicio = horarios.OrderByDescending(h => h.Value).FirstOrDefault().Key;
             string horarioPico = "N/A";
             if (!string.IsNullOrEmpty(horarioInicio) && int.TryParse(horarioInicio.Substring(0, 2), out int hIni))
@@ -728,7 +744,7 @@ namespace Cantina
                 ? clientes.OrderByDescending(p => p.Value).First().Key
                 : "N/A";
 
-            // Atualizar labels
+
             lblTotalVendas.Text = $"{totalVendas}";
             lblValorTotal.Text = $"R${valorTotal:N2}";
             lblMediaTicket.Text = $"R${media:N2}";
@@ -736,7 +752,7 @@ namespace Cantina
             lblMaisVendido.Text = $"{produtoTop}";
             lblClienteRecorrente.Text = $"{clienteTop}";
         }
-            private void ArredondarBorda(Control controle, int raio)
+        private void ArredondarBorda(Control controle, int raio)
         {
             GraphicsPath path = new GraphicsPath();
             int largura = controle.Width;
@@ -750,50 +766,200 @@ namespace Cantina
 
             controle.Region = new Region(path);
         }
-        
+
 
         private void CarregarHistorico()
         {
             flowLayoutHistorico.Controls.Clear();
             string[] linhas = File.ReadAllLines("./Arquivos/pedidos_log.txt");
 
-            foreach (string linha in linhas.Reverse())
+            // Ordena as linhas pela data (extraída do início da linha)
+            var pedidosOrdenados = linhas
+                .Where(l => l.Contains("Cliente:"))
+                .Select(l =>
+                {
+                    try
+                    {
+                        string dataStr = l.Split('[')[1].Split(']')[0];
+                        DateTime data = DateTime.Parse(dataStr);
+                        return new { Data = data, Linha = l };
+                    }
+                    catch
+                    {
+                        return new { Data = DateTime.MinValue, Linha = l };
+                    }
+                })
+                .OrderBy(p => ordemDecrescente ? -p.Data.Ticks : p.Data.Ticks) // 🔼🔽 controle
+                .Select(p => p.Linha)
+                .ToList();
+
+            foreach (string linha in pedidosOrdenados)
             {
-                if (!linha.Contains("Cliente:")) continue;
+                string dataHora = linha.Split('[')[1].Split(']')[0];
+                string linhaLimpa = linha.Substring(linha.IndexOf("]") + 1).Trim();
 
-                string[] partes = linha.Split('|');
-                if (partes.Length < 3) continue;
+                string cliente = "", total = "", pagamento = "", produtosTxt = "";
 
-                string dataHora = partes[0].Trim('[', ']');
-                string cliente = partes[1].Replace("Cliente:", "").Trim();
-                string valor = partes[2].Replace("Total:", "").Trim();
-                string pagamento = partes.Length > 3 ? partes[3].Replace("Pagamento:", "").Trim() : "Desconhecido";
+                string[] partes = linhaLimpa.Split('|');
+                foreach (string parte in partes)
+                {
+                    if (parte.Contains("Cliente:"))
+                        cliente = parte.Replace("Cliente:", "").Trim();
+                    else if (parte.Contains("Total:"))
+                        total = parte.Replace("Total:", "").Trim();
+                    else if (parte.Contains("Pagamento:"))
+                        pagamento = parte.Replace("Pagamento:", "").Trim();
+                    else if (parte.Contains("Produtos:"))
+                        produtosTxt = parte.Replace("Produtos:", "").Trim();
+                }
+
+                string hora = DateTime.Parse(dataHora).ToString("dd-MM-yyyy HH:mm");
 
                 Panel card = new Panel
                 {
                     Width = flowLayoutHistorico.Width - 30,
-                    Height = 90,
+                    Height = 110,
                     BackColor = Color.White,
                     Margin = new Padding(10),
                     BorderStyle = BorderStyle.None
                 };
+                card.Paint += (s, e) => ArredondarBorda(card, 20);
 
-               
-                card.Paint += (s, e) => ArredondarBorda(card, 15);
-
-                Label lblInfo = new Label
+                Label lblCliente = new Label
                 {
-                    Text = $"{dataHora}\n{cliente} - {valor} ({pagamento})",
-                    Font = new Font("Segoe UI", 10),
-                    AutoSize = true,
-                    Location = new Point(12, 12)
+                    Text = cliente,
+                    Font = new Font("Inter", 12, FontStyle.Bold),
+                    Location = new Point(10, 10),
+                    AutoSize = true
                 };
 
-                card.Controls.Add(lblInfo);
+                Label lblTotal = new Label
+                {
+                    Text = total,
+                    Font = new Font("Inter", 12, FontStyle.Bold),
+                    AutoSize = true,
+                    Location = new Point(card.Width - 90, 10)
+                };
+
+                Label lblHora = new Label
+                {
+                    Text = hora,
+                    Font = new Font("Inter", 10),
+                    Location = new Point(10, 35),
+                    AutoSize = true
+                };
+
+                Label lblProdutos = new Label
+                {
+                    Text = produtosTxt,
+                    Font = new Font("Inter", 10),
+                    Location = new Point(10, 55),
+                    AutoSize = true
+                };
+
+                Label lblPagamento = new Label
+                {
+                    Text = pagamento,
+                    Font = new Font("Inter", 10),
+                    AutoSize = true,
+                    BackColor = Color.FromArgb(240, 240, 240),
+                    Padding = new Padding(10, 4, 10, 4),
+                    Location = new Point(card.Width - 110, 75)
+                };
+                lblPagamento.Paint += (s, e) =>
+                {
+                    using (GraphicsPath path = new GraphicsPath())
+                    {
+                        int raio = 15;
+                        Rectangle bounds = lblPagamento.ClientRectangle;
+                        path.AddArc(0, 0, raio, raio, 180, 90);
+                        path.AddArc(bounds.Width - raio, 0, raio, raio, 270, 90);
+                        path.AddArc(bounds.Width - raio, bounds.Height - raio, raio, raio, 0, 90);
+                        path.AddArc(0, bounds.Height - raio, raio, raio, 90, 90);
+                        path.CloseFigure();
+                        lblPagamento.Region = new Region(path);
+                    }
+                };
+
+                card.Controls.Add(lblCliente);
+                card.Controls.Add(lblTotal);
+                card.Controls.Add(lblHora);
+                card.Controls.Add(lblProdutos);
+                card.Controls.Add(lblPagamento);
                 flowLayoutHistorico.Controls.Add(card);
             }
         }
-      
+        private bool ordemDecrescente = true;
 
+        private void btnFiltroData_Click(object sender, EventArgs e)
+        {
+            ordemDecrescente = !ordemDecrescente;
+            btnFiltroData.Text = ordemDecrescente ? "Data ↑" : "Data ↓";
+            CarregarHistorico();
+        }
+        /////////////////////////////////////////////////////////////////////////////
+        private void button2_Click(object sender, EventArgs e)
+        {
+            telachamada Chamada = new telachamada();
+            Chamada.Show();
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            Form1 Vendas = new Form1();
+            Vendas.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            TelaCozinha Cozinha = new TelaCozinha();
+            Cozinha.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            balcao telabalcao = new balcao();
+            telabalcao.Show();
+        }
+
+        private void btnAdicionar_MouseEnter(object sender, EventArgs e)
+        {
+            btnAdicionar.ForeColor = ColorTranslator.FromHtml("#E1FF00");
+        }
+
+        private void btnAdicionar_MouseLeave(object sender, EventArgs e)
+        {
+            btnAdicionar.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+        }
+
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            button2.ForeColor = ColorTranslator.FromHtml("#E1FF00");
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            button2.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+        }
+
+        private void button3_MouseEnter(object sender, EventArgs e)
+        {
+            button3.ForeColor = ColorTranslator.FromHtml("#E1FF00");
+        }
+
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            button3.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+        }
+
+        private void button4_MouseEnter(object sender, EventArgs e)
+        {
+            button4.ForeColor = ColorTranslator.FromHtml("#E1FF00");
+        }
+
+        private void button4_MouseLeave(object sender, EventArgs e)
+        {
+            button4.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+        }
     }
 }

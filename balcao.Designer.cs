@@ -90,7 +90,7 @@
             panelDetalhes.Controls.Add(listBoxProdutos);
             panelDetalhes.Controls.Add(lblHorario);
             panelDetalhes.Controls.Add(lblNomeCliente);
-            panelDetalhes.Location = new Point(635, 0);
+            panelDetalhes.Location = new Point(633, -1);
             panelDetalhes.Name = "panelDetalhes";
             panelDetalhes.Size = new Size(306, 707);
             panelDetalhes.TabIndex = 1;

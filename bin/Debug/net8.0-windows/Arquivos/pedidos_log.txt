@@ -20,3 +20,7 @@
 [18/06/2025 21:50:52] Cliente: José | Total: R$ 3,50 | Pagamento: DINHEIRO | Produtos: 1x Pão de Queijo
 [18/06/2025 21:51:11] Cliente: Mariana | Total: R$ 14,50 | Pagamento: DÉBITO | Produtos: 1x Água Mineral (500ml), 1x X-Tudo
 [18/06/2025 23:12:28] Cliente: José | Total: R$ 11,00 | Pagamento: PIX | Produtos: 2x Pastel de Queijo
+[19/06/2025 09:16:45] Cliente: Rodolfo | Total: R$ 16,50 | Pagamento: DINHEIRO | Produtos: 1x X-Tudo, 1x Refrigerante Lata
+[19/06/2025 15:30:50] Cliente: Claudinei | Total: R$ 8,00 | Pagamento: DÉBITO | Produtos: 2x Suco Natural (300ml)
+[19/06/2025 18:09:53] Cliente: Jose | Total: R$ 14,00 | Pagamento: CRÉDITO | Produtos: 1x Pão de Queijo, 1x Hamburger Simples, 1x Água Mineral (500ml)
+[19/06/2025 18:15:57] Cliente: Jose | Total: R$ 60,00 | Pagamento: DINHEIRO | Produtos: 4x Codorna Tuxedo

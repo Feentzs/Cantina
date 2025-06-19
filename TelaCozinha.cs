@@ -17,6 +17,7 @@ namespace Cantina
         {
             InitializeComponent();
             CarregarPedidos();
+            AtualizarResumoCozinha();
         }
         private Panel pedidoSelecionado = null;
         private string dadosPedidoSelecionado = "";
@@ -97,7 +98,43 @@ namespace Cantina
 
 
 
-        
+        private void AtualizarResumoCozinha()
+        {
+            string caminho = Path.Combine(Application.StartupPath, "Arquivos", "em_preparo.txt");
+            if (!File.Exists(caminho)) return;
+
+            string[] linhas = File.ReadAllLines(caminho);
+
+            int emPreparo = 0;
+            int finalizados = 0;
+            Dictionary<string, int> produtos = new();
+
+            foreach (var linha in linhas)
+            {
+                var partes = linha.Split(';');
+                if (partes.Length < 3) continue;
+
+                string status = (partes.Length >= 4) ? partes[3].Trim() : "Em Preparo";
+                if (status == "Em Preparo") emPreparo++;
+                else if (status == "Entregue") finalizados++;
+
+                var itens = partes[2].Split('|');
+                foreach (var item in itens)
+                {
+                    if (produtos.ContainsKey(item))
+                        produtos[item]++;
+                    else
+                        produtos[item] = 1;
+                }
+            }
+
+            string maisPedido = produtos.OrderByDescending(p => p.Value).FirstOrDefault().Key ?? "-";
+
+            lblEmPreparo.Text =($"• Pedidos em preparo: {emPreparo.ToString()}");
+            lblFinalizados.Text = ($"• Pedidos Finalizados: {finalizados.ToString()}");
+            lblMaisPedido.Text = ($"• O Mais Pedido: \n {maisPedido}");
+        }
+
         private void AplicarEventoClick(Control controle, string linhaOriginal, Panel panel)
         {
             controle.Click += (s, ev) =>

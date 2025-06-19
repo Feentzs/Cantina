@@ -113,3 +113,4 @@ C:\Users\25162920\source\repos\Cantina\obj\Debug\net8.0-windows\Cantina.genrunti
 C:\Users\25162920\source\repos\Cantina\obj\Debug\net8.0-windows\ref\Cantina.dll
 C:\Users\Administrator\source\repos\Cantina\obj\Debug\net8.0-windows\Cantina.FormEstoque.resources
 C:\Users\25162920\source\repos\Cantina\obj\Debug\net8.0-windows\Cantina.FormEstoque.resources
+C:\Users\Administrator\source\repos\Cantina\obj\Debug\net8.0-windows\Cantina.Login.resources
