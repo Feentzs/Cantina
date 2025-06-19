@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,13 +18,53 @@ namespace Cantina
         private string caminhoArquivo = "./Arquivos/produtos.txt";
         private List<Produto> produtos = new List<Produto>();
         private Produto produtoSelecionado;
+        private Panel cardSelecionado = null;
+        public enum FiltroStatus
+        {
+            Todos,
+            OK,
+            Baixo,
+            Zerado
+        }
+        private FiltroStatus filtroAtual = FiltroStatus.Todos;
 
         public FormEstoque()
         {
             InitializeComponent();
             CarregarProdutos();
+            AtualizarEstatisticas();
             txtBuscar.TextChanged += (s, e) => AtualizarExibicao(txtBuscar.Text);
             AtualizarExibicao();
+            ConfigurarMenuFiltro();
+        }
+
+        private void ConfigurarMenuFiltro()
+        {
+            contextMenuStripFiltro.Items.Clear();
+
+            // Adiciona os itens do menu
+            var todos = new ToolStripMenuItem("Todos");
+            todos.Click += (s, e) => AplicarFiltro(FiltroStatus.Todos);
+            contextMenuStripFiltro.Items.Add(todos);
+
+            var ok = new ToolStripMenuItem("OK (Estoque normal)");
+            ok.Click += (s, e) => AplicarFiltro(FiltroStatus.OK);
+            contextMenuStripFiltro.Items.Add(ok);
+
+            var baixo = new ToolStripMenuItem("Baixo (≤ 10 unidades)");
+            baixo.Click += (s, e) => AplicarFiltro(FiltroStatus.Baixo);
+            contextMenuStripFiltro.Items.Add(baixo);
+
+            var zerado = new ToolStripMenuItem("Zerado (0 unidades)");
+            zerado.Click += (s, e) => AplicarFiltro(FiltroStatus.Zerado);
+            contextMenuStripFiltro.Items.Add(zerado);
+        }
+
+        private void AplicarFiltro(FiltroStatus filtro)
+        {
+            filtroAtual = filtro;
+            btnFiltro.Text = $"{filtro}";
+            AtualizarExibicao(txtBuscar.Text);
         }
 
         private void CarregarProdutos()
@@ -60,17 +101,37 @@ namespace Cantina
                 lista = lista.Where(p => p.Nome.IndexOf(filtro, StringComparison.OrdinalIgnoreCase) >= 0);
             }
 
+            // Aplicar filtro de status
+            switch (filtroAtual)
+            {
+                case FiltroStatus.OK:
+                    lista = lista.Where(p => p.Quantidade > 10);
+                    break;
+                case FiltroStatus.Baixo:
+                    lista = lista.Where(p => p.Quantidade > 0 && p.Quantidade <= 10);
+                    break;
+                case FiltroStatus.Zerado:
+                    lista = lista.Where(p => p.Quantidade == 0);
+                    break;
+                case FiltroStatus.Todos:
+                default:
+                    // Não filtra - mostra todos
+                    break;
+            }
+
             foreach (var produto in lista)
             {
                 Panel card = CriarCardProduto(produto);
                 flowLayoutPanelEstoque.Controls.Add(card);
             }
+
+            AtualizarEstatisticas();
         }
 
         private Panel CriarCardProduto(Produto p)
         {
             Panel panel = new Panel();
-            panel.Size = new Size(640, 50);
+            panel.Size = new Size(600, 50);
             panel.BorderStyle = BorderStyle.None;
             panel.BackColor = Color.White;
             panel.Padding = new Padding(10);
@@ -79,32 +140,39 @@ namespace Cantina
             panel.Click += (s, e) => produtoSelecionado = p;
             panel.MouseClick += (s, e) =>
             {
+                if (cardSelecionado != null)
+                    cardSelecionado.BackColor = Color.White;
+
+
                 panel.BackColor = ColorTranslator.FromHtml("#E6FF00");
+                cardSelecionado = panel;
+
+                produtoSelecionado = p;
             };
-            
 
 
-                panel.Paint += (s, e) =>
+
+            panel.Paint += (s, e) =>
+        {
+            Graphics g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            Rectangle bounds = panel.ClientRectangle;
+            bounds.Width -= 1;
+            bounds.Height -= 1;
+            using (GraphicsPath path = new GraphicsPath())
             {
-                Graphics g = e.Graphics;
-                g.SmoothingMode = SmoothingMode.AntiAlias;
-                Rectangle bounds = panel.ClientRectangle;
-                bounds.Width -= 1;
-                bounds.Height -= 1;
-                using (GraphicsPath path = new GraphicsPath())
+                int radius = 10;
+                path.AddArc(bounds.X, bounds.Y, radius, radius, 180, 90);
+                path.AddArc(bounds.Right - radius, bounds.Y, radius, radius, 270, 90);
+                path.AddArc(bounds.Right - radius, bounds.Bottom - radius, radius, radius, 0, 90);
+                path.AddArc(bounds.X, bounds.Bottom - radius, radius, radius, 90, 90);
+                path.CloseAllFigures();
+                using (Pen pen = new Pen(Color.LightGray))
                 {
-                    int radius = 10;
-                    path.AddArc(bounds.X, bounds.Y, radius, radius, 180, 90);
-                    path.AddArc(bounds.Right - radius, bounds.Y, radius, radius, 270, 90);
-                    path.AddArc(bounds.Right - radius, bounds.Bottom - radius, radius, radius, 0, 90);
-                    path.AddArc(bounds.X, bounds.Bottom - radius, radius, radius, 90, 90);
-                    path.CloseAllFigures();
-                    using (Pen pen = new Pen(Color.LightGray))
-                    {
-                        g.DrawPath(pen, path);
-                    }
+                    g.DrawPath(pen, path);
                 }
-            };
+            }
+        };
 
             Label lblNome = new Label()
             {
@@ -542,7 +610,190 @@ namespace Cantina
         {
             btnEditar.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
         }
+        private void AtualizarEstatisticas()
+        {
+            int total = produtos.Count;
+            int zerados = produtos.Count(p => p.Quantidade == 0);
+            int baixos = produtos.Count(p => p.Quantidade > 0 && p.Quantidade <= 10);
 
+            lblTotal.Text = $"Total: {total}";
+            lblZerados.Text = $"• Produtos zerados: {zerados}";
+            lblBaixo.Text = $"• Estoque baixo: {baixos}";
+        }
+
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            contextMenuStripFiltro.Show(btnFiltro, new Point(0, btnFiltro.Height));
+        }
+
+        private void btnEstoque_Click(object sender, EventArgs e)
+        {
+            Estoque.Visible = true;
+            panelHistorico.Visible = false;
+        }
+
+        private void btnHistorico_Click(object sender, EventArgs e)
+        {
+            Estoque.Visible = false;
+            panelHistorico.Visible = true;
+
+            CarregarEstatisticas();
+            CarregarHistorico();
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////
+        ///
+        private void CarregarEstatisticas()
+        {
+            string[] linhas = File.ReadAllLines("./Arquivos/pedidos_log.txt");
+
+            int totalVendas = 0;
+            decimal valorTotal = 0;
+            var produtosContagem = new Dictionary<string, int>();
+            var horarios = new Dictionary<string, int>();
+            var clientes = new Dictionary<string, int>();
+
+            foreach (string linha in linhas)
+            {
+                if (!linha.Contains("Cliente:")) continue;
+
+                string[] partes = linha.Split('|');
+                if (partes.Length < 3) continue;
+
+                // Data e hora
+                string dataHoraStr = linha.Split('[')[1].Split(']')[0];
+                if (!DateTime.TryParse(dataHoraStr, out DateTime dataHora)) continue;
+
+                // Cliente
+                string cliente = partes[0].Contains("Cliente:")
+                    ? partes[0].Split("Cliente:")[1].Trim()
+                    : partes[1].Replace("Cliente:", "").Trim();
+
+                if (!clientes.ContainsKey(cliente))
+                    clientes[cliente] = 0;
+                clientes[cliente]++;
+
+                // Só conta estatísticas do dia atual
+                if (dataHora.Date != DateTime.Now.Date) continue;
+
+                totalVendas++;
+
+                // Valor
+                string valorStr = partes[1].Contains("Total:") ? partes[1] : partes[2];
+                valorStr = valorStr.Replace("Total:", "").Trim().Replace("R$", "").Replace(",", ".");
+
+                if (decimal.TryParse(valorStr, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal valor))
+                    valorTotal += valor;
+
+                // Hora agrupada
+                string hora = dataHora.ToString("HH:00");
+                if (!horarios.ContainsKey(hora)) horarios[hora] = 0;
+                horarios[hora]++;
+
+                // Produtos
+                string produtosTexto = partes.FirstOrDefault(p => p.Contains("Produtos:"));
+                if (!string.IsNullOrEmpty(produtosTexto))
+                {
+                    string produtosLimpos = produtosTexto.Replace("Produtos:", "").Trim();
+                    string[] produtos = produtosLimpos.Split(',');
+
+                    foreach (string prod in produtos)
+                    {
+                        string nome = prod.Trim();
+                        if (nome == "") continue;
+
+                        if (!produtosContagem.ContainsKey(nome))
+                            produtosContagem[nome] = 0;
+                        produtosContagem[nome]++;
+                    }
+                }
+            }
+
+            // Cálculos finais
+            decimal media = totalVendas > 0 ? valorTotal / totalVendas : 0;
+
+            // Horário de pico
+            string horarioInicio = horarios.OrderByDescending(h => h.Value).FirstOrDefault().Key;
+            string horarioPico = "N/A";
+            if (!string.IsNullOrEmpty(horarioInicio) && int.TryParse(horarioInicio.Substring(0, 2), out int hIni))
+            {
+                string hFim = (hIni + 1).ToString("D2") + ":00";
+                horarioPico = $"{horarioInicio} - {hFim}";
+            }
+
+            string produtoTop = produtosContagem.Any()
+                ? produtosContagem.OrderByDescending(p => p.Value).First().Key
+                : "N/A";
+
+            string clienteTop = clientes.Any()
+                ? clientes.OrderByDescending(p => p.Value).First().Key
+                : "N/A";
+
+            // Atualizar labels
+            lblTotalVendas.Text = $"{totalVendas}";
+            lblValorTotal.Text = $"R${valorTotal:N2}";
+            lblMediaTicket.Text = $"R${media:N2}";
+            lblHorarioPico.Text = $"{horarioPico}";
+            lblMaisVendido.Text = $"{produtoTop}";
+            lblClienteRecorrente.Text = $"{clienteTop}";
+        }
+            private void ArredondarBorda(Control controle, int raio)
+        {
+            GraphicsPath path = new GraphicsPath();
+            int largura = controle.Width;
+            int altura = controle.Height;
+
+            path.AddArc(0, 0, raio, raio, 180, 90);
+            path.AddArc(largura - raio, 0, raio, raio, 270, 90);
+            path.AddArc(largura - raio, altura - raio, raio, raio, 0, 90);
+            path.AddArc(0, altura - raio, raio, raio, 90, 90);
+            path.CloseFigure();
+
+            controle.Region = new Region(path);
+        }
         
+
+        private void CarregarHistorico()
+        {
+            flowLayoutHistorico.Controls.Clear();
+            string[] linhas = File.ReadAllLines("./Arquivos/pedidos_log.txt");
+
+            foreach (string linha in linhas.Reverse())
+            {
+                if (!linha.Contains("Cliente:")) continue;
+
+                string[] partes = linha.Split('|');
+                if (partes.Length < 3) continue;
+
+                string dataHora = partes[0].Trim('[', ']');
+                string cliente = partes[1].Replace("Cliente:", "").Trim();
+                string valor = partes[2].Replace("Total:", "").Trim();
+                string pagamento = partes.Length > 3 ? partes[3].Replace("Pagamento:", "").Trim() : "Desconhecido";
+
+                Panel card = new Panel
+                {
+                    Width = flowLayoutHistorico.Width - 30,
+                    Height = 90,
+                    BackColor = Color.White,
+                    Margin = new Padding(10),
+                    BorderStyle = BorderStyle.None
+                };
+
+               
+                card.Paint += (s, e) => ArredondarBorda(card, 15);
+
+                Label lblInfo = new Label
+                {
+                    Text = $"{dataHora}\n{cliente} - {valor} ({pagamento})",
+                    Font = new Font("Segoe UI", 10),
+                    AutoSize = true,
+                    Location = new Point(12, 12)
+                };
+
+                card.Controls.Add(lblInfo);
+                flowLayoutHistorico.Controls.Add(card);
+            }
+        }
+      
+
     }
 }

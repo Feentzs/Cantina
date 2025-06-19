@@ -28,8 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEstoque));
             Estoque = new Panel();
+            btnFiltro = new Button();
+            label7 = new Label();
+            pictureBox6 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            lblTotal = new Label();
+            lblZerados = new Label();
+            lblBaixo = new Label();
             btnRemover = new Button();
             label6 = new Label();
             btnEditar = new Button();
@@ -44,14 +53,54 @@
             btnNovoProduto = new Button();
             flowLayoutPanelEstoque = new FlowLayoutPanel();
             pictureBox1 = new PictureBox();
+            contextMenuStripFiltro = new ContextMenuStrip(components);
+            panelHistorico = new Panel();
+            lblMediaTicket = new Label();
+            label14 = new Label();
+            label13 = new Label();
+            label12 = new Label();
+            label11 = new Label();
+            pictureBox11 = new PictureBox();
+            label10 = new Label();
+            pictureBox10 = new PictureBox();
+            label9 = new Label();
+            pictureBox9 = new PictureBox();
+            label8 = new Label();
+            pictureBox8 = new PictureBox();
+            lblClienteRecorrente = new Label();
+            lblMaisVendido = new Label();
+            lblHorarioPico = new Label();
+            flowLayoutHistorico = new FlowLayoutPanel();
+            lblValorTotal = new Label();
+            lblTotalVendas = new Label();
+            pictureBox7 = new PictureBox();
+            btnEstoque = new Button();
+            btnHistorico = new Button();
             Estoque.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panelHistorico.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // Estoque
             // 
+            Estoque.Controls.Add(btnFiltro);
+            Estoque.Controls.Add(label7);
+            Estoque.Controls.Add(pictureBox6);
+            Estoque.Controls.Add(pictureBox2);
+            Estoque.Controls.Add(pictureBox3);
+            Estoque.Controls.Add(lblTotal);
+            Estoque.Controls.Add(lblZerados);
+            Estoque.Controls.Add(lblBaixo);
             Estoque.Controls.Add(btnRemover);
             Estoque.Controls.Add(label6);
             Estoque.Controls.Add(btnEditar);
@@ -69,6 +118,98 @@
             Estoque.Name = "Estoque";
             Estoque.Size = new Size(975, 829);
             Estoque.TabIndex = 7;
+            // 
+            // btnFiltro
+            // 
+            btnFiltro.BackColor = Color.White;
+            btnFiltro.BackgroundImage = Properties.Resources.Semtitulo;
+            btnFiltro.BackgroundImageLayout = ImageLayout.Stretch;
+            btnFiltro.FlatAppearance.BorderSize = 0;
+            btnFiltro.FlatAppearance.MouseDownBackColor = Color.White;
+            btnFiltro.FlatAppearance.MouseOverBackColor = Color.White;
+            btnFiltro.FlatStyle = FlatStyle.Flat;
+            btnFiltro.Font = new Font("Inter", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFiltro.Image = (Image)resources.GetObject("btnFiltro.Image");
+            btnFiltro.ImageAlign = ContentAlignment.MiddleLeft;
+            btnFiltro.Location = new Point(436, 105);
+            btnFiltro.Name = "btnFiltro";
+            btnFiltro.Size = new Size(112, 43);
+            btnFiltro.TabIndex = 50;
+            btnFiltro.Text = "Filtro";
+            btnFiltro.UseVisualStyleBackColor = false;
+            btnFiltro.Click += btnFiltro_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Agrandir Narrow Bold", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(716, 228);
+            label7.Name = "label7";
+            label7.Size = new Size(210, 86);
+            label7.TabIndex = 49;
+            label7.Text = "Informações \r\nEstoque";
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(707, 152);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(78, 64);
+            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox6.TabIndex = 48;
+            pictureBox6.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(681, 582);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(300, 171);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 47;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(669, 0);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(303, 168);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 46;
+            pictureBox3.TabStop = false;
+            // 
+            // lblTotal
+            // 
+            lblTotal.AutoSize = true;
+            lblTotal.BackColor = Color.FromArgb(17, 25, 12);
+            lblTotal.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotal.ForeColor = SystemColors.ControlLightLight;
+            lblTotal.Location = new Point(728, 332);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(57, 23);
+            lblTotal.TabIndex = 45;
+            lblTotal.Text = "Total";
+            // 
+            // lblZerados
+            // 
+            lblZerados.AutoSize = true;
+            lblZerados.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblZerados.Location = new Point(728, 401);
+            lblZerados.Name = "lblZerados";
+            lblZerados.Size = new Size(171, 23);
+            lblZerados.TabIndex = 44;
+            lblZerados.Text = "Pedidos Zerados:";
+            // 
+            // lblBaixo
+            // 
+            lblBaixo.AutoSize = true;
+            lblBaixo.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBaixo.Location = new Point(728, 367);
+            lblBaixo.Name = "lblBaixo";
+            lblBaixo.Size = new Size(147, 23);
+            lblBaixo.TabIndex = 43;
+            lblBaixo.Text = "Pedidos Baixo:";
             // 
             // btnRemover
             // 
@@ -218,7 +359,7 @@
             btnNovoProduto.FlatStyle = FlatStyle.Flat;
             btnNovoProduto.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNovoProduto.ForeColor = Color.White;
-            btnNovoProduto.Location = new Point(509, 653);
+            btnNovoProduto.Location = new Point(436, 653);
             btnNovoProduto.Name = "btnNovoProduto";
             btnNovoProduto.Size = new Size(239, 59);
             btnNovoProduto.TabIndex = 25;
@@ -233,7 +374,7 @@
             flowLayoutPanelEstoque.AutoScroll = true;
             flowLayoutPanelEstoque.Location = new Point(36, 210);
             flowLayoutPanelEstoque.Name = "flowLayoutPanelEstoque";
-            flowLayoutPanelEstoque.Size = new Size(712, 419);
+            flowLayoutPanelEstoque.Size = new Size(639, 419);
             flowLayoutPanelEstoque.TabIndex = 8;
             // 
             // pictureBox1
@@ -241,11 +382,291 @@
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImageLayout = ImageLayout.None;
             pictureBox1.Image = Properties.Resources.Bolt_Finance_New__3_;
-            pictureBox1.Location = new Point(-8, -10);
+            pictureBox1.Location = new Point(12, -10);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(189, 101);
+            pictureBox1.Size = new Size(182, 101);
             pictureBox1.TabIndex = 14;
             pictureBox1.TabStop = false;
+            // 
+            // contextMenuStripFiltro
+            // 
+            contextMenuStripFiltro.Name = "contextMenuStrip1";
+            contextMenuStripFiltro.Size = new Size(61, 4);
+            // 
+            // panelHistorico
+            // 
+            panelHistorico.AutoScroll = true;
+            panelHistorico.Controls.Add(lblMediaTicket);
+            panelHistorico.Controls.Add(label14);
+            panelHistorico.Controls.Add(label13);
+            panelHistorico.Controls.Add(label12);
+            panelHistorico.Controls.Add(label11);
+            panelHistorico.Controls.Add(pictureBox11);
+            panelHistorico.Controls.Add(label10);
+            panelHistorico.Controls.Add(pictureBox10);
+            panelHistorico.Controls.Add(label9);
+            panelHistorico.Controls.Add(pictureBox9);
+            panelHistorico.Controls.Add(label8);
+            panelHistorico.Controls.Add(pictureBox8);
+            panelHistorico.Controls.Add(lblClienteRecorrente);
+            panelHistorico.Controls.Add(lblMaisVendido);
+            panelHistorico.Controls.Add(lblHorarioPico);
+            panelHistorico.Controls.Add(flowLayoutHistorico);
+            panelHistorico.Controls.Add(lblValorTotal);
+            panelHistorico.Controls.Add(lblTotalVendas);
+            panelHistorico.Controls.Add(pictureBox7);
+            panelHistorico.Location = new Point(240, 1);
+            panelHistorico.Name = "panelHistorico";
+            panelHistorico.Size = new Size(974, 753);
+            panelHistorico.TabIndex = 15;
+            panelHistorico.Visible = false;
+            // 
+            // lblMediaTicket
+            // 
+            lblMediaTicket.AutoSize = true;
+            lblMediaTicket.BackColor = Color.Black;
+            lblMediaTicket.Font = new Font("Inter SemiBold", 18F, FontStyle.Bold);
+            lblMediaTicket.ForeColor = Color.White;
+            lblMediaTicket.Location = new Point(762, 274);
+            lblMediaTicket.Name = "lblMediaTicket";
+            lblMediaTicket.Size = new Size(67, 29);
+            lblMediaTicket.TabIndex = 3;
+            lblMediaTicket.Text = "0,00";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Agrandir Narrow Bold", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.Location = new Point(38, 401);
+            label14.Name = "label14";
+            label14.Size = new Size(308, 43);
+            label14.TabIndex = 18;
+            label14.Text = "Histórico de Vendas";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = Color.Black;
+            label13.Font = new Font("Inter Medium", 12F);
+            label13.ForeColor = Color.White;
+            label13.Location = new Point(304, 141);
+            label13.Name = "label13";
+            label13.Size = new Size(156, 20);
+            label13.TabIndex = 17;
+            label13.Text = "Faturamento do dia";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.BackColor = Color.Black;
+            label12.Font = new Font("Inter Medium", 12F);
+            label12.ForeColor = Color.White;
+            label12.Location = new Point(87, 141);
+            label12.Name = "label12";
+            label12.Size = new Size(103, 20);
+            label12.TabIndex = 16;
+            label12.Text = "Vendas hoje";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.BackColor = Color.Black;
+            label11.Font = new Font("Inter Medium", 12F);
+            label11.ForeColor = Color.White;
+            label11.Location = new Point(762, 308);
+            label11.Name = "label11";
+            label11.Size = new Size(143, 40);
+            label11.TabIndex = 15;
+            label11.Text = "Média por pedido\r\n\r\n";
+            // 
+            // pictureBox11
+            // 
+            pictureBox11.BackColor = SystemColors.ActiveCaptionText;
+            pictureBox11.Image = (Image)resources.GetObject("pictureBox11.Image");
+            pictureBox11.Location = new Point(762, 193);
+            pictureBox11.Name = "pictureBox11";
+            pictureBox11.Size = new Size(90, 94);
+            pictureBox11.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox11.TabIndex = 14;
+            pictureBox11.TabStop = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BackColor = Color.Black;
+            label10.Font = new Font("Inter Medium", 12F);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(595, 308);
+            label10.Name = "label10";
+            label10.Size = new Size(88, 60);
+            label10.TabIndex = 13;
+            label10.Text = "Cliente\r\nrecorrente\r\n\r\n";
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.BackColor = SystemColors.ActiveCaptionText;
+            pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
+            pictureBox10.Location = new Point(595, 206);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(70, 71);
+            pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox10.TabIndex = 12;
+            pictureBox10.TabStop = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.Black;
+            label9.Font = new Font("Inter Medium", 12F);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(332, 308);
+            label9.Name = "label9";
+            label9.Size = new Size(126, 20);
+            label9.TabIndex = 11;
+            label9.Text = "Horário de pico\r\n";
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.BackColor = SystemColors.ActiveCaptionText;
+            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
+            pictureBox9.Location = new Point(334, 207);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(70, 71);
+            pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox9.TabIndex = 10;
+            pictureBox9.TabStop = false;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.Black;
+            label8.Font = new Font("Inter Medium", 12F);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(74, 306);
+            label8.Name = "label8";
+            label8.Size = new Size(110, 40);
+            label8.TabIndex = 9;
+            label8.Text = "Produto mais\r\nvendido\r\n";
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.BackColor = SystemColors.ActiveCaptionText;
+            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
+            pictureBox8.Location = new Point(74, 206);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(70, 71);
+            pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox8.TabIndex = 8;
+            pictureBox8.TabStop = false;
+            // 
+            // lblClienteRecorrente
+            // 
+            lblClienteRecorrente.AutoSize = true;
+            lblClienteRecorrente.BackColor = Color.Black;
+            lblClienteRecorrente.Font = new Font("Inter SemiBold", 18F, FontStyle.Bold);
+            lblClienteRecorrente.ForeColor = Color.White;
+            lblClienteRecorrente.Location = new Point(595, 274);
+            lblClienteRecorrente.Name = "lblClienteRecorrente";
+            lblClienteRecorrente.Size = new Size(102, 29);
+            lblClienteRecorrente.TabIndex = 7;
+            lblClienteRecorrente.Text = "Claudio";
+            // 
+            // lblMaisVendido
+            // 
+            lblMaisVendido.AutoSize = true;
+            lblMaisVendido.BackColor = Color.Black;
+            lblMaisVendido.Font = new Font("Inter SemiBold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMaisVendido.ForeColor = Color.White;
+            lblMaisVendido.Location = new Point(74, 274);
+            lblMaisVendido.Name = "lblMaisVendido";
+            lblMaisVendido.Size = new Size(109, 29);
+            lblMaisVendido.TabIndex = 6;
+            lblMaisVendido.Text = "Coxinha";
+            // 
+            // lblHorarioPico
+            // 
+            lblHorarioPico.AutoSize = true;
+            lblHorarioPico.BackColor = Color.Black;
+            lblHorarioPico.Font = new Font("Inter SemiBold", 18F, FontStyle.Bold);
+            lblHorarioPico.ForeColor = Color.White;
+            lblHorarioPico.Location = new Point(332, 274);
+            lblHorarioPico.Name = "lblHorarioPico";
+            lblHorarioPico.Size = new Size(168, 29);
+            lblHorarioPico.TabIndex = 5;
+            lblHorarioPico.Text = "00:00-00:00";
+            // 
+            // flowLayoutHistorico
+            // 
+            flowLayoutHistorico.Location = new Point(28, 464);
+            flowLayoutHistorico.Name = "flowLayoutHistorico";
+            flowLayoutHistorico.Size = new Size(923, 254);
+            flowLayoutHistorico.TabIndex = 4;
+            // 
+            // lblValorTotal
+            // 
+            lblValorTotal.AutoSize = true;
+            lblValorTotal.BackColor = Color.Black;
+            lblValorTotal.Font = new Font("Agrandir Narrow Bold", 48F, FontStyle.Bold);
+            lblValorTotal.ForeColor = Color.FromArgb(230, 255, 0);
+            lblValorTotal.Location = new Point(291, 52);
+            lblValorTotal.Name = "lblValorTotal";
+            lblValorTotal.Size = new Size(259, 86);
+            lblValorTotal.TabIndex = 2;
+            lblValorTotal.Text = "R$0,00";
+            // 
+            // lblTotalVendas
+            // 
+            lblTotalVendas.AutoSize = true;
+            lblTotalVendas.BackColor = Color.Black;
+            lblTotalVendas.Font = new Font("Agrandir Narrow Bold", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalVendas.ForeColor = Color.White;
+            lblTotalVendas.Location = new Point(87, 52);
+            lblTotalVendas.Name = "lblTotalVendas";
+            lblTotalVendas.Size = new Size(80, 86);
+            lblTotalVendas.TabIndex = 1;
+            lblTotalVendas.Text = "0";
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new Point(-68, 0);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(1091, 424);
+            pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox7.TabIndex = 0;
+            pictureBox7.TabStop = false;
+            // 
+            // btnEstoque
+            // 
+            btnEstoque.FlatAppearance.BorderSize = 0;
+            btnEstoque.FlatStyle = FlatStyle.Flat;
+            btnEstoque.Font = new Font("Inter", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEstoque.Image = (Image)resources.GetObject("btnEstoque.Image");
+            btnEstoque.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEstoque.Location = new Point(35, 211);
+            btnEstoque.Name = "btnEstoque";
+            btnEstoque.Size = new Size(144, 37);
+            btnEstoque.TabIndex = 16;
+            btnEstoque.Text = "Estoque";
+            btnEstoque.TextAlign = ContentAlignment.MiddleRight;
+            btnEstoque.UseVisualStyleBackColor = true;
+            btnEstoque.Click += btnEstoque_Click;
+            // 
+            // btnHistorico
+            // 
+            btnHistorico.FlatAppearance.BorderSize = 0;
+            btnHistorico.FlatStyle = FlatStyle.Flat;
+            btnHistorico.Font = new Font("Inter", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnHistorico.Image = (Image)resources.GetObject("btnHistorico.Image");
+            btnHistorico.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHistorico.Location = new Point(35, 292);
+            btnHistorico.Name = "btnHistorico";
+            btnHistorico.Size = new Size(144, 37);
+            btnHistorico.TabIndex = 17;
+            btnHistorico.Text = "Vendas";
+            btnHistorico.TextAlign = ContentAlignment.MiddleRight;
+            btnHistorico.UseVisualStyleBackColor = true;
+            btnHistorico.Click += btnHistorico_Click;
             // 
             // FormEstoque
             // 
@@ -253,6 +674,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(243, 241, 238);
             ClientSize = new Size(1215, 749);
+            Controls.Add(btnHistorico);
+            Controls.Add(btnEstoque);
+            Controls.Add(panelHistorico);
             Controls.Add(pictureBox1);
             Controls.Add(Estoque);
             Name = "FormEstoque";
@@ -260,9 +684,19 @@
             Text = "FormEstoque";
             Estoque.ResumeLayout(false);
             Estoque.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panelHistorico.ResumeLayout(false);
+            panelHistorico.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
         }
 
@@ -282,5 +716,36 @@
         private Button btnEditar;
         private Label label6;
         private Button btnRemover;
+        private Label lblBaixo;
+        private Label lblZerados;
+        private Label lblTotal;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox6;
+        private Label label7;
+        private Button btnFiltro;
+        private ContextMenuStrip contextMenuStripFiltro;
+        private Panel panelHistorico;
+        private Button btnEstoque;
+        private Button btnHistorico;
+        private PictureBox pictureBox7;
+        private Label lblMediaTicket;
+        private Label lblValorTotal;
+        private Label lblTotalVendas;
+        private FlowLayoutPanel flowLayoutHistorico;
+        private Label lblClienteRecorrente;
+        private Label lblMaisVendido;
+        private Label lblHorarioPico;
+        private PictureBox pictureBox8;
+        private Label label8;
+        private Label label9;
+        private PictureBox pictureBox9;
+        private Label label10;
+        private PictureBox pictureBox10;
+        private PictureBox pictureBox11;
+        private Label label12;
+        private Label label11;
+        private Label label13;
+        private Label label14;
     }
 }
