@@ -179,7 +179,7 @@ namespace Cantina
 
                 List<string> produtos = new List<string>();
 
-                // Modificado para incluir quantidade (ex: "2x Coxinha")
+             
                 foreach (ListViewItem item in listViewResumo.Items)
                 {
                     produtos.Add($"{item.SubItems[1].Text}x {item.SubItems[0].Text}");

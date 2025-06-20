@@ -42,7 +42,7 @@ namespace Cantina
         {
             contextMenuStripFiltro.Items.Clear();
 
-            // Adiciona os itens do menu
+           
             var todos = new ToolStripMenuItem("Todos");
             todos.Click += (s, e) => AplicarFiltro(FiltroStatus.Todos);
             contextMenuStripFiltro.Items.Add(todos);
@@ -101,7 +101,7 @@ namespace Cantina
                 lista = lista.Where(p => p.Nome.IndexOf(filtro, StringComparison.OrdinalIgnoreCase) >= 0);
             }
 
-            // Aplicar filtro de status
+            
             switch (filtroAtual)
             {
                 case FiltroStatus.OK:
@@ -115,7 +115,7 @@ namespace Cantina
                     break;
                 case FiltroStatus.Todos:
                 default:
-                    // Não filtra - mostra todos
+                   
                     break;
             }
 
@@ -773,7 +773,7 @@ namespace Cantina
             flowLayoutHistorico.Controls.Clear();
             string[] linhas = File.ReadAllLines("./Arquivos/pedidos_log.txt");
 
-            // Ordena as linhas pela data (extraída do início da linha)
+            
             var pedidosOrdenados = linhas
                 .Where(l => l.Contains("Cliente:"))
                 .Select(l =>
@@ -789,7 +789,7 @@ namespace Cantina
                         return new { Data = DateTime.MinValue, Linha = l };
                     }
                 })
-                .OrderBy(p => ordemDecrescente ? -p.Data.Ticks : p.Data.Ticks) // 🔼🔽 controle
+                .OrderBy(p => ordemDecrescente ? -p.Data.Ticks : p.Data.Ticks) 
                 .Select(p => p.Linha)
                 .ToList();
 

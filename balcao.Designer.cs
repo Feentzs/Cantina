@@ -399,8 +399,9 @@
             Controls.Add(btnFiltro);
             Controls.Add(flowLayoutPanelPedidos);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "balcao";
-            Text = "balcao";
+            Text = "Balcao";
             Load += balcao_Load;
             panelDetalhes.ResumeLayout(false);
             panelDetalhes.PerformLayout();

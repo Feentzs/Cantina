@@ -879,9 +879,10 @@
             Controls.Add(panelHistorico);
             Controls.Add(pictureBox1);
             Controls.Add(Estoque);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormEstoque";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormEstoque";
+            Text = "ADM";
             Estoque.ResumeLayout(false);
             Estoque.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();

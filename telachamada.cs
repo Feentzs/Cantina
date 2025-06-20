@@ -34,11 +34,11 @@ namespace Cantina
                 lblClienteAtual.Text = "Aguardando...";
             }
             
-            if (nome != ultimoCliente) // Só pisca se o nome mudou
+            if (nome != ultimoCliente) 
             {
                 ultimoCliente = nome;
                 lblClienteAtual.Text = nome;
-                IniciarPiscar(); // <-- chama o piscar
+                IniciarPiscar(); 
             }
         }
 
@@ -70,13 +70,19 @@ namespace Cantina
                 if (string.IsNullOrWhiteSpace(linha)) continue;
 
                 string[] partes = linha.Split(';');
-                if (partes.Length >= 1)
+
+                
+                if (partes.Length >= 4)
                 {
                     string nome = partes[0];
+                    string status = partes[3].Trim().ToLower();
+
+                    if (status == "entregue")
+                        continue; 
 
                     Label lbl = new Label();
                     lbl.Text = nome;
-                    lbl.BackColor = Color.FromArgb(30, 30, 30); // cinza escuro discreto
+                    lbl.BackColor = Color.FromArgb(30, 30, 30);
                     lbl.AutoSize = true;
                     lbl.Margin = new Padding(5);
                     lbl.Padding = new Padding(10, 5, 10, 5);
@@ -104,11 +110,11 @@ namespace Cantina
             lblClienteAtual.Visible = !lblClienteAtual.Visible;
             contadorPiscar++;
 
-            // 6 mudanças = 3 piscadas (aparece/some 3x)
+          
             if (contadorPiscar >= 6)
             {
                 timerPiscar.Stop();
-                lblClienteAtual.Visible = true; // garante que fique visível no final
+                lblClienteAtual.Visible = true; 
             }
         }
     }

@@ -216,6 +216,7 @@
             Controls.Add(btnChamar);
             Controls.Add(flowLayoutPanelPedidos);
             Controls.Add(pictureBox4);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "TelaCozinha";
             Text = "TelaCozinha";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

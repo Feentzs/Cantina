@@ -24,3 +24,4 @@
 [19/06/2025 15:30:50] Cliente: Claudinei | Total: R$ 8,00 | Pagamento: DÉBITO | Produtos: 2x Suco Natural (300ml)
 [19/06/2025 18:09:53] Cliente: Jose | Total: R$ 14,00 | Pagamento: CRÉDITO | Produtos: 1x Pão de Queijo, 1x Hamburger Simples, 1x Água Mineral (500ml)
 [19/06/2025 18:15:57] Cliente: Jose | Total: R$ 60,00 | Pagamento: DINHEIRO | Produtos: 4x Codorna Tuxedo
+[20/06/2025 12:55:07] Cliente: Luis | Total: R$ 7,50 | Pagamento: DÉBITO | Produtos: 1x Pão de Queijo, 1x Suco Natural (300ml)
